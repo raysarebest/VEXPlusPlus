@@ -7,13 +7,7 @@
 //
 
 @import UIKit;
-
 @class FLDetailViewController;
-
 @interface FLMasterViewController : UITableViewController
-
 @property (strong, nonatomic) FLDetailViewController *detailViewController;
-
-
 @end
-
