@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Michael Hulet. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "FLDetailViewController.h"
 
-@interface DetailViewController ()
+@interface FLDetailViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation FLDetailViewController
 
 #pragma mark - Managing the detail item
 

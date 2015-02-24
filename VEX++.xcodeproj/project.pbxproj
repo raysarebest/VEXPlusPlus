@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4CF566DA1A9D1D2B00FEA5FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566D91A9D1D2B00FEA5FD /* main.m */; };
-		4CF566DD1A9D1D2B00FEA5FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DC1A9D1D2B00FEA5FD /* AppDelegate.m */; };
-		4CF566E01A9D1D2B00FEA5FD /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DF1A9D1D2B00FEA5FD /* MasterViewController.m */; };
-		4CF566E31A9D1D2B00FEA5FD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566E21A9D1D2B00FEA5FD /* DetailViewController.m */; };
+		4CF566DD1A9D1D2B00FEA5FD /* FLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DC1A9D1D2B00FEA5FD /* FLAppDelegate.m */; };
+		4CF566E01A9D1D2B00FEA5FD /* FLMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DF1A9D1D2B00FEA5FD /* FLMasterViewController.m */; };
+		4CF566E31A9D1D2B00FEA5FD /* FLDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566E21A9D1D2B00FEA5FD /* FLDetailViewController.m */; };
 		4CF566E61A9D1D2B00FEA5FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF566E41A9D1D2B00FEA5FD /* Main.storyboard */; };
 		4CF566E81A9D1D2B00FEA5FD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF566E71A9D1D2B00FEA5FD /* Images.xcassets */; };
 		4CF566EB1A9D1D2B00FEA5FD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF566E91A9D1D2B00FEA5FD /* LaunchScreen.xib */; };
@@ -31,12 +31,12 @@
 		4CF566D41A9D1D2A00FEA5FD /* VEX++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VEX++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF566D81A9D1D2B00FEA5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CF566D91A9D1D2B00FEA5FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4CF566DB1A9D1D2B00FEA5FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4CF566DC1A9D1D2B00FEA5FD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4CF566DE1A9D1D2B00FEA5FD /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		4CF566DF1A9D1D2B00FEA5FD /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		4CF566E11A9D1D2B00FEA5FD /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		4CF566E21A9D1D2B00FEA5FD /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		4CF566DB1A9D1D2B00FEA5FD /* FLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLAppDelegate.h; sourceTree = "<group>"; };
+		4CF566DC1A9D1D2B00FEA5FD /* FLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLAppDelegate.m; sourceTree = "<group>"; };
+		4CF566DE1A9D1D2B00FEA5FD /* FLMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLMasterViewController.h; sourceTree = "<group>"; };
+		4CF566DF1A9D1D2B00FEA5FD /* FLMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLMasterViewController.m; sourceTree = "<group>"; };
+		4CF566E11A9D1D2B00FEA5FD /* FLDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLDetailViewController.h; sourceTree = "<group>"; };
+		4CF566E21A9D1D2B00FEA5FD /* FLDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLDetailViewController.m; sourceTree = "<group>"; };
 		4CF566E51A9D1D2B00FEA5FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CF566E71A9D1D2B00FEA5FD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4CF566EA1A9D1D2B00FEA5FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -84,12 +84,12 @@
 		4CF566D61A9D1D2A00FEA5FD /* VEX++ */ = {
 			isa = PBXGroup;
 			children = (
-				4CF566DB1A9D1D2B00FEA5FD /* AppDelegate.h */,
-				4CF566DC1A9D1D2B00FEA5FD /* AppDelegate.m */,
-				4CF566DE1A9D1D2B00FEA5FD /* MasterViewController.h */,
-				4CF566DF1A9D1D2B00FEA5FD /* MasterViewController.m */,
-				4CF566E11A9D1D2B00FEA5FD /* DetailViewController.h */,
-				4CF566E21A9D1D2B00FEA5FD /* DetailViewController.m */,
+				4CF566DB1A9D1D2B00FEA5FD /* FLAppDelegate.h */,
+				4CF566DC1A9D1D2B00FEA5FD /* FLAppDelegate.m */,
+				4CF566DE1A9D1D2B00FEA5FD /* FLMasterViewController.h */,
+				4CF566DF1A9D1D2B00FEA5FD /* FLMasterViewController.m */,
+				4CF566E11A9D1D2B00FEA5FD /* FLDetailViewController.h */,
+				4CF566E21A9D1D2B00FEA5FD /* FLDetailViewController.m */,
 				4CF566E41A9D1D2B00FEA5FD /* Main.storyboard */,
 				4CF566E71A9D1D2B00FEA5FD /* Images.xcassets */,
 				4CF566E91A9D1D2B00FEA5FD /* LaunchScreen.xib */,
@@ -168,6 +168,7 @@
 		4CF566CC1A9D1D2A00FEA5FD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = FL;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Michael Hulet";
 				TargetAttributes = {
@@ -224,10 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CF566DD1A9D1D2B00FEA5FD /* AppDelegate.m in Sources */,
-				4CF566E01A9D1D2B00FEA5FD /* MasterViewController.m in Sources */,
+				4CF566DD1A9D1D2B00FEA5FD /* FLAppDelegate.m in Sources */,
+				4CF566E01A9D1D2B00FEA5FD /* FLMasterViewController.m in Sources */,
 				4CF566DA1A9D1D2B00FEA5FD /* main.m in Sources */,
-				4CF566E31A9D1D2B00FEA5FD /* DetailViewController.m in Sources */,
+				4CF566E31A9D1D2B00FEA5FD /* FLDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +357,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "VEX++/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -366,6 +368,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "VEX++/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
