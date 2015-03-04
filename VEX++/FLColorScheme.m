@@ -13,14 +13,8 @@
 +(UIColor *)colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha{
     return [UIColor colorWithRed:red/255 green:green/255 blue:blue/255 alpha:alpha];
 }
-#pragma mark - Object Initialization
-+(instancetype)sharedColorScheme{
-    static FLColorScheme *sharedInstance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken,^{
-        sharedInstance = [[self alloc] init];
-    });
-    return sharedInstance;
++(UIColor *)colorWithWhite:(CGFloat)white alpha:(CGFloat)alpha{
+    return [UIColor colorWithWhite:white/100 alpha:alpha];
 }
 #pragma mark - Animations
 +(CABasicAnimation *)glowAnimationToEnabledState:(BOOL)enabling{
@@ -37,23 +31,14 @@
     }
     return animation;
 }
-#pragma mark - Property Lazy Instantiation
--(UIColor *)accentColor{
-    if(!_accentColor){
-        _accentColor = [FLColorScheme colorWithRed:1 green:247 blue:0 alpha:1];
-    }
-    return _accentColor;
+#pragma mark - Default Color Scheme
++(UIColor *)accentColor{
+    return [FLColorScheme colorWithRed:1 green:247 blue:0 alpha:1];
 }
--(UIColor *)backgroundColor{
-    if(!_backgroundColor){
-        _backgroundColor = [UIColor colorWithWhite:.12 alpha:1];
-    }
-    return _backgroundColor;
++(UIColor *)backgroundColor{
+    return [FLColorScheme colorWithWhite:12 alpha:1];
 }
--(UIColor *)textColor{
-    if(!_textColor){
-        _textColor = [UIColor colorWithWhite:.48 alpha:1];
-    }
-    return _textColor;
++(UIColor *)textColor{
+    return [FLColorScheme colorWithWhite:48 alpha:1];
 }
 @end

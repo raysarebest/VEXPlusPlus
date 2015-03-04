@@ -9,10 +9,10 @@
 @import Foundation;
 @import UIKit;
 @interface FLColorScheme : NSObject
-@property (strong, nonatomic) UIColor *accentColor;
-@property (strong, nonatomic) UIColor *backgroundColor;
-@property (strong, nonatomic) UIColor *textColor;
 +(UIColor *)colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
-+(instancetype)sharedColorScheme;
++(UIColor *)colorWithWhite:(CGFloat)white alpha:(CGFloat)alpha;
++(UIColor *)accentColor;
++(UIColor *)backgroundColor;
++(UIColor *)textColor;
 +(CABasicAnimation *)glowAnimationToEnabledState:(BOOL)enabling;
 @end
