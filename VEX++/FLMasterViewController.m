@@ -10,13 +10,14 @@
 #import "FLDetailViewController.h"
 
 @interface FLMasterViewController()
-@property NSMutableArray *objects;
+@property (strong, nonatomic) NSMutableArray *objects;
 @end
 
 @implementation FLMasterViewController
 -(void)awakeFromNib{
     [super awakeFromNib];
-    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad){
+    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
+        //So the UITableViewCell remains selected on iPad in Portrait Mode
         self.clearsSelectionOnViewWillAppear = NO;
         self.preferredContentSize = CGSizeMake(320.0, 600.0);
     }
@@ -26,32 +27,25 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.detailViewController = (FLDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-}
--(void)didReceiveMemoryWarning{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.detailViewController = (FLDetailViewController *)[self.splitViewController.viewControllers.lastObject topViewController];
 }
 -(void)insertNewObject:(id)sender{
-    if(!self.objects){
-        self.objects = [[NSMutableArray alloc] init];
-    }
     [self.objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 #pragma mark - Segues
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([segue.identifier isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSDate *object = self.objects[indexPath.row];
-        FLDetailViewController *controller = (FLDetailViewController *)[[segue destinationViewController] topViewController];
+        FLDetailViewController *controller = (FLDetailViewController *)[segue.destinationViewController topViewController];
         [controller setDetailItem:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
+        controller.navigationItem.rightBarButtonItem = self.splitViewController.editButtonItem;
     }
 }
-#pragma mark - Table View
+#pragma mark - UITableViewDelegate Methods
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -61,15 +55,23 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    cell.textLabel.text = object.description;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if(editingStyle == UITableViewCellEditingStyleDelete){
         [self.objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+    else if(editingStyle == UITableViewCellEditingStyleInsert){
+        //Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
+}
+#pragma mark - Property Lazy Instantiation
+-(NSMutableArray *)objects{
+    if(!_objects){
+        _objects = [NSMutableArray array];
+    }
+    return _objects;
 }
 @end

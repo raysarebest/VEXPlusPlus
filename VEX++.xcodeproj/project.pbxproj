@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CC8D4661AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4651AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m */; };
 		4CF566DA1A9D1D2B00FEA5FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566D91A9D1D2B00FEA5FD /* main.m */; };
 		4CF566DD1A9D1D2B00FEA5FD /* FLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DC1A9D1D2B00FEA5FD /* FLAppDelegate.m */; };
 		4CF566E01A9D1D2B00FEA5FD /* FLMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DF1A9D1D2B00FEA5FD /* FLMasterViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4CC8D4641AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+FLAutoResizingLabel.h"; sourceTree = "<group>"; };
+		4CC8D4651AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FLAutoResizingLabel.m"; sourceTree = "<group>"; };
 		4CF566D41A9D1D2A00FEA5FD /* VEX++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VEX++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF566D81A9D1D2B00FEA5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CF566D91A9D1D2B00FEA5FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,6 +66,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CC8D4631AA63DEE00D1604B /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				4CF566E41A9D1D2B00FEA5FD /* Main.storyboard */,
+				4CF566E71A9D1D2B00FEA5FD /* Images.xcassets */,
+				4CF566E91A9D1D2B00FEA5FD /* LaunchScreen.xib */,
+				4CC8D4641AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.h */,
+				4CC8D4651AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
 		4CF566CB1A9D1D2A00FEA5FD = {
 			isa = PBXGroup;
 			children = (
@@ -84,15 +99,13 @@
 		4CF566D61A9D1D2A00FEA5FD /* VEX++ */ = {
 			isa = PBXGroup;
 			children = (
+				4CC8D4631AA63DEE00D1604B /* Interface */,
 				4CF566DB1A9D1D2B00FEA5FD /* FLAppDelegate.h */,
 				4CF566DC1A9D1D2B00FEA5FD /* FLAppDelegate.m */,
 				4CF566DE1A9D1D2B00FEA5FD /* FLMasterViewController.h */,
 				4CF566DF1A9D1D2B00FEA5FD /* FLMasterViewController.m */,
 				4CF566E11A9D1D2B00FEA5FD /* FLDetailViewController.h */,
 				4CF566E21A9D1D2B00FEA5FD /* FLDetailViewController.m */,
-				4CF566E41A9D1D2B00FEA5FD /* Main.storyboard */,
-				4CF566E71A9D1D2B00FEA5FD /* Images.xcassets */,
-				4CF566E91A9D1D2B00FEA5FD /* LaunchScreen.xib */,
 				4CF566D71A9D1D2B00FEA5FD /* Supporting Files */,
 			);
 			path = "VEX++";
@@ -226,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CF566DD1A9D1D2B00FEA5FD /* FLAppDelegate.m in Sources */,
+				4CC8D4661AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m in Sources */,
 				4CF566E01A9D1D2B00FEA5FD /* FLMasterViewController.m in Sources */,
 				4CF566DA1A9D1D2B00FEA5FD /* main.m in Sources */,
 				4CF566E31A9D1D2B00FEA5FD /* FLDetailViewController.m in Sources */,
@@ -427,6 +441,7 @@
 				4CF566FC1A9D1D2B00FEA5FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CF566FD1A9D1D2B00FEA5FD /* Build configuration list for PBXNativeTarget "VEX++Tests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +450,7 @@
 				4CF566FF1A9D1D2B00FEA5FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
