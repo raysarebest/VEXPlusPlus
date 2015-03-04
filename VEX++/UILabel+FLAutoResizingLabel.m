@@ -9,6 +9,7 @@
 #import "UILabel+FLAutoResizingLabel.h"
 @import ObjectiveC;
 @implementation UILabel(FLAutoResizingLabel)
+#pragma mark - Runtime Resizing
 -(void)resizeLabelWithText:(NSString *)text{
     self.lineBreakMode = NSLineBreakByWordWrapping;
     self.numberOfLines = 0;
@@ -16,6 +17,7 @@
     [self resizeLabelWithText:text];
     [self sizeToFit];
 }
+#pragma mark - Root Level Magic
 +(void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken,^{

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4CC8D4661AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4651AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m */; };
+		4CC8D4691AA6C83F00D1604B /* FLColorScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4681AA6C83F00D1604B /* FLColorScheme.m */; };
 		4CF566DA1A9D1D2B00FEA5FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566D91A9D1D2B00FEA5FD /* main.m */; };
 		4CF566DD1A9D1D2B00FEA5FD /* FLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DC1A9D1D2B00FEA5FD /* FLAppDelegate.m */; };
 		4CF566E01A9D1D2B00FEA5FD /* FLMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DF1A9D1D2B00FEA5FD /* FLMasterViewController.m */; };
@@ -31,6 +32,8 @@
 /* Begin PBXFileReference section */
 		4CC8D4641AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+FLAutoResizingLabel.h"; sourceTree = "<group>"; };
 		4CC8D4651AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FLAutoResizingLabel.m"; sourceTree = "<group>"; };
+		4CC8D4671AA6C83F00D1604B /* FLColorScheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLColorScheme.h; sourceTree = "<group>"; };
+		4CC8D4681AA6C83F00D1604B /* FLColorScheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLColorScheme.m; sourceTree = "<group>"; };
 		4CF566D41A9D1D2A00FEA5FD /* VEX++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VEX++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF566D81A9D1D2B00FEA5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CF566D91A9D1D2B00FEA5FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,6 +77,8 @@
 				4CF566E91A9D1D2B00FEA5FD /* LaunchScreen.xib */,
 				4CC8D4641AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.h */,
 				4CC8D4651AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m */,
+				4CC8D4671AA6C83F00D1604B /* FLColorScheme.h */,
+				4CC8D4681AA6C83F00D1604B /* FLColorScheme.m */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 			files = (
 				4CF566DD1A9D1D2B00FEA5FD /* FLAppDelegate.m in Sources */,
 				4CC8D4661AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m in Sources */,
+				4CC8D4691AA6C83F00D1604B /* FLColorScheme.m in Sources */,
 				4CF566E01A9D1D2B00FEA5FD /* FLMasterViewController.m in Sources */,
 				4CF566DA1A9D1D2B00FEA5FD /* main.m in Sources */,
 				4CF566E31A9D1D2B00FEA5FD /* FLDetailViewController.m in Sources */,
