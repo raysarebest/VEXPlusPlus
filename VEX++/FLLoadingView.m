@@ -9,7 +9,7 @@
 #import "FLLoadingView.h"
 #import "FLColorScheme.h"
 @interface FLLoadingView()
-@property (strong, nonatomic) UIActivityIndicatorView *spinner;
+@property (strong, nonatomic, nonnull) UIActivityIndicatorView *spinner;
 @end
 @implementation FLLoadingView
 #pragma mark - Initialization
@@ -35,13 +35,13 @@
         return nil;
     }
 }
-+(instancetype)createInView:(UIView *)view{
++(nonnull instancetype)createInView:(nonnull UIView *)view{
     FLLoadingView *loader = [[self alloc] init];
     [loader showInView:view];
     return loader;
 }
 #pragma mark - Showing/Hiding
--(void)showInView:(UIView *)view{
+-(void)showInView:(nonnull UIView *)view{
     self.frame = view.frame;
     self.spinner.center = self.center;
     [self.spinner startAnimating];
@@ -54,7 +54,7 @@
     }
 }
 #pragma mark - Property Lazy Instantiation
--(UIActivityIndicatorView *)spinner{
+-(nonnull UIActivityIndicatorView *)spinner{
     if(!_spinner){
         _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     }

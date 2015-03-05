@@ -26,6 +26,28 @@
 		4CC8D4991AA7E93000D1604B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4971AA7E92800D1604B /* SystemConfiguration.framework */; };
 		4CC8D49C1AA7E94D00D1604B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D49A1AA7E94300D1604B /* libz.dylib */; };
 		4CC8D49F1AA7E96000D1604B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D49D1AA7E95600D1604B /* libsqlite3.dylib */; };
+		4CC8D4AB1AA7EF7800D1604B /* VEXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CC8D4AA1AA7EF7800D1604B /* VEXKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4CC8D4B11AA7EF7800D1604B /* VEXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4A61AA7EF7800D1604B /* VEXKit.framework */; };
+		4CC8D4BA1AA7EF7800D1604B /* VEXKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4B91AA7EF7800D1604B /* VEXKitTests.m */; };
+		4CC8D4BD1AA7EF7800D1604B /* VEXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4A61AA7EF7800D1604B /* VEXKit.framework */; };
+		4CC8D4BE1AA7EF7800D1604B /* VEXKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4A61AA7EF7800D1604B /* VEXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4CD05E171AA7F03A0046FA62 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D49D1AA7E95600D1604B /* libsqlite3.dylib */; };
+		4CD05E181AA7F03D0046FA62 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D49A1AA7E94300D1604B /* libz.dylib */; };
+		4CD05E191AA7F0400046FA62 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4971AA7E92800D1604B /* SystemConfiguration.framework */; };
+		4CD05E1A1AA7F0430046FA62 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4941AA7E90900D1604B /* StoreKit.framework */; };
+		4CD05E1B1AA7F0480046FA62 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4911AA7E8F300D1604B /* Security.framework */; };
+		4CD05E1C1AA7F04B0046FA62 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D48E1AA7E8D700D1604B /* QuartzCore.framework */; };
+		4CD05E1D1AA7F0500046FA62 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D48B1AA7E8C300D1604B /* MobileCoreServices.framework */; };
+		4CD05E1E1AA7F0540046FA62 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4881AA7E8A500D1604B /* CoreLocation.framework */; };
+		4CD05E1F1AA7F0590046FA62 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4851AA7E89400D1604B /* CoreGraphics.framework */; };
+		4CD05E201AA7F05D0046FA62 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4821AA7E87300D1604B /* CFNetwork.framework */; };
+		4CD05E211AA7F0620046FA62 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D47F1AA7E85F00D1604B /* AudioToolbox.framework */; };
+		4CD05E221AA7F0680046FA62 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D47D1AA7E81D00D1604B /* Parse.framework */; };
+		4CD05E231AA7F06C0046FA62 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D47B1AA7E81200D1604B /* Bolts.framework */; };
+		4CD05E271AA7F1060046FA62 /* FLTeam.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CD05E251AA7F1060046FA62 /* FLTeam.h */; };
+		4CD05E281AA7F1060046FA62 /* FLTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E261AA7F1060046FA62 /* FLTeam.m */; };
+		4CD05E2B1AA7F1410046FA62 /* FLRobot.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CD05E291AA7F1410046FA62 /* FLRobot.h */; };
+		4CD05E2C1AA7F1410046FA62 /* FLRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E2A1AA7F1410046FA62 /* FLRobot.m */; };
 		4CF566DA1A9D1D2B00FEA5FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566D91A9D1D2B00FEA5FD /* main.m */; };
 		4CF566DD1A9D1D2B00FEA5FD /* FLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DC1A9D1D2B00FEA5FD /* FLAppDelegate.m */; };
 		4CF566E01A9D1D2B00FEA5FD /* FLMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DF1A9D1D2B00FEA5FD /* FLMasterViewController.m */; };
@@ -37,6 +59,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4CC8D4B21AA7EF7800D1604B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CF566CC1A9D1D2A00FEA5FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CC8D4A51AA7EF7800D1604B;
+			remoteInfo = VEXKit;
+		};
+		4CC8D4B41AA7EF7800D1604B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CF566CC1A9D1D2A00FEA5FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CF566D31A9D1D2A00FEA5FD;
+			remoteInfo = "VEX++";
+		};
+		4CC8D4BB1AA7EF7800D1604B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CF566CC1A9D1D2A00FEA5FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CC8D4A51AA7EF7800D1604B;
+			remoteInfo = VEXKit;
+		};
 		4CF566F11A9D1D2B00FEA5FD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4CF566CC1A9D1D2A00FEA5FD /* Project object */;
@@ -45,6 +88,20 @@
 			remoteInfo = "VEX++";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4CC8D4C21AA7EF7800D1604B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4CC8D4BE1AA7EF7800D1604B /* VEXKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4CC8D4641AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+FLAutoResizingLabel.h"; sourceTree = "<group>"; };
@@ -59,8 +116,8 @@
 		4CC8D4741AA7869000D1604B /* FLSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSignUpViewController.m; sourceTree = "<group>"; };
 		4CC8D4761AA7877B00D1604B /* FLLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLLoadingView.h; sourceTree = "<group>"; };
 		4CC8D4771AA7877B00D1604B /* FLLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLLoadingView.m; sourceTree = "<group>"; };
-		4CC8D47B1AA7E81200D1604B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		4CC8D47D1AA7E81D00D1604B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		4CC8D47B1AA7E81200D1604B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../VEX++/Bolts.framework"; sourceTree = "<group>"; };
+		4CC8D47D1AA7E81D00D1604B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../VEX++/Parse.framework"; sourceTree = "<group>"; };
 		4CC8D47F1AA7E85F00D1604B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4CC8D4821AA7E87300D1604B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4CC8D4851AA7E89400D1604B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,6 +129,16 @@
 		4CC8D4971AA7E92800D1604B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4CC8D49A1AA7E94300D1604B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4CC8D49D1AA7E95600D1604B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		4CC8D4A61AA7EF7800D1604B /* VEXKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VEXKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CC8D4A91AA7EF7800D1604B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CC8D4AA1AA7EF7800D1604B /* VEXKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEXKit.h; sourceTree = "<group>"; };
+		4CC8D4B01AA7EF7800D1604B /* VEXKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VEXKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CC8D4B81AA7EF7800D1604B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CC8D4B91AA7EF7800D1604B /* VEXKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEXKitTests.m; sourceTree = "<group>"; };
+		4CD05E251AA7F1060046FA62 /* FLTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLTeam.h; sourceTree = "<group>"; };
+		4CD05E261AA7F1060046FA62 /* FLTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLTeam.m; sourceTree = "<group>"; };
+		4CD05E291AA7F1410046FA62 /* FLRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLRobot.h; sourceTree = "<group>"; };
+		4CD05E2A1AA7F1410046FA62 /* FLRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLRobot.m; sourceTree = "<group>"; };
 		4CF566D41A9D1D2A00FEA5FD /* VEX++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VEX++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF566D81A9D1D2B00FEA5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CF566D91A9D1D2B00FEA5FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,6 +157,34 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4CC8D4A21AA7EF7800D1604B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CD05E171AA7F03A0046FA62 /* libsqlite3.dylib in Frameworks */,
+				4CD05E181AA7F03D0046FA62 /* libz.dylib in Frameworks */,
+				4CD05E191AA7F0400046FA62 /* SystemConfiguration.framework in Frameworks */,
+				4CD05E1A1AA7F0430046FA62 /* StoreKit.framework in Frameworks */,
+				4CD05E1B1AA7F0480046FA62 /* Security.framework in Frameworks */,
+				4CD05E1C1AA7F04B0046FA62 /* QuartzCore.framework in Frameworks */,
+				4CD05E1D1AA7F0500046FA62 /* MobileCoreServices.framework in Frameworks */,
+				4CD05E1E1AA7F0540046FA62 /* CoreLocation.framework in Frameworks */,
+				4CD05E1F1AA7F0590046FA62 /* CoreGraphics.framework in Frameworks */,
+				4CD05E201AA7F05D0046FA62 /* CFNetwork.framework in Frameworks */,
+				4CD05E211AA7F0620046FA62 /* AudioToolbox.framework in Frameworks */,
+				4CD05E221AA7F0680046FA62 /* Parse.framework in Frameworks */,
+				4CD05E231AA7F06C0046FA62 /* Bolts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CC8D4AD1AA7EF7800D1604B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC8D4B11AA7EF7800D1604B /* VEXKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CF566D11A9D1D2A00FEA5FD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -107,6 +202,7 @@
 				4CC8D4811AA7E86A00D1604B /* AudioToolbox.framework in Frameworks */,
 				4CC8D47E1AA7E81D00D1604B /* Parse.framework in Frameworks */,
 				4CC8D47C1AA7E81200D1604B /* Bolts.framework in Frameworks */,
+				4CC8D4BD1AA7EF7800D1604B /* VEXKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +276,57 @@
 		4CC8D47A1AA7E80400D1604B /* Parse */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			name = Parse;
+			sourceTree = "<group>";
+		};
+		4CC8D4A71AA7EF7800D1604B /* VEXKit */ = {
+			isa = PBXGroup;
+			children = (
+				4CD05E241AA7F0C60046FA62 /* Data Storage Models */,
+				4CC8D4AA1AA7EF7800D1604B /* VEXKit.h */,
+				4CC8D4A81AA7EF7800D1604B /* Supporting Files */,
+			);
+			path = VEXKit;
+			sourceTree = "<group>";
+		};
+		4CC8D4A81AA7EF7800D1604B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4CC8D4C61AA7EFC900D1604B /* External Frameworks */,
+				4CC8D4A91AA7EF7800D1604B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4CC8D4B61AA7EF7800D1604B /* VEXKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				4CC8D4B91AA7EF7800D1604B /* VEXKitTests.m */,
+				4CC8D4B71AA7EF7800D1604B /* Supporting Files */,
+			);
+			path = VEXKitTests;
+			sourceTree = "<group>";
+		};
+		4CC8D4B71AA7EF7800D1604B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4CC8D4B81AA7EF7800D1604B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4CC8D4C61AA7EFC900D1604B /* External Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CC8D4C71AA7EFD400D1604B /* Parse */,
+			);
+			name = "External Frameworks";
+			sourceTree = "<group>";
+		};
+		4CC8D4C71AA7EFD400D1604B /* Parse */ = {
+			isa = PBXGroup;
+			children = (
 				4CC8D49D1AA7E95600D1604B /* libsqlite3.dylib */,
 				4CC8D49A1AA7E94300D1604B /* libz.dylib */,
 				4CC8D4971AA7E92800D1604B /* SystemConfiguration.framework */,
@@ -197,11 +344,24 @@
 			name = Parse;
 			sourceTree = "<group>";
 		};
+		4CD05E241AA7F0C60046FA62 /* Data Storage Models */ = {
+			isa = PBXGroup;
+			children = (
+				4CD05E251AA7F1060046FA62 /* FLTeam.h */,
+				4CD05E261AA7F1060046FA62 /* FLTeam.m */,
+				4CD05E291AA7F1410046FA62 /* FLRobot.h */,
+				4CD05E2A1AA7F1410046FA62 /* FLRobot.m */,
+			);
+			name = "Data Storage Models";
+			sourceTree = "<group>";
+		};
 		4CF566CB1A9D1D2A00FEA5FD = {
 			isa = PBXGroup;
 			children = (
 				4CF566D61A9D1D2A00FEA5FD /* VEX++ */,
 				4CF566F31A9D1D2B00FEA5FD /* VEX++Tests */,
+				4CC8D4A71AA7EF7800D1604B /* VEXKit */,
+				4CC8D4B61AA7EF7800D1604B /* VEXKitTests */,
 				4CF566D51A9D1D2A00FEA5FD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -211,6 +371,8 @@
 			children = (
 				4CF566D41A9D1D2A00FEA5FD /* VEX++.app */,
 				4CF566F01A9D1D2B00FEA5FD /* VEX++Tests.xctest */,
+				4CC8D4A61AA7EF7800D1604B /* VEXKit.framework */,
+				4CC8D4B01AA7EF7800D1604B /* VEXKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -256,7 +418,57 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		4CC8D4A31AA7EF7800D1604B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC8D4AB1AA7EF7800D1604B /* VEXKit.h in Headers */,
+				4CD05E271AA7F1060046FA62 /* FLTeam.h in Headers */,
+				4CD05E2B1AA7F1410046FA62 /* FLRobot.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		4CC8D4A51AA7EF7800D1604B /* VEXKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CC8D4BF1AA7EF7800D1604B /* Build configuration list for PBXNativeTarget "VEXKit" */;
+			buildPhases = (
+				4CC8D4A11AA7EF7800D1604B /* Sources */,
+				4CC8D4A21AA7EF7800D1604B /* Frameworks */,
+				4CC8D4A31AA7EF7800D1604B /* Headers */,
+				4CC8D4A41AA7EF7800D1604B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VEXKit;
+			productName = VEXKit;
+			productReference = 4CC8D4A61AA7EF7800D1604B /* VEXKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4CC8D4AF1AA7EF7800D1604B /* VEXKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CC8D4C31AA7EF7800D1604B /* Build configuration list for PBXNativeTarget "VEXKitTests" */;
+			buildPhases = (
+				4CC8D4AC1AA7EF7800D1604B /* Sources */,
+				4CC8D4AD1AA7EF7800D1604B /* Frameworks */,
+				4CC8D4AE1AA7EF7800D1604B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4CC8D4B31AA7EF7800D1604B /* PBXTargetDependency */,
+				4CC8D4B51AA7EF7800D1604B /* PBXTargetDependency */,
+			);
+			name = VEXKitTests;
+			productName = VEXKitTests;
+			productReference = 4CC8D4B01AA7EF7800D1604B /* VEXKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4CF566D31A9D1D2A00FEA5FD /* VEX++ */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CF566FA1A9D1D2B00FEA5FD /* Build configuration list for PBXNativeTarget "VEX++" */;
@@ -264,10 +476,12 @@
 				4CF566D01A9D1D2A00FEA5FD /* Sources */,
 				4CF566D11A9D1D2A00FEA5FD /* Frameworks */,
 				4CF566D21A9D1D2A00FEA5FD /* Resources */,
+				4CC8D4C21AA7EF7800D1604B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4CC8D4BC1AA7EF7800D1604B /* PBXTargetDependency */,
 			);
 			name = "VEX++";
 			productName = "VEX++";
@@ -302,6 +516,14 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Michael Hulet";
 				TargetAttributes = {
+					4CC8D4A51AA7EF7800D1604B = {
+						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = K3ZLWH83BT;
+					};
+					4CC8D4AF1AA7EF7800D1604B = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 4CF566D31A9D1D2A00FEA5FD;
+					};
 					4CF566D31A9D1D2A00FEA5FD = {
 						CreatedOnToolsVersion = 6.3;
 					};
@@ -326,11 +548,27 @@
 			targets = (
 				4CF566D31A9D1D2A00FEA5FD /* VEX++ */,
 				4CF566EF1A9D1D2B00FEA5FD /* VEX++Tests */,
+				4CC8D4A51AA7EF7800D1604B /* VEXKit */,
+				4CC8D4AF1AA7EF7800D1604B /* VEXKitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4CC8D4A41AA7EF7800D1604B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CC8D4AE1AA7EF7800D1604B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CF566D21A9D1D2A00FEA5FD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -351,6 +589,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4CC8D4A11AA7EF7800D1604B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CD05E2C1AA7F1410046FA62 /* FLRobot.m in Sources */,
+				4CD05E281AA7F1060046FA62 /* FLTeam.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CC8D4AC1AA7EF7800D1604B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC8D4BA1AA7EF7800D1604B /* VEXKitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CF566D01A9D1D2A00FEA5FD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,6 +634,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4CC8D4B31AA7EF7800D1604B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CC8D4A51AA7EF7800D1604B /* VEXKit */;
+			targetProxy = 4CC8D4B21AA7EF7800D1604B /* PBXContainerItemProxy */;
+		};
+		4CC8D4B51AA7EF7800D1604B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CF566D31A9D1D2A00FEA5FD /* VEX++ */;
+			targetProxy = 4CC8D4B41AA7EF7800D1604B /* PBXContainerItemProxy */;
+		};
+		4CC8D4BC1AA7EF7800D1604B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CC8D4A51AA7EF7800D1604B /* VEXKit */;
+			targetProxy = 4CC8D4BB1AA7EF7800D1604B /* PBXContainerItemProxy */;
+		};
 		4CF566F21A9D1D2B00FEA5FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4CF566D31A9D1D2A00FEA5FD /* VEX++ */;
@@ -406,6 +676,92 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4CC8D4C01AA7EF7800D1604B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VEX++",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VEXKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4CC8D4C11AA7EF7800D1604B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VEX++",
+				);
+				INFOPLIST_FILE = VEXKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4CC8D4C41AA7EF7800D1604B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VEXKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VEX++.app/VEX++";
+			};
+			name = Debug;
+		};
+		4CC8D4C51AA7EF7800D1604B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VEXKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VEX++.app/VEX++";
+			};
+			name = Release;
+		};
 		4CF566F81A9D1D2B00FEA5FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -555,6 +911,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4CC8D4BF1AA7EF7800D1604B /* Build configuration list for PBXNativeTarget "VEXKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CC8D4C01AA7EF7800D1604B /* Debug */,
+				4CC8D4C11AA7EF7800D1604B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CC8D4C31AA7EF7800D1604B /* Build configuration list for PBXNativeTarget "VEXKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CC8D4C41AA7EF7800D1604B /* Debug */,
+				4CC8D4C51AA7EF7800D1604B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4CF566CF1A9D1D2A00FEA5FD /* Build configuration list for PBXProject "VEX++" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

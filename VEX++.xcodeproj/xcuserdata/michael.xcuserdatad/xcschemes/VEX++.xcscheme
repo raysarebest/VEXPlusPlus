@@ -34,6 +34,20 @@
                ReferencedContainer = "container:VEX++.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4CC8D4AF1AA7EF7800D1604B"
+               BuildableName = "VEXKitTests.xctest"
+               BlueprintName = "VEXKitTests"
+               ReferencedContainer = "container:VEX++.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "4CF566EF1A9D1D2B00FEA5FD"
                BuildableName = "VEX++Tests.xctest"
                BlueprintName = "VEX++Tests"
+               ReferencedContainer = "container:VEX++.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4CC8D4AF1AA7EF7800D1604B"
+               BuildableName = "VEXKitTests.xctest"
+               BlueprintName = "VEXKitTests"
                ReferencedContainer = "container:VEX++.xcodeproj">
             </BuildableReference>
          </TestableReference>

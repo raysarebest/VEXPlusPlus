@@ -8,6 +8,7 @@
 
 #import "UILabel+FLAutoResizingLabel.h"
 @import ObjectiveC;
+IB_DESIGNABLE
 @implementation UILabel(FLAutoResizingLabel)
 #pragma mark - Runtime Resizing
 -(void)resizeLabelWithText:(NSString *)text{

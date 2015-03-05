@@ -8,7 +8,7 @@
 
 @import UIKit;
 @interface FLLoadingView : UIView
-+(instancetype)createInView:(UIView *)view;
--(void)showInView:(UIView *)view;
++(nonnull instancetype)createInView:(nonnull UIView *)view;
+-(void)showInView:(nonnull UIView *)view;
 -(void)hide;
 @end

@@ -9,6 +9,7 @@
 #import "UITextField+FLElectricTextField.h"
 #import "FLColorScheme.h"
 @import QuartzCore;
+IB_DESIGNABLE
 @implementation UITextField (FLElectricTextField)
 #pragma mark - Text View Setup
 -(void)awakeFromNib{

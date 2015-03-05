@@ -9,9 +9,24 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>VEXKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>4CC8D4A51AA7EF7800D1604B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4CC8D4AF1AA7EF7800D1604B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4CF566D31A9D1D2A00FEA5FD</key>
 		<dict>
 			<key>primary</key>
