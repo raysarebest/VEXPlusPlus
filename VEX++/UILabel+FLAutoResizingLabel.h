@@ -7,5 +7,6 @@
 //
 
 @import UIKit;
+IB_DESIGNABLE
 @interface UILabel(FLAutoResizingLabel)
 @end

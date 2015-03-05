@@ -48,6 +48,10 @@
 		4CD05E281AA7F1060046FA62 /* FLTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E261AA7F1060046FA62 /* FLTeam.m */; };
 		4CD05E2B1AA7F1410046FA62 /* FLRobot.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CD05E291AA7F1410046FA62 /* FLRobot.h */; };
 		4CD05E2C1AA7F1410046FA62 /* FLRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E2A1AA7F1410046FA62 /* FLRobot.m */; };
+		4CD05E321AA8F29B0046FA62 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E2F1AA8F29B0046FA62 /* TPKeyboardAvoidingScrollView.m */; };
+		4CD05E331AA8F29B0046FA62 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E311AA8F29B0046FA62 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		4CD05E371AA8F31E0046FA62 /* LPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E361AA8F31E0046FA62 /* LPlaceholderTextView.m */; };
+		4CD05E3B1AA8F5A30046FA62 /* RMPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E3A1AA8F5A30046FA62 /* RMPickerViewController.m */; };
 		4CF566DA1A9D1D2B00FEA5FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566D91A9D1D2B00FEA5FD /* main.m */; };
 		4CF566DD1A9D1D2B00FEA5FD /* FLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DC1A9D1D2B00FEA5FD /* FLAppDelegate.m */; };
 		4CF566E01A9D1D2B00FEA5FD /* FLMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DF1A9D1D2B00FEA5FD /* FLMasterViewController.m */; };
@@ -139,6 +143,14 @@
 		4CD05E261AA7F1060046FA62 /* FLTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLTeam.m; sourceTree = "<group>"; };
 		4CD05E291AA7F1410046FA62 /* FLRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLRobot.h; sourceTree = "<group>"; };
 		4CD05E2A1AA7F1410046FA62 /* FLRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLRobot.m; sourceTree = "<group>"; };
+		4CD05E2E1AA8F29B0046FA62 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		4CD05E2F1AA8F29B0046FA62 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		4CD05E301AA8F29B0046FA62 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		4CD05E311AA8F29B0046FA62 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		4CD05E351AA8F31E0046FA62 /* LPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPlaceholderTextView.h; sourceTree = "<group>"; };
+		4CD05E361AA8F31E0046FA62 /* LPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPlaceholderTextView.m; sourceTree = "<group>"; };
+		4CD05E391AA8F5A30046FA62 /* RMPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPickerViewController.h; sourceTree = "<group>"; };
+		4CD05E3A1AA8F5A30046FA62 /* RMPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPickerViewController.m; sourceTree = "<group>"; };
 		4CF566D41A9D1D2A00FEA5FD /* VEX++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VEX++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF566D81A9D1D2B00FEA5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CF566D91A9D1D2B00FEA5FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -268,6 +280,9 @@
 		4CC8D4791AA7E7FC00D1604B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CD05E381AA8F5710046FA62 /* RMPickerViewController */,
+				4CD05E341AA8F2FC0046FA62 /* LPlaceholderTextView */,
+				4CD05E2D1AA8F2160046FA62 /* TPKeyboardAvoiding */,
 				4CC8D47A1AA7E80400D1604B /* Parse */,
 			);
 			name = Frameworks;
@@ -353,6 +368,35 @@
 				4CD05E2A1AA7F1410046FA62 /* FLRobot.m */,
 			);
 			name = "Data Storage Models";
+			sourceTree = "<group>";
+		};
+		4CD05E2D1AA8F2160046FA62 /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				4CD05E2E1AA8F29B0046FA62 /* TPKeyboardAvoidingScrollView.h */,
+				4CD05E2F1AA8F29B0046FA62 /* TPKeyboardAvoidingScrollView.m */,
+				4CD05E301AA8F29B0046FA62 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				4CD05E311AA8F29B0046FA62 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			name = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
+		4CD05E341AA8F2FC0046FA62 /* LPlaceholderTextView */ = {
+			isa = PBXGroup;
+			children = (
+				4CD05E351AA8F31E0046FA62 /* LPlaceholderTextView.h */,
+				4CD05E361AA8F31E0046FA62 /* LPlaceholderTextView.m */,
+			);
+			name = LPlaceholderTextView;
+			sourceTree = "<group>";
+		};
+		4CD05E381AA8F5710046FA62 /* RMPickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4CD05E391AA8F5A30046FA62 /* RMPickerViewController.h */,
+				4CD05E3A1AA8F5A30046FA62 /* RMPickerViewController.m */,
+			);
+			name = RMPickerViewController;
 			sourceTree = "<group>";
 		};
 		4CF566CB1A9D1D2A00FEA5FD = {
@@ -611,11 +655,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CF566DD1A9D1D2B00FEA5FD /* FLAppDelegate.m in Sources */,
+				4CD05E331AA8F29B0046FA62 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				4CC8D4661AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m in Sources */,
 				4CC8D46C1AA6CF5300D1604B /* UITextField+FLElectricTextField.m in Sources */,
 				4CC8D4691AA6C83F00D1604B /* FLColorScheme.m in Sources */,
 				4CC8D4721AA7864500D1604B /* FLLoginViewController.m in Sources */,
+				4CD05E321AA8F29B0046FA62 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				4CD05E371AA8F31E0046FA62 /* LPlaceholderTextView.m in Sources */,
 				4CC8D4781AA7877B00D1604B /* FLLoadingView.m in Sources */,
+				4CD05E3B1AA8F5A30046FA62 /* RMPickerViewController.m in Sources */,
 				4CF566E01A9D1D2B00FEA5FD /* FLMasterViewController.m in Sources */,
 				4CC8D4751AA7869000D1604B /* FLSignUpViewController.m in Sources */,
 				4CF566DA1A9D1D2B00FEA5FD /* main.m in Sources */,

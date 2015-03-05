@@ -12,7 +12,7 @@ static NSString *const __nonnull FLAutonMostConsistentKey = @"consistent";
 static NSString *const __nonnull FLAutonMaxKey = @"max";
 static NSString *const __nonnull FLAutonRedColorKey = @"red";
 static NSString *const __nonnull FLAutonBlueColorKey = @"blue";
-typedef NS_ENUM(u_int32_t, FLLiftStyle){
+typedef NS_ENUM(NSInteger, FLLiftStyle){
     FLLiftStyleScissor,
     FLLiftStyleElevator,
     FLLiftStyleChainBar,
@@ -29,7 +29,7 @@ typedef NS_ENUM(u_int32_t, FLLiftStyle){
     FLLiftStyleUnknown,
     FLLiftStyleOther
 };
-typedef NS_ENUM(u_int32_t, FLDriveStyle){
+typedef NS_ENUM(NSInteger, FLDriveStyle){
     FLDriveStyleFourMotorTank,
     FLDriveStyleSixMotorTank,
     FLDriveStyleX,

@@ -7,6 +7,6 @@
 //
 
 @import UIKit;
-@class FLColorScheme;
+IB_DESIGNABLE
 @interface UITextField (FLElectricTextField) <UITextFieldDelegate>
 @end
