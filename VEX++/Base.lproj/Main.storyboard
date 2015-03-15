@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14D87p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14D87p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7513.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -117,7 +118,7 @@
         <!--Log In-->
         <scene sceneID="XQo-ry-L1U">
             <objects>
-                <viewController id="w7q-hW-iI3" sceneMemberID="viewController">
+                <viewController id="w7q-hW-iI3" customClass="FLLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pUy-pr-O7S"/>
                         <viewControllerLayoutGuide type="bottom" id="gL5-cX-Bue"/>
@@ -125,9 +126,26 @@
                     <view key="view" contentMode="scaleToFill" id="haT-2I-Qtu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lightning" translatesAutoresizingMaskIntoConstraints="NO" id="T0L-vR-Zek">
+                                <rect key="frame" x="176" y="224" width="248" height="152"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="152" id="5pa-9i-xQV"/>
+                                    <constraint firstAttribute="width" secondItem="T0L-vR-Zek" secondAttribute="height" multiplier="31:19" id="69E-GL-Kc8"/>
+                                    <constraint firstAttribute="width" constant="248" id="mcZ-Xz-cg3"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="0.12" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="T0L-vR-Zek" secondAttribute="centerY" id="4TT-fo-q1o"/>
+                            <constraint firstAttribute="centerX" secondItem="T0L-vR-Zek" secondAttribute="centerX" id="wT5-m1-6jd"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="lKP-TC-9gD"/>
+                    <connections>
+                        <outlet property="backgroundLogo" destination="T0L-vR-Zek" id="15b-eh-U8A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bS6-gy-73h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -148,10 +166,10 @@
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="K0y-LE-nZM">
             <objects>
-                <viewController id="Swa-aZ-f1v" sceneMemberID="viewController">
+                <viewController id="Swa-aZ-f1v" customClass="FLSignUpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h0r-jz-x1j"/>
                         <viewControllerLayoutGuide type="bottom" id="lzB-sm-Zfl"/>
@@ -169,7 +187,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Rbs-SU-afo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ypl-E8-3Ud" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="auth" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ypl-E8-3Ud" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black"/>
@@ -187,6 +205,9 @@
             <point key="canvasLocation" x="-856" y="836"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="lightning" width="715" height="437"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Tll-UG-LXB"/>
     </inferredMetricsTieBreakers>

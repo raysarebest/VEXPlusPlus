@@ -390,10 +390,10 @@
 		4CF566D61A9D1D2A00FEA5FD /* VEX++ */ = {
 			isa = PBXGroup;
 			children = (
-				4CC8D46D1AA7852200D1604B /* View Controllers */,
-				4CC8D4631AA63DEE00D1604B /* Interface */,
 				4CF566DB1A9D1D2B00FEA5FD /* FLAppDelegate.h */,
 				4CF566DC1A9D1D2B00FEA5FD /* FLAppDelegate.m */,
+				4CC8D46D1AA7852200D1604B /* View Controllers */,
+				4CC8D4631AA63DEE00D1604B /* Interface */,
 				4CF566D71A9D1D2B00FEA5FD /* Supporting Files */,
 			);
 			path = "VEX++";

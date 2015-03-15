@@ -31,6 +31,19 @@
     }
     return animation;
 }
++(void)addParallaxEffectToView:(nonnull UIView *)view withSway:(nullable NSNumber *)sway{
+    if(!sway){
+        sway = @(20);
+    }
+    UIInterpolatingMotionEffect *horizontal = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+    horizontal.minimumRelativeValue = @(-sway.intValue);
+    horizontal.maximumRelativeValue = sway;
+    UIInterpolatingMotionEffect *vertical = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+    vertical.minimumRelativeValue = @(-sway.intValue);
+    vertical.maximumRelativeValue = sway;
+    [view addMotionEffect:horizontal];
+    [view addMotionEffect:vertical];
+}
 #pragma mark - Default Color Scheme
 +(UIColor *)accentColor{
     return [FLColorScheme colorWithRed:1 green:247 blue:0 alpha:1];

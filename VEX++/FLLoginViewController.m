@@ -7,5 +7,10 @@
 //
 
 #import "FLLoginViewController.h"
+#import "FLColorScheme.h"
 @implementation FLLoginViewController
+#pragma mark - View Setup Code
+-(void)viewDidLoad{
+    [FLColorScheme addParallaxEffectToView:self.backgroundLogo withSway:nil];
+}
 @end

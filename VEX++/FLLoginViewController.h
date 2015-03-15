@@ -8,4 +8,5 @@
 
 @import UIKit;
 @interface FLLoginViewController : UIViewController
+@property (weak, nonatomic, nonnull) IBOutlet UIImageView *backgroundLogo;
 @end

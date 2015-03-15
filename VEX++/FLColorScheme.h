@@ -15,4 +15,5 @@
 +(nonnull UIColor *)backgroundColor;
 +(nonnull UIColor *)textColor;
 +(nonnull CABasicAnimation *)glowAnimationToEnabledState:(BOOL)enabling;
++(void)addParallaxEffectToView:(nonnull UIView *)view withSway:(nullable NSNumber *)sway;
 @end
