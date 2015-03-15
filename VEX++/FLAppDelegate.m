@@ -21,7 +21,6 @@
     splitViewController.delegate = self;
     [Parse enableLocalDatastore];
     [Parse setApplicationId:@"4KfQ41sgJ1WsXD0N2ks3Ui52gncGQA1iSfHq6myr" clientKey:@"Te4E5KJz5bealm8VfyBhbXP6foeqDwPYc343iJ0m"];
-    NSLog(@"%@", launchOptions);
     return YES;
 }
 -(void)applicationWillResignActive:(UIApplication *)application{

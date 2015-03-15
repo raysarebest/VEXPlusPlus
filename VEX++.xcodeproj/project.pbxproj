@@ -13,19 +13,6 @@
 		4CC8D4721AA7864500D1604B /* FLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4711AA7864500D1604B /* FLLoginViewController.m */; };
 		4CC8D4751AA7869000D1604B /* FLSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4741AA7869000D1604B /* FLSignUpViewController.m */; };
 		4CC8D4781AA7877B00D1604B /* FLLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4771AA7877B00D1604B /* FLLoadingView.m */; };
-		4CC8D47C1AA7E81200D1604B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D47B1AA7E81200D1604B /* Bolts.framework */; };
-		4CC8D47E1AA7E81D00D1604B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D47D1AA7E81D00D1604B /* Parse.framework */; };
-		4CC8D4811AA7E86A00D1604B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D47F1AA7E85F00D1604B /* AudioToolbox.framework */; };
-		4CC8D4841AA7E88100D1604B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4821AA7E87300D1604B /* CFNetwork.framework */; };
-		4CC8D4871AA7E89D00D1604B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4851AA7E89400D1604B /* CoreGraphics.framework */; };
-		4CC8D48A1AA7E8B400D1604B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4881AA7E8A500D1604B /* CoreLocation.framework */; };
-		4CC8D48D1AA7E8CF00D1604B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D48B1AA7E8C300D1604B /* MobileCoreServices.framework */; };
-		4CC8D4901AA7E8E200D1604B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D48E1AA7E8D700D1604B /* QuartzCore.framework */; };
-		4CC8D4931AA7E8FE00D1604B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4911AA7E8F300D1604B /* Security.framework */; };
-		4CC8D4961AA7E91800D1604B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4941AA7E90900D1604B /* StoreKit.framework */; };
-		4CC8D4991AA7E93000D1604B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4971AA7E92800D1604B /* SystemConfiguration.framework */; };
-		4CC8D49C1AA7E94D00D1604B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D49A1AA7E94300D1604B /* libz.dylib */; };
-		4CC8D49F1AA7E96000D1604B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D49D1AA7E95600D1604B /* libsqlite3.dylib */; };
 		4CC8D4AB1AA7EF7800D1604B /* VEXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CC8D4AA1AA7EF7800D1604B /* VEXKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CC8D4B11AA7EF7800D1604B /* VEXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4A61AA7EF7800D1604B /* VEXKit.framework */; };
 		4CC8D4BA1AA7EF7800D1604B /* VEXKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4B91AA7EF7800D1604B /* VEXKitTests.m */; };
@@ -201,19 +188,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CC8D49F1AA7E96000D1604B /* libsqlite3.dylib in Frameworks */,
-				4CC8D49C1AA7E94D00D1604B /* libz.dylib in Frameworks */,
-				4CC8D4991AA7E93000D1604B /* SystemConfiguration.framework in Frameworks */,
-				4CC8D4961AA7E91800D1604B /* StoreKit.framework in Frameworks */,
-				4CC8D4931AA7E8FE00D1604B /* Security.framework in Frameworks */,
-				4CC8D4901AA7E8E200D1604B /* QuartzCore.framework in Frameworks */,
-				4CC8D48D1AA7E8CF00D1604B /* MobileCoreServices.framework in Frameworks */,
-				4CC8D48A1AA7E8B400D1604B /* CoreLocation.framework in Frameworks */,
-				4CC8D4871AA7E89D00D1604B /* CoreGraphics.framework in Frameworks */,
-				4CC8D4841AA7E88100D1604B /* CFNetwork.framework in Frameworks */,
-				4CC8D4811AA7E86A00D1604B /* AudioToolbox.framework in Frameworks */,
-				4CC8D47E1AA7E81D00D1604B /* Parse.framework in Frameworks */,
-				4CC8D47C1AA7E81200D1604B /* Bolts.framework in Frameworks */,
 				4CC8D4BD1AA7EF7800D1604B /* VEXKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
