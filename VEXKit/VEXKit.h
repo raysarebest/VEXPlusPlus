@@ -16,4 +16,6 @@ FOUNDATION_EXPORT const unsigned char VEXKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <VEXKit/PublicHeader.h>
 
-
+#import <VEXKit/FLTeam.h>
+#import <VEXKit/FLRobot.h>
+@import Parse;

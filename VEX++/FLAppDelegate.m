@@ -8,11 +8,9 @@
 
 #import "FLAppDelegate.h"
 #import "FLDetailViewController.h"
-
+@import Parse;
 @interface FLAppDelegate() <UISplitViewControllerDelegate>
-
 @end
-
 @implementation FLAppDelegate
 #pragma mark - UIApplicationDelegate Methods
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
@@ -21,6 +19,9 @@
     UINavigationController *navigationController = splitViewController.viewControllers.lastObject;
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
+    [Parse enableLocalDatastore];
+    [Parse setApplicationId:@"4KfQ41sgJ1WsXD0N2ks3Ui52gncGQA1iSfHq6myr" clientKey:@"Te4E5KJz5bealm8VfyBhbXP6foeqDwPYc343iJ0m"];
+    NSLog(@"%@", launchOptions);
     return YES;
 }
 -(void)applicationWillResignActive:(UIApplication *)application{

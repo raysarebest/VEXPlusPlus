@@ -44,9 +44,9 @@
 		4CD05E211AA7F0620046FA62 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D47F1AA7E85F00D1604B /* AudioToolbox.framework */; };
 		4CD05E221AA7F0680046FA62 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D47D1AA7E81D00D1604B /* Parse.framework */; };
 		4CD05E231AA7F06C0046FA62 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D47B1AA7E81200D1604B /* Bolts.framework */; };
-		4CD05E271AA7F1060046FA62 /* FLTeam.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CD05E251AA7F1060046FA62 /* FLTeam.h */; };
+		4CD05E271AA7F1060046FA62 /* FLTeam.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CD05E251AA7F1060046FA62 /* FLTeam.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4CD05E281AA7F1060046FA62 /* FLTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E261AA7F1060046FA62 /* FLTeam.m */; };
-		4CD05E2B1AA7F1410046FA62 /* FLRobot.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CD05E291AA7F1410046FA62 /* FLRobot.h */; };
+		4CD05E2B1AA7F1410046FA62 /* FLRobot.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CD05E291AA7F1410046FA62 /* FLRobot.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CD05E2C1AA7F1410046FA62 /* FLRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E2A1AA7F1410046FA62 /* FLRobot.m */; };
 		4CD05E321AA8F29B0046FA62 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E2F1AA8F29B0046FA62 /* TPKeyboardAvoidingScrollView.m */; };
 		4CD05E331AA8F29B0046FA62 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E311AA8F29B0046FA62 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
@@ -283,16 +283,8 @@
 				4CD05E381AA8F5710046FA62 /* RMPickerViewController */,
 				4CD05E341AA8F2FC0046FA62 /* LPlaceholderTextView */,
 				4CD05E2D1AA8F2160046FA62 /* TPKeyboardAvoiding */,
-				4CC8D47A1AA7E80400D1604B /* Parse */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4CC8D47A1AA7E80400D1604B /* Parse */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Parse;
 			sourceTree = "<group>";
 		};
 		4CC8D4A71AA7EF7800D1604B /* VEXKit */ = {
