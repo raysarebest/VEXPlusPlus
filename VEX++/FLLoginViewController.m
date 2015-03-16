@@ -19,12 +19,17 @@
     [FLUIManager addParallaxEffectToView:self.backgroundLogo withSway:nil];
     [FLUIManager addParallaxEffectToView:self.launchScreen withSway:nil];
     if(self.appLaunch){
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
         [self.backgroundLogo removeFromSuperview];
         self.launchScreen.frame = self.view.frame;
         [self.view addSubview:self.launchScreen];
         [self.view sendSubviewToBack:self.launchScreen];
         [UIView animateWithDuration:1 animations:^{
             self.launchScreen.alpha = .5;
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:1 animations:^{
+                [self.navigationController setNavigationBarHidden:NO animated:YES];
+            } completion:nil];
         }];
     }
 }
@@ -33,6 +38,9 @@
     if(self.appLaunch){
         //Animate stuff
     }
+}
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 #pragma mark - Property Lazy Instantiation
 -(UIView *)launchScreen{
