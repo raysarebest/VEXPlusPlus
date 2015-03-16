@@ -7,7 +7,7 @@
 //
 
 #import "FLLoadingView.h"
-#import "FLColorScheme.h"
+#import "FLUIManager.h"
 @interface FLLoadingView()
 @property (strong, nonatomic, nonnull) UIActivityIndicatorView *spinner;
 @end
@@ -17,7 +17,7 @@
     if(self = [super init]){
         self.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
         self.backgroundColor = [UIColor colorWithWhite:0 alpha:.5];
-        self.spinner.color = [FLColorScheme accentColor];
+        self.spinner.color = [FLUIManager accentColor];
         [self addSubview:self.spinner];
         return self;
     }

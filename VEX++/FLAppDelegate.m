@@ -8,6 +8,7 @@
 
 #import "FLAppDelegate.h"
 #import "FLDetailViewController.h"
+#import "FLLoginViewController.h"
 @import Parse;
 @interface FLAppDelegate() <UISplitViewControllerDelegate>
 @end
@@ -15,12 +16,13 @@
 #pragma mark - UIApplicationDelegate Methods
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     // Override point for customization after application launch.
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = splitViewController.viewControllers.lastObject;
-    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
-    splitViewController.delegate = self;
+//    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+//    UINavigationController *navigationController = splitViewController.viewControllers.lastObject;
+//    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
+//    splitViewController.delegate = self;
     [Parse enableLocalDatastore];
     [Parse setApplicationId:@"4KfQ41sgJ1WsXD0N2ks3Ui52gncGQA1iSfHq6myr" clientKey:@"Te4E5KJz5bealm8VfyBhbXP6foeqDwPYc343iJ0m"];
+    ((FLLoginViewController *)((UINavigationController *)self.window.rootViewController).viewControllers.firstObject).appLaunch = YES;
     return YES;
 }
 -(void)applicationWillResignActive:(UIApplication *)application{

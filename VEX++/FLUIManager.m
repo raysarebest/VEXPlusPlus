@@ -1,14 +1,14 @@
 //
-//  FLColorScheme.m
+//  FLUIManager.m
 //  VEX++
 //
 //  Created by Michael Hulet on 3/3/15.
 //  Copyright (c) 2015 Michael Hulet. All rights reserved.
 //
 
-#import "FLColorScheme.h"
+#import "FLUIManager.h"
 @import QuartzCore;
-@implementation FLColorScheme
+@implementation FLUIManager
 #pragma mark - Color Creation Helpers
 +(UIColor *)colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha{
     return [UIColor colorWithRed:red/255 green:green/255 blue:blue/255 alpha:alpha];
@@ -46,12 +46,12 @@
 }
 #pragma mark - Default Color Scheme
 +(UIColor *)accentColor{
-    return [FLColorScheme colorWithRed:1 green:247 blue:0 alpha:1];
+    return [FLUIManager colorWithRed:1 green:247 blue:0 alpha:1];
 }
 +(UIColor *)backgroundColor{
-    return [FLColorScheme colorWithWhite:12 alpha:1];
+    return [FLUIManager colorWithWhite:12 alpha:1];
 }
 +(UIColor *)textColor{
-    return [FLColorScheme colorWithWhite:48 alpha:1];
+    return [FLUIManager colorWithWhite:48 alpha:1];
 }
 @end

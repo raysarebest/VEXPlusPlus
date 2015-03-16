@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14D87p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7525" systemVersion="14D87p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7513.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -14,16 +14,17 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lightning" translatesAutoresizingMaskIntoConstraints="NO" id="SNz-5n-fCS">
                     <rect key="frame" x="71" y="136" width="339" height="207"/>
                     <constraints>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="339" id="Pif-Bt-84M"/>
                         <constraint firstAttribute="width" secondItem="SNz-5n-fCS" secondAttribute="height" multiplier="113:69" id="xqG-7D-2T2"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.12" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="SNz-5n-fCS" secondAttribute="centerY" constant="0.5" id="ayK-9h-ot8"/>
-                <constraint firstAttribute="trailing" secondItem="SNz-5n-fCS" secondAttribute="trailing" constant="70" id="gaJ-yA-svO"/>
-                <constraint firstItem="SNz-5n-fCS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="71" id="iBt-tE-WnR"/>
-                <constraint firstAttribute="centerX" secondItem="SNz-5n-fCS" secondAttribute="centerX" constant="-0.5" id="jMA-On-tdp"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SNz-5n-fCS" secondAttribute="trailing" constant="70" id="QR1-AJ-VgS"/>
+                <constraint firstAttribute="centerY" secondItem="SNz-5n-fCS" secondAttribute="centerY" id="ayK-9h-ot8"/>
+                <constraint firstAttribute="centerX" secondItem="SNz-5n-fCS" secondAttribute="centerX" id="jMA-On-tdp"/>
+                <constraint firstItem="SNz-5n-fCS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="71" id="sDL-YN-mx6"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

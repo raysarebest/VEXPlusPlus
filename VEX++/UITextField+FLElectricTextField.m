@@ -7,19 +7,19 @@
 //
 
 #import "UITextField+FLElectricTextField.h"
-#import "FLColorScheme.h"
+#import "FLUIManager.h"
 @import QuartzCore;
 @implementation UITextField (FLElectricTextField)
 #pragma mark - Text View Setup
 -(void)awakeFromNib{
     [super awakeFromNib];
     self.delegate = self;
-    self.backgroundColor = [FLColorScheme backgroundColor];
-    self.tintColor = [FLColorScheme accentColor];
-    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName:[FLColorScheme textColor]}];
+    self.backgroundColor = [FLUIManager backgroundColor];
+    self.tintColor = [FLUIManager accentColor];
+    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName:[FLUIManager textColor]}];
     self.layer.borderWidth = 1;
     self.layer.cornerRadius = 5;
-    self.layer.borderColor = [FLColorScheme accentColor].CGColor;
+    self.layer.borderColor = [FLUIManager accentColor].CGColor;
     self.layer.shadowColor = self.layer.borderColor;
     self.layer.shadowRadius = 5;
     self.layer.shadowOffset = CGSizeMake(0, 0);
@@ -28,11 +28,11 @@
 }
 #pragma mark - UITextViewDelegate Methods
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
-    [self.layer addAnimation:[FLColorScheme glowAnimationToEnabledState:YES] forKey:@"shadowOpacity"];
+    [self.layer addAnimation:[FLUIManager glowAnimationToEnabledState:YES] forKey:@"shadowOpacity"];
     self.layer.shadowOpacity = 1;
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField{
-    [self.layer addAnimation:[FLColorScheme glowAnimationToEnabledState:NO] forKey:@"shadowOpacity"];
+    [self.layer addAnimation:[FLUIManager glowAnimationToEnabledState:NO] forKey:@"shadowOpacity"];
     self.layer.shadowOpacity = 0;
 }
 @end

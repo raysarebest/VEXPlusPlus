@@ -1,5 +1,5 @@
 //
-//  FLColorScheme.h
+//  FLUIManager.h
 //  VEX++
 //
 //  Created by Michael Hulet on 3/3/15.
@@ -8,7 +8,7 @@
 
 @import Foundation;
 @import UIKit;
-@interface FLColorScheme : NSObject
+@interface FLUIManager : NSObject
 +(nonnull UIColor *)colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
 +(nonnull UIColor *)colorWithWhite:(CGFloat)white alpha:(CGFloat)alpha;
 +(nonnull UIColor *)accentColor;
