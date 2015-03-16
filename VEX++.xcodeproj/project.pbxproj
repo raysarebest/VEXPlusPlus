@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C395D7B1AB7450B00E5C76E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D47D1AA7E81D00D1604B /* Parse.framework */; };
 		4CC8D4661AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4651AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m */; };
 		4CC8D4691AA6C83F00D1604B /* FLUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4681AA6C83F00D1604B /* FLUIManager.m */; };
 		4CC8D46C1AA6CF5300D1604B /* UITextField+FLElectricTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D46B1AA6CF5300D1604B /* UITextField+FLElectricTextField.m */; };
@@ -189,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CC8D4BD1AA7EF7800D1604B /* VEXKit.framework in Frameworks */,
+				4C395D7B1AB7450B00E5C76E /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

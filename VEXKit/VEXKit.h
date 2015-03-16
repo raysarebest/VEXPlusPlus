@@ -18,4 +18,4 @@ FOUNDATION_EXPORT const unsigned char VEXKitVersionString[];
 
 #import <VEXKit/FLTeam.h>
 #import <VEXKit/FLRobot.h>
-@import Parse;
+#import <Parse/Parse.h>
