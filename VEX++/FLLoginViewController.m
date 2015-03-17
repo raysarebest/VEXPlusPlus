@@ -9,24 +9,25 @@
 #import "FLLoginViewController.h"
 #import "FLUIManager.h"
 #import "FLAppDelegate.h"
-@interface FLLoginViewController()
-@property (strong, nonatomic, nonnull) UIView *launchScreen;
-@end
 @implementation FLLoginViewController
 #pragma mark - View Setup Code
 -(void)viewDidLoad{
     [super viewDidLoad];
+    UIView *launchScreen = (UIView *)[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil].firstObject;
+    //Make pretty parallax effect
     [FLUIManager addParallaxEffectToView:self.backgroundLogo withSway:nil];
-    [FLUIManager addParallaxEffectToView:self.launchScreen withSway:nil];
+    [FLUIManager addParallaxEffectToView:launchScreen withSway:nil];
+    //Configure the background image properly
+    [self.backgroundLogo removeFromSuperview];
+    launchScreen.frame = self.view.frame;
+    [self.view addSubview:launchScreen];
+    [self.view sendSubviewToBack:launchScreen];
+    //Animate stuff
     if(self.appLaunch){
         self.signUpView.hidden = YES;
         [self.navigationController setNavigationBarHidden:YES animated:NO];
-        [self.backgroundLogo removeFromSuperview];
-        self.launchScreen.frame = self.view.frame;
-        [self.view addSubview:self.launchScreen];
-        [self.view sendSubviewToBack:self.launchScreen];
         [UIView animateWithDuration:1 animations:^{
-            self.launchScreen.alpha = .5;
+            launchScreen.alpha = .5;
         } completion:^(BOOL finished) {
             self.signUpView.layer.position = CGPointMake(self.signUpView.layer.position.x, self.signUpView.layer.position.y + self.signUpView.frame.size.height);
             self.signUpView.hidden = NO;
@@ -38,14 +39,5 @@
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
-}
-#pragma mark - Property Lazy Instantiation
--(UIView *)launchScreen{
-    if(!_launchScreen){
-        _launchScreen = (UIView *)[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil].firstObject;
-    }
-    return _launchScreen;
-}
-- (IBAction)signUp {
 }
 @end

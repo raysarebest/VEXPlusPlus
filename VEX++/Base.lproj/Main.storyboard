@@ -239,6 +239,9 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ONJ-pH-YA0" secondAttribute="trailing" constant="130" id="yDT-pu-5cw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundLogo" destination="ONJ-pH-YA0" id="trJ-0C-cPb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUq-jk-hra" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
