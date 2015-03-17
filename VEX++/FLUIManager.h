@@ -15,5 +15,6 @@
 +(nonnull UIColor *)backgroundColor;
 +(nonnull UIColor *)textColor;
 +(nonnull CABasicAnimation *)glowAnimationToEnabledState:(BOOL)enabling;
++(nonnull UIAlertController *)alertControllerWithTitle:(nullable NSString*)title message:(nullable NSString *)message;
 +(void)addParallaxEffectToView:(nonnull UIView *)view withSway:(nullable NSNumber *)sway;
 @end

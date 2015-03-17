@@ -9,7 +9,9 @@
 #import "FLLoginViewController.h"
 #import "FLUIManager.h"
 #import "FLAppDelegate.h"
+#import "FLLoadingView.h"
 #import "UITextField+FLElectricTextField.h"
+@import Parse;
 @implementation FLLoginViewController
 #pragma mark - View Setup Code
 -(void)viewDidLoad{
@@ -46,7 +48,40 @@
 }
 #pragma mark - IBActions
 -(IBAction)logIn{
-    NSLog(@"Logged in");
+    [self.view endEditing:YES];
+    NSString *VEXID = [((UITextField *)self.animators.firstObject).text.capitalizedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *password = [((UITextField *)[self.animators objectAtIndex:1]).text.capitalizedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    FLLoadingView *loader = [FLLoadingView createInView:self.view];
+    if(![VEXID isEqualToString:[NSString string]] && ![password isEqualToString:[NSString string]]){
+        [PFCloud callFunctionInBackground:@"validateVEXID" withParameters:@{@"VEXID":VEXID} block:^(id result, NSError *error){
+            if(error){
+                [loader hide];
+                NSString *reason;
+                if(error.code == 100){
+                    reason = @"You must connect to the internet";
+                }
+                else{
+                    reason = error.userInfo[@"error"];
+                }
+                [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:reason] animated:YES completion:nil];
+            }
+            //TODO: Actually log in the user
+            [loader hide];
+            [self presentViewController:[FLUIManager alertControllerWithTitle:@"Success" message:@"That VEX ID is valid"] animated:YES completion:nil];
+        }];
+    }
+    else if([VEXID isEqualToString:[NSString string]] && ![password isEqualToString:[NSString string]]){
+        [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"You must provide a VEX ID"] animated:YES completion:nil];
+        [loader hide];
+    }
+    else if(![VEXID isEqualToString:[NSString string]] && [password isEqualToString:[NSString string]]){
+        [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"You must enter a password"] animated:YES completion:nil];
+        [loader hide];
+    }
+    else{
+        [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"You must supply a VEX ID and a password"] animated:YES completion:nil];
+        [loader hide];
+    }
 }
 #pragma mark - UITextFieldDelegate Methods
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{

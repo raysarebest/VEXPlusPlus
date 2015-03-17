@@ -19,6 +19,7 @@
         self.backgroundColor = [UIColor colorWithWhite:0 alpha:.5];
         self.spinner.color = [FLUIManager accentColor];
         [self addSubview:self.spinner];
+        [self.superview bringSubviewToFront:self];
         return self;
     }
     else{
@@ -27,7 +28,6 @@
 }
 -(instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
-        self = [self init];
         self.frame = frame;
         return self;
     }

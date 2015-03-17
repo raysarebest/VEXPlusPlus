@@ -54,4 +54,13 @@
 +(UIColor *)textColor{
     return [FLUIManager colorWithWhite:48 alpha:1];
 }
+#pragma mark - Miscellaneous UI Factories
++(UIAlertController *)alertControllerWithTitle:(nullable NSString *)title message:(nullable NSString *)message{
+    if(!title){
+        title = @"Error";
+    }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    return alert;
+}
 @end
