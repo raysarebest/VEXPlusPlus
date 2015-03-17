@@ -16,6 +16,7 @@
     self.delegate = self;
     self.backgroundColor = [FLUIManager backgroundColor];
     self.tintColor = [FLUIManager accentColor];
+    self.textColor = self.tintColor;
     self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName:[FLUIManager textColor]}];
     self.layer.borderWidth = 1;
     self.layer.cornerRadius = 5;

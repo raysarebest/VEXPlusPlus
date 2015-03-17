@@ -46,7 +46,7 @@
 }
 #pragma mark - Default Color Scheme
 +(UIColor *)accentColor{
-    return [FLUIManager colorWithRed:1 green:247 blue:0 alpha:1];
+    return [FLUIManager colorWithRed:255 green:247 blue:0 alpha:1];
 }
 +(UIColor *)backgroundColor{
     return [FLUIManager colorWithWhite:12 alpha:1];

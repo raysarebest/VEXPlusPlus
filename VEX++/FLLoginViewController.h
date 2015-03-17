@@ -7,8 +7,9 @@
 //
 
 @import UIKit;
-@interface FLLoginViewController : UIViewController
-@property (weak, nonatomic, nonnull) IBOutlet UIImageView *backgroundLogo;
+@interface FLLoginViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic, nonnull) IBOutlet UIView *signUpView;
+@property (strong, nonatomic, nonnull) IBOutletCollection(id) NSArray *animators;
 @property (nonatomic) BOOL appLaunch;
+-(IBAction)logIn;
 @end
