@@ -19,6 +19,7 @@
     [FLUIManager addParallaxEffectToView:self.backgroundLogo withSway:nil];
     [FLUIManager addParallaxEffectToView:self.launchScreen withSway:nil];
     if(self.appLaunch){
+        self.signUpView.hidden = YES;
         [self.navigationController setNavigationBarHidden:YES animated:NO];
         [self.backgroundLogo removeFromSuperview];
         self.launchScreen.frame = self.view.frame;
@@ -27,16 +28,12 @@
         [UIView animateWithDuration:1 animations:^{
             self.launchScreen.alpha = .5;
         } completion:^(BOOL finished) {
-            [UIView animateWithDuration:1 animations:^{
-                [self.navigationController setNavigationBarHidden:NO animated:YES];
+            self.signUpView.layer.position = CGPointMake(self.signUpView.layer.position.x, self.signUpView.layer.position.y + self.signUpView.frame.size.height);
+            self.signUpView.hidden = NO;
+            [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                [self.navigationController setNavigationBarHidden:NO animated:NO];
             } completion:nil];
         }];
-    }
-}
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    if(self.appLaunch){
-        //Animate stuff
     }
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -48,5 +45,7 @@
         _launchScreen = (UIView *)[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil].firstObject;
     }
     return _launchScreen;
+}
+- (IBAction)signUp {
 }
 @end

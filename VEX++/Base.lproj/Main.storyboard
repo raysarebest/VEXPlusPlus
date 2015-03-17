@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14D87p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ypl-E8-3Ud">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14D105g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ypl-E8-3Ud">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -134,18 +133,63 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="339" id="OSE-18-Wx8"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umb-Tb-f9d">
+                                <rect key="frame" x="0.0" y="570" width="600" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account yet?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPD-66-QDG">
+                                        <rect key="frame" x="178" y="8" width="166" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="166" id="1Kq-lk-bF9"/>
+                                            <constraint firstAttribute="height" constant="14" id="sBt-uC-Z5h"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="14"/>
+                                        <color key="textColor" white="0.47999999999999998" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56u-kk-ef4">
+                                        <rect key="frame" x="352" y="0.0" width="56" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="56" id="8Th-IZ-nI2"/>
+                                            <constraint firstAttribute="width" secondItem="56u-kk-ef4" secondAttribute="height" multiplier="28:15" id="bLH-Jp-T4g"/>
+                                            <constraint firstAttribute="height" constant="30" id="zd0-HB-Gmb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Sign Up!">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Swa-aZ-f1v" kind="show" id="qaG-GP-evS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Hdq-UH-6J5"/>
+                                    <constraint firstItem="56u-kk-ef4" firstAttribute="leading" secondItem="QPD-66-QDG" secondAttribute="trailing" constant="8" id="J5q-ef-Y8H"/>
+                                    <constraint firstItem="56u-kk-ef4" firstAttribute="top" secondItem="umb-Tb-f9d" secondAttribute="top" id="TNA-Bh-4Y8"/>
+                                    <constraint firstAttribute="centerX" secondItem="QPD-66-QDG" secondAttribute="centerX" constant="39" id="dJy-4c-bk4"/>
+                                    <constraint firstAttribute="bottom" secondItem="QPD-66-QDG" secondAttribute="bottom" constant="8" id="fGL-ck-yql"/>
+                                    <constraint firstItem="QPD-66-QDG" firstAttribute="top" secondItem="umb-Tb-f9d" secondAttribute="top" constant="8" id="mCH-By-yF7"/>
+                                    <constraint firstItem="56u-kk-ef4" firstAttribute="centerY" secondItem="QPD-66-QDG" secondAttribute="centerY" id="oKN-no-9c4"/>
+                                    <constraint firstAttribute="bottom" secondItem="56u-kk-ef4" secondAttribute="bottom" id="pxN-kh-f3Q"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.12" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="T0L-vR-Zek" secondAttribute="centerY" id="4TT-fo-q1o"/>
-                            <constraint firstItem="T0L-vR-Zek" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="haT-2I-Qtu" secondAttribute="leadingMargin" constant="71" id="RB9-lt-fdi"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="T0L-vR-Zek" secondAttribute="trailing" constant="70" id="asM-Lv-Hpx"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="T0L-vR-Zek" secondAttribute="trailing" constant="130" id="MHt-lL-psk"/>
+                            <constraint firstItem="umb-Tb-f9d" firstAttribute="leading" secondItem="haT-2I-Qtu" secondAttribute="leading" id="aMo-j5-OWL"/>
+                            <constraint firstItem="gL5-cX-Bue" firstAttribute="top" secondItem="umb-Tb-f9d" secondAttribute="bottom" id="dso-Ta-hGu"/>
+                            <constraint firstItem="T0L-vR-Zek" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="haT-2I-Qtu" secondAttribute="leading" constant="131" id="ln1-hI-SN1"/>
+                            <constraint firstAttribute="trailing" secondItem="umb-Tb-f9d" secondAttribute="trailing" id="pXb-m1-jRD"/>
                             <constraint firstAttribute="centerX" secondItem="T0L-vR-Zek" secondAttribute="centerX" id="wT5-m1-6jd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="lKP-TC-9gD"/>
                     <connections>
                         <outlet property="backgroundLogo" destination="T0L-vR-Zek" id="15b-eh-U8A"/>
+                        <outlet property="signUpView" destination="umb-Tb-f9d" id="dVu-Vc-7fp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bS6-gy-73h" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -167,10 +211,10 @@
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
-        <!--Sign Up View Controller-->
+        <!--Sign Up-->
         <scene sceneID="K0y-LE-nZM">
             <objects>
-                <viewController id="Swa-aZ-f1v" customClass="FLSignUpViewController" sceneMemberID="viewController">
+                <viewController title="Sign Up" id="Swa-aZ-f1v" customClass="FLSignUpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h0r-jz-x1j"/>
                         <viewControllerLayoutGuide type="bottom" id="lzB-sm-Zfl"/>
@@ -178,12 +222,27 @@
                     <view key="view" contentMode="scaleToFill" id="yst-um-3c3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lightning" translatesAutoresizingMaskIntoConstraints="NO" id="ONJ-pH-YA0">
+                                <rect key="frame" x="131" y="196" width="339" height="207"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="339" id="93Y-lx-zBT"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.12" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="ONJ-pH-YA0" secondAttribute="centerX" constant="-0.5" id="Qf0-fE-UbY"/>
+                            <constraint firstItem="ONJ-pH-YA0" firstAttribute="width" secondItem="ONJ-pH-YA0" secondAttribute="height" multiplier="113:69" id="Rhi-35-XNO"/>
+                            <constraint firstAttribute="centerY" secondItem="ONJ-pH-YA0" secondAttribute="centerY" constant="0.5" id="hIi-40-ec0"/>
+                            <constraint firstItem="ONJ-pH-YA0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yst-um-3c3" secondAttribute="leading" constant="131" id="iuH-R1-bL8"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ONJ-pH-YA0" secondAttribute="trailing" constant="130" id="yDT-pu-5cw"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUq-jk-hra" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1317" y="428"/>
+            <point key="canvasLocation" x="-1319" y="422"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rbs-SU-afo">
