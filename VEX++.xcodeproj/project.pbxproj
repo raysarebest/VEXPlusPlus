@@ -40,6 +40,7 @@
 		4CD05E331AA8F29B0046FA62 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E311AA8F29B0046FA62 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		4CD05E371AA8F31E0046FA62 /* LPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E361AA8F31E0046FA62 /* LPlaceholderTextView.m */; };
 		4CD05E3B1AA8F5A30046FA62 /* RMPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E3A1AA8F5A30046FA62 /* RMPickerViewController.m */; };
+		4CF36DB71ABA7CE9008E0E16 /* FLSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF36DB61ABA7CE9008E0E16 /* FLSplitViewController.m */; };
 		4CF566DA1A9D1D2B00FEA5FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566D91A9D1D2B00FEA5FD /* main.m */; };
 		4CF566DD1A9D1D2B00FEA5FD /* FLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DC1A9D1D2B00FEA5FD /* FLAppDelegate.m */; };
 		4CF566E01A9D1D2B00FEA5FD /* FLMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DF1A9D1D2B00FEA5FD /* FLMasterViewController.m */; };
@@ -139,6 +140,8 @@
 		4CD05E361AA8F31E0046FA62 /* LPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPlaceholderTextView.m; sourceTree = "<group>"; };
 		4CD05E391AA8F5A30046FA62 /* RMPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPickerViewController.h; sourceTree = "<group>"; };
 		4CD05E3A1AA8F5A30046FA62 /* RMPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPickerViewController.m; sourceTree = "<group>"; };
+		4CF36DB51ABA7CE9008E0E16 /* FLSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSplitViewController.h; sourceTree = "<group>"; };
+		4CF36DB61ABA7CE9008E0E16 /* FLSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSplitViewController.m; sourceTree = "<group>"; };
 		4CF566D41A9D1D2A00FEA5FD /* VEX++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VEX++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF566D81A9D1D2B00FEA5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CF566D91A9D1D2B00FEA5FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 		4CC8D46E1AA7853400D1604B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				4CF36DB51ABA7CE9008E0E16 /* FLSplitViewController.h */,
+				4CF36DB61ABA7CE9008E0E16 /* FLSplitViewController.m */,
 				4CC8D4701AA7864500D1604B /* FLLoginViewController.h */,
 				4CC8D4711AA7864500D1604B /* FLLoginViewController.m */,
 				4CC8D4731AA7869000D1604B /* FLSignUpViewController.h */,
@@ -628,6 +633,7 @@
 				4CC8D46C1AA6CF5300D1604B /* UITextField+FLElectricTextField.m in Sources */,
 				4CC8D4691AA6C83F00D1604B /* FLUIManager.m in Sources */,
 				4CC8D4721AA7864500D1604B /* FLLoginViewController.m in Sources */,
+				4CF36DB71ABA7CE9008E0E16 /* FLSplitViewController.m in Sources */,
 				4CD05E321AA8F29B0046FA62 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				4CD05E371AA8F31E0046FA62 /* LPlaceholderTextView.m in Sources */,
 				4CC8D4781AA7877B00D1604B /* FLLoadingView.m in Sources */,

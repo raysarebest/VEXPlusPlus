@@ -48,6 +48,7 @@
 }
 #pragma mark - IBActions
 -(IBAction)logIn{
+    [self dismissViewControllerAnimated:YES completion:nil];
     [self.view endEditing:YES];
     NSString *VEXID = [((UITextField *)self.animators.firstObject).text.capitalizedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *password = [((UITextField *)[self.animators objectAtIndex:1]).text.capitalizedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
