@@ -8,11 +8,13 @@
 
 #import "FLSignUpViewController.h"
 #import "FLUIManager.h"
+#import "FLAppDelegate.h"
 @implementation FLSignUpViewController
 #pragma mark - View Setup Code
 -(void)viewDidLoad{
     [super viewDidLoad];
-    UIView *launchScreen = (UIView *)[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil].firstObject;
+    UIView *launchScreen = [(FLAppDelegate *)[UIApplication sharedApplication].delegate showLaunchScreenInView:self.view];
+    [self.view sendSubviewToBack:launchScreen];
     launchScreen.alpha = .5;
     //Make pretty parallax effect
     [FLUIManager addParallaxEffectToView:launchScreen withSway:nil];

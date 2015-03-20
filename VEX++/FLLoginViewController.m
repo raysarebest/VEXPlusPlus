@@ -12,6 +12,9 @@
 #import "FLLoadingView.h"
 #import "UITextField+FLElectricTextField.h"
 @import Parse;
+@interface FLLoginViewController()
+@property (strong, nonatomic, nonnull) UIView *launchScreen;
+@end
 @implementation FLLoginViewController
 #pragma mark - View Setup Code
 -(void)viewDidLoad{
@@ -21,25 +24,48 @@
             ((UITextField *)object).delegate = self;
         }
     }
-    UIView *launchScreen = (UIView *)[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil].firstObject;
+    self.launchScreen = [(FLAppDelegate *)[UIApplication sharedApplication].delegate showLaunchScreenInView:self.view];
     //Make pretty parallax effect
-    [FLUIManager addParallaxEffectToView:launchScreen withSway:nil];
-    //Configure the background image properly
-    launchScreen.frame = self.view.frame;
-    [self.view addSubview:launchScreen];
-    [self.view sendSubviewToBack:launchScreen];
+    [FLUIManager addParallaxEffectToView:self.launchScreen withSway:nil];
     //Animate stuff
     if(self.appLaunch){
         self.signUpView.hidden = YES;
         [self.navigationController setNavigationBarHidden:YES animated:NO];
+    }
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    //Literally I don't understand like any of the following because I coded it at like 3 AM and there's a lot of math, but it works
+    NSInteger totalMovement = 0;
+    if(self.appLaunch){
+        for(UIView *object in self.animators){
+            if([object isKindOfClass:[UIButton class]]){
+                NSInteger original = object.center.y;
+                object.center = CGPointMake(object.center.x, 0 - object.frame.size.height);
+                totalMovement = original - object.center.y;
+            }
+        }
+        for(UIView *object in self.animators){
+            if(![object isKindOfClass:[UIButton class]]){
+                UITextField *field = (UITextField *)object;
+                field.center = CGPointMake(field.center.x, field.center.y - totalMovement);
+            }
+        }
+        [self.view sendSubviewToBack:self.launchScreen];
         [UIView animateWithDuration:1 animations:^{
-            launchScreen.alpha = .5;
+            self.launchScreen.alpha = .5;
         } completion:^(BOOL finished) {
             self.signUpView.layer.position = CGPointMake(self.signUpView.layer.position.x, self.signUpView.layer.position.y + self.signUpView.frame.size.height);
             self.signUpView.hidden = NO;
             [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 [self.navigationController setNavigationBarHidden:NO animated:NO];
-            } completion:nil];
+            } completion:^(BOOL finished){
+                [UIView animateWithDuration:2 delay:0 usingSpringWithDamping:.5 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                    for(UIView *object in self.animators){
+                        object.center = CGPointMake(object.center.x, object.center.y + totalMovement);
+                    }
+                } completion:nil];
+            }];
         }];
     }
 }

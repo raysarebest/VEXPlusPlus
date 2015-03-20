@@ -53,4 +53,12 @@
         return NO;
     }
 }
+#pragma mark - Externally-Useful Methods
+-(UIView *)showLaunchScreenInView:(UIView *)view{
+    UIView *launchScreen = [[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil].firstObject;
+    launchScreen.frame = [UIScreen mainScreen].bounds;
+    [view addSubview:launchScreen];
+    [view bringSubviewToFront:launchScreen];
+    return launchScreen;
+}
 @end

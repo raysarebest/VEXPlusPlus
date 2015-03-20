@@ -8,6 +8,7 @@
 
 #import "FLSplitViewController.h"
 #import "FLLoginViewController.h"
+#import "FLAppDelegate.h"
 @import Parse;
 @interface FLSplitViewController()
 @property (strong, nonatomic, nonnull) UIView *launchScreen;
@@ -18,9 +19,7 @@
     [super viewDidLoad];
     //Do any additional setup after loading the view.
     if(self.appLaunch && ![PFUser currentUser]){
-        self.launchScreen.frame = [UIScreen mainScreen].bounds;
-        [self.view addSubview:self.launchScreen];
-        [self.view bringSubviewToFront:self.launchScreen];
+        self.launchScreen = [(FLAppDelegate *)[UIApplication sharedApplication].delegate showLaunchScreenInView:self.view];
     }
     else if([self.view.subviews containsObject:self.launchScreen]){
         [self.launchScreen removeFromSuperview];
@@ -36,12 +35,5 @@
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
-}
-#pragma mark - Property Lazy Instantiation
--(UIView *)launchScreen{
-    if(!_launchScreen){
-        _launchScreen = (UIView *)[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil].firstObject;
-    }
-    return _launchScreen;
 }
 @end

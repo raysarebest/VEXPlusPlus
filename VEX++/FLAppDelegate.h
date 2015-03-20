@@ -9,4 +9,5 @@
 @import UIKit;
 @interface FLAppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic, nonnull) UIWindow *window;
+-(nonnull UIView *)showLaunchScreenInView:(nonnull UIView *)view;
 @end
