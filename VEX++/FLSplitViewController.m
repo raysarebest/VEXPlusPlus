@@ -36,4 +36,7 @@
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
+-(BOOL)prefersStatusBarHidden{
+    return self.appLaunch;
+}
 @end

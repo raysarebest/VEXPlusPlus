@@ -14,11 +14,14 @@
 @import Parse;
 @interface FLLoginViewController()
 @property (strong, nonatomic, nonnull) UIView *launchScreen;
+@property (nonatomic) BOOL shouldHideStatusBar;
+-(void)setStatusBarHidden:(BOOL)hidden animated:(BOOL)animated;
 @end
 @implementation FLLoginViewController
 #pragma mark - View Setup Code
 -(void)viewDidLoad{
     [super viewDidLoad];
+    [self setStatusBarHidden:NO animated:NO];
     for(id object in self.animators){
         if([object isKindOfClass:[UITextField class]]){
             ((UITextField *)object).delegate = self;
@@ -30,6 +33,7 @@
     //Animate stuff
     if(self.appLaunch){
         self.signUpView.hidden = YES;
+        [self setStatusBarHidden:YES animated:NO];
         [self.navigationController setNavigationBarHidden:YES animated:NO];
     }
 }
@@ -64,13 +68,18 @@
                     for(UIView *object in self.animators){
                         object.center = CGPointMake(object.center.x, object.center.y + totalMovement);
                     }
-                } completion:nil];
+                } completion:^(BOOL finished){
+                    [self setStatusBarHidden:NO animated:YES];
+                }];
             }];
         }];
     }
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
+}
+-(BOOL)prefersStatusBarHidden{
+    return self.shouldHideStatusBar;
 }
 #pragma mark - IBActions
 -(IBAction)logIn{
@@ -108,6 +117,20 @@
     else{
         [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"You must supply a VEX ID and a password"] animated:YES completion:nil];
         [loader hide];
+    }
+}
+#pragma mark - UI Helper Methods
+-(void)setStatusBarHidden:(BOOL)hidden animated:(BOOL)animated{
+    if(hidden != self.shouldHideStatusBar){
+        self.shouldHideStatusBar = hidden;
+        if(animated){
+            [UIView animateWithDuration:1 animations:^{
+                [self setNeedsStatusBarAppearanceUpdate];
+            }];
+        }
+        else{
+            [self setNeedsStatusBarAppearanceUpdate];
+        }
     }
 }
 #pragma mark - UITextFieldDelegate Methods
