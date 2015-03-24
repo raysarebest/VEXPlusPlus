@@ -16,6 +16,7 @@
 +(nonnull UIColor *)textColor;
 +(nonnull CABasicAnimation *)glowAnimationToEnabledState:(BOOL)enabling;
 +(nonnull UIAlertController *)alertControllerWithTitle:(nullable NSString*)title message:(nullable NSString *)message;
++(nonnull UIAlertController *)defaultParseErrorAlertControllerForError:(NSError *)error defaultHandler:(BOOL)shouldCreateDefaultAction;
 +(void)addParallaxEffectToView:(nonnull UIView *)view withSway:(nullable NSNumber *)sway;
 +(BOOL)sizeIsPortrait:(CGSize)size;
 +(BOOL)sizeIsLandscape:(CGSize)size;

@@ -12,7 +12,7 @@
 @property (weak, nonatomic, nonnull) IBOutlet UIButton *forgotButton;
 @property (weak, nonatomic, nonnull) IBOutlet NSLayoutConstraint *forgotSpace;
 @property (weak, nonatomic, nonnull) IBOutlet NSLayoutConstraint *verticalCenter;
-@property (strong, nonatomic, nonnull) IBOutletCollection(id) NSArray *animators;
+@property (strong, nonatomic, nonnull) IBOutletCollection(UIView) NSArray *animators;
 @property (nonatomic) BOOL appLaunch;
 -(IBAction)logIn;
 -(IBAction)resetPassword;

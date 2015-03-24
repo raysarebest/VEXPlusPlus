@@ -8,6 +8,7 @@
 
 #import "FLUIManager.h"
 @import QuartzCore;
+@import Parse;
 @implementation FLUIManager
 #pragma mark - Color Creation Helpers
 +(UIColor *)colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha{
@@ -54,7 +55,7 @@
 +(UIColor *)textColor{
     return [FLUIManager colorWithWhite:48 alpha:1];
 }
-#pragma mark - Miscellaneous UI Methods
+#pragma mark - UIAlertController Factories
 +(UIAlertController *)alertControllerWithTitle:(nullable NSString *)title message:(nullable NSString *)message{
     if(!title){
         title = @"Error";
@@ -63,6 +64,45 @@
     [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
     return alert;
 }
++(UIAlertController *)defaultParseErrorAlertControllerForError:(NSError *)error defaultHandler:(BOOL)shouldCreateDefaultAction{
+    NSString *reason;
+    switch(error.code){
+        case 208:
+            reason = @"That Facebook account is already linked to another team";
+            break;
+        case 100:
+            reason = @"Please check your internet connection";
+            break;
+        case 140:
+            reason = @"A server error occurred. Please try again later";
+            break;
+        case 1:
+            return [self defaultParseErrorAlertControllerForError:error defaultHandler:shouldCreateDefaultAction];
+        case 114:
+            reason = @"That isn't a valid email address";
+            break;
+        case 101:
+            reason = @"Your VEX ID or password is incorrect";
+            break;
+        case 155:
+            return [self defaultParseErrorAlertControllerForError:error defaultHandler:shouldCreateDefaultAction];
+        case 203:
+            reason = @"That email address is already linked to another team";
+            break;
+        case 202:
+            reason = @"That VEX ID is already registered";
+            break;
+        default:
+            reason = error.userInfo[@"error"];
+            break;
+    }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:reason preferredStyle:UIAlertControllerStyleAlert];
+    if(shouldCreateDefaultAction){
+        [alert addAction:[UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:nil]];
+    }
+    return  alert;
+}
+#pragma mark - Orientation Detection
 +(BOOL)sizeIsPortrait:(CGSize)size{
     if(size.height > size.width){
         return YES;
