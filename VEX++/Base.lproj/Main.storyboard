@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14D105g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14D113c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -180,26 +180,43 @@
                                             </mask>
                                         </variation>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4g-LA-vI0">
+                                        <rect key="frame" x="432" y="285" width="54" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="6Hu-Zi-gRJ"/>
+                                            <constraint firstAttribute="width" secondItem="w4g-LA-vI0" secondAttribute="height" multiplier="9:5" id="kdp-Fg-Msx"/>
+                                        </constraints>
+                                        <state key="normal" title="Forgot?">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetPassword" destination="w7q-hW-iI3" eventType="touchUpInside" id="X3Y-Ph-RmT"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Q8h-ID-Bfl" firstAttribute="top" secondItem="BCC-S4-XE1" secondAttribute="bottom" constant="8" id="5oR-rJ-jWm"/>
                                     <constraint firstItem="tfB-cI-LRS" firstAttribute="height" secondItem="BCC-S4-XE1" secondAttribute="height" id="98E-54-sJs"/>
+                                    <constraint firstItem="w4g-LA-vI0" firstAttribute="bottom" secondItem="BCC-S4-XE1" secondAttribute="bottom" id="B1B-yF-1l0"/>
                                     <constraint firstItem="BCC-S4-XE1" firstAttribute="top" secondItem="tfB-cI-LRS" secondAttribute="bottom" constant="8" id="JhA-9A-bMa"/>
                                     <constraint firstAttribute="bottom" secondItem="Q8h-ID-Bfl" secondAttribute="bottom" priority="250" constant="4" id="KGz-nx-1f4"/>
                                     <constraint firstAttribute="centerX" secondItem="BCC-S4-XE1" secondAttribute="centerX" id="Pg5-cL-c1z"/>
                                     <constraint firstAttribute="trailing" secondItem="BCC-S4-XE1" secondAttribute="trailing" priority="250" constant="4" id="RrC-zG-DA2"/>
+                                    <constraint firstItem="w4g-LA-vI0" firstAttribute="leading" secondItem="BCC-S4-XE1" secondAttribute="trailing" constant="8" id="TiH-cK-RSe"/>
                                     <constraint firstAttribute="centerY" secondItem="BCC-S4-XE1" secondAttribute="centerY" id="ZrK-RL-cCq"/>
-                                    <constraint firstItem="tfB-cI-LRS" firstAttribute="trailing" secondItem="BCC-S4-XE1" secondAttribute="trailing" id="auS-KP-lKD"/>
+                                    <constraint firstItem="w4g-LA-vI0" firstAttribute="baseline" secondItem="BCC-S4-XE1" secondAttribute="baseline" constant="1" id="dYu-MU-hzH"/>
+                                    <constraint firstAttribute="centerX" secondItem="tfB-cI-LRS" secondAttribute="centerX" id="fCh-mf-jka"/>
+                                    <constraint firstItem="w4g-LA-vI0" firstAttribute="height" secondItem="BCC-S4-XE1" secondAttribute="height" id="gpz-0B-CHe"/>
+                                    <constraint firstItem="w4g-LA-vI0" firstAttribute="centerY" secondItem="BCC-S4-XE1" secondAttribute="centerY" id="hEf-Tx-pxL"/>
                                     <constraint firstItem="BCC-S4-XE1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jT1-v5-CHN" secondAttribute="leading" constant="4" id="k35-ht-3ZD"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BCC-S4-XE1" secondAttribute="trailing" constant="4" id="lxn-hb-oF7"/>
                                     <constraint firstItem="tfB-cI-LRS" firstAttribute="width" secondItem="BCC-S4-XE1" secondAttribute="height" multiplier="124:15" id="mNF-u3-iXl"/>
-                                    <constraint firstItem="BCC-S4-XE1" firstAttribute="centerX" secondItem="Q8h-ID-Bfl" secondAttribute="centerX" id="nSx-JA-Zr1"/>
                                     <constraint firstItem="BCC-S4-XE1" firstAttribute="leading" secondItem="jT1-v5-CHN" secondAttribute="leading" priority="250" constant="4" id="oVP-YO-5b2"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Q8h-ID-Bfl" secondAttribute="bottom" constant="4" id="pdB-3m-pZK"/>
-                                    <constraint firstItem="tfB-cI-LRS" firstAttribute="leading" secondItem="BCC-S4-XE1" secondAttribute="leading" id="sb4-0b-ljB"/>
+                                    <constraint firstItem="tfB-cI-LRS" firstAttribute="centerX" secondItem="Q8h-ID-Bfl" secondAttribute="centerX" id="poI-Fa-UAb"/>
                                     <constraint firstItem="tfB-cI-LRS" firstAttribute="top" secondItem="jT1-v5-CHN" secondAttribute="top" priority="250" constant="4" id="wbh-1S-Mj7"/>
-                                    <constraint firstItem="tfB-cI-LRS" firstAttribute="centerX" secondItem="BCC-S4-XE1" secondAttribute="centerX" id="xcZ-r2-Lja"/>
                                     <constraint firstItem="tfB-cI-LRS" firstAttribute="width" secondItem="BCC-S4-XE1" secondAttribute="width" id="xfI-gx-5l3"/>
+                                    <constraint firstItem="w4g-LA-vI0" firstAttribute="top" secondItem="BCC-S4-XE1" secondAttribute="top" id="zYS-Gx-MfG"/>
                                     <constraint firstItem="tfB-cI-LRS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jT1-v5-CHN" secondAttribute="top" constant="4" id="zmM-9k-eLA"/>
                                 </constraints>
                                 <variation key="default">
@@ -263,7 +280,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="lKP-TC-9gD"/>
                     <connections>
+                        <outlet property="forgotButton" destination="w4g-LA-vI0" id="q7n-Fj-EYg"/>
+                        <outlet property="forgotSpace" destination="TiH-cK-RSe" id="AOb-TR-8er"/>
                         <outlet property="signUpView" destination="umb-Tb-f9d" id="dVu-Vc-7fp"/>
+                        <outlet property="verticalCenter" destination="Pg5-cL-c1z" id="Rdy-EJ-tIF"/>
                         <outletCollection property="animators" destination="tfB-cI-LRS" id="Nrz-xo-Dah"/>
                         <outletCollection property="animators" destination="BCC-S4-XE1" id="BX0-oN-aLZ"/>
                         <outletCollection property="animators" destination="Q8h-ID-Bfl" id="uml-TE-SBg"/>

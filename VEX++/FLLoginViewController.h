@@ -9,7 +9,11 @@
 @import UIKit;
 @interface FLLoginViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic, nonnull) IBOutlet UIView *signUpView;
+@property (weak, nonatomic, nonnull) IBOutlet UIButton *forgotButton;
+@property (weak, nonatomic, nonnull) IBOutlet NSLayoutConstraint *forgotSpace;
+@property (weak, nonatomic, nonnull) IBOutlet NSLayoutConstraint *verticalCenter;
 @property (strong, nonatomic, nonnull) IBOutletCollection(id) NSArray *animators;
 @property (nonatomic) BOOL appLaunch;
 -(IBAction)logIn;
+-(IBAction)resetPassword;
 @end

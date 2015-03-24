@@ -16,12 +16,19 @@
 @property (strong, nonatomic, nonnull) UIView *launchScreen;
 @property (nonatomic) BOOL shouldHideStatusBar;
 -(void)setStatusBarHidden:(BOOL)hidden animated:(BOOL)animated;
+-(void)showForgotButtonOnScreenSize:(CGSize)size animated:(BOOL)animated;
+-(void)hideForgotButtonOnScreenSize:(CGSize)size animated:(BOOL)animated;
 @end
 @implementation FLLoginViewController
 #pragma mark - View Setup Code
 -(void)viewDidLoad{
     [super viewDidLoad];
-    [self setStatusBarHidden:NO animated:NO];
+    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone && UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)){
+        self.forgotSpace.constant = [UIScreen mainScreen].bounds.size.width;
+    }
+    else{
+        self.forgotButton.hidden = YES;
+    }
     for(id object in self.animators){
         if([object isKindOfClass:[UITextField class]]){
             ((UITextField *)object).delegate = self;
@@ -36,6 +43,10 @@
         [self setStatusBarHidden:YES animated:NO];
         [self.navigationController setNavigationBarHidden:YES animated:NO];
     }
+    else{
+        [self setStatusBarHidden:NO animated:NO];
+    }
+    [self hideForgotButtonOnScreenSize:CGSizeZero animated:NO];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -81,9 +92,23 @@
 -(BOOL)prefersStatusBarHidden{
     return self.shouldHideStatusBar;
 }
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+    NSLog(@"View rotated");
+    if(self.forgotButton.hidden){
+        //Keep the forgot password button hidden, but prepare it for animation in from the right
+        [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+            [self hideForgotButtonOnScreenSize:size animated:NO];
+        } completion:nil];
+    }
+    else if(!self.forgotButton.hidden){
+        //The forgot password button is showing, but we need to transition it to portrait mode
+        [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+            [self showForgotButtonOnScreenSize:size animated:NO];
+        } completion:nil];
+    }
+}
 #pragma mark - IBActions
 -(IBAction)logIn{
-    [self dismissViewControllerAnimated:YES completion:nil];
     [self.view endEditing:YES];
     NSString *VEXID = [((UITextField *)self.animators.firstObject).text.capitalizedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *password = [((UITextField *)[self.animators objectAtIndex:1]).text.capitalizedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -101,9 +126,36 @@
                 }
                 [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:reason] animated:YES completion:nil];
             }
-            //TODO: Actually log in the user
-            [loader hide];
-            [self presentViewController:[FLUIManager alertControllerWithTitle:@"Success" message:@"That VEX ID is valid"] animated:YES completion:nil];
+            else{
+                [PFUser logInWithUsernameInBackground:VEXID password:password block:^(PFUser *user, NSError *error){
+                    [loader hide];
+                    static int invocations = 0;
+                    if(error){
+                        invocations++;
+                        NSString *reason;
+                        if(error.code == 100){
+                            reason = @"You must connect to the internet";
+                        }
+                        else if(error.code == 101){
+                            reason = @"Your VEX ID or password is incorrect";
+                        }
+                        else{
+                            reason = error.userInfo[@"error"];
+                        }
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:reason preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            if(invocations >= 3){
+                                [self showForgotButtonOnScreenSize:CGSizeZero animated:YES];
+                            }
+                        }]];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                    else{
+                        invocations = 0;
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    }
+                }];
+            }
         }];
     }
     else if([VEXID isEqualToString:[NSString string]] && ![password isEqualToString:[NSString string]]){
@@ -119,19 +171,92 @@
         [loader hide];
     }
 }
+
+- (IBAction)resetPassword {
+}
 #pragma mark - UI Helper Methods
 -(void)setStatusBarHidden:(BOOL)hidden animated:(BOOL)animated{
-    if(hidden != self.shouldHideStatusBar){
-        self.shouldHideStatusBar = hidden;
+    self.shouldHideStatusBar = hidden;
+    if(animated){
+        [UIView animateWithDuration:1 animations:^{
+            [self setNeedsStatusBarAppearanceUpdate];
+        }];
+    }
+    else{
+        [self setNeedsStatusBarAppearanceUpdate];
+    }
+}
+-(void)showForgotButtonOnScreenSize:(CGSize)size animated:(BOOL)animated{
+    if(CGSizeEqualToSize(size, CGSizeZero)){
+        size = [UIScreen mainScreen].bounds.size;
+    }
+    if([FLUIManager sizeIsPortrait:size] && [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone){
+        //Show Forgot Button by animating it in from the right
+        self.forgotButton.alpha = 1;
+        __block UITextField *const passwordField = [self.animators objectAtIndex:1];
+        static const CGFloat forgotSpace = 8;
+        const CGFloat sizes[3] = {passwordField.frame.size.width, self.forgotButton.frame.size.width, forgotSpace};
+        CGFloat total = 0;
+        for(int i = 0; i < sizeof(sizes)/sizeof(sizes[0]); i++){
+            total += sizes[i];
+        }
+        const CGFloat negativeSpace = size.width - total;
+        const CGFloat targetPosition = negativeSpace / 2;
+        self.forgotButton.hidden = NO;
         if(animated){
-            [UIView animateWithDuration:1 animations:^{
-                [self setNeedsStatusBarAppearanceUpdate];
+            [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                passwordField.frame = CGRectMake(targetPosition, passwordField.frame.origin.y, passwordField.frame.size.width, passwordField.frame.size.height);
+                self.forgotButton.frame = CGRectMake(targetPosition + passwordField.frame.size.width + forgotSpace, self.forgotButton.frame.origin.y, self.forgotButton.frame.size.width, self.forgotButton.frame.size.height);
+            } completion:nil];
+        }
+        else{
+            passwordField.frame = CGRectMake(targetPosition, passwordField.frame.origin.y, passwordField.frame.size.width, passwordField.frame.size.height);
+            self.forgotButton.frame = CGRectMake(targetPosition + passwordField.frame.size.width + forgotSpace, self.forgotButton.frame.origin.y, self.forgotButton.frame.size.width, self.forgotButton.frame.size.height);
+        }
+    }
+    else{
+        self.forgotSpace.constant = 8;
+        if(self.forgotButton.hidden){
+            self.forgotButton.alpha = 0;
+            self.forgotButton.hidden = NO;
+        }
+        [self.view layoutIfNeeded];
+        if(animated){
+            [UIView animateWithDuration:.5 animations:^{
+                self.forgotButton.alpha = 1;
             }];
         }
         else{
-            [self setNeedsStatusBarAppearanceUpdate];
+            self.forgotButton.alpha = 1;
         }
     }
+}
+-(void)hideForgotButtonOnScreenSize:(CGSize)size animated:(BOOL)animated{
+    if(CGSizeEqualToSize(size, CGSizeZero)){
+        size = [UIScreen mainScreen].bounds.size;
+    }
+    if([FLUIManager sizeIsPortrait:size] && [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone){
+        self.forgotSpace.constant = size.width;
+        if(animated){
+            [UIView animateWithDuration:1 animations:^{
+                [self.view layoutIfNeeded];
+            }];
+        }
+        else{
+            [self.view layoutIfNeeded];
+        }
+    }
+    else{
+        if(animated){
+            [UIView animateWithDuration:.5 animations:^{
+                self.forgotButton.alpha = 0;
+            }];
+        }
+        else{
+            self.forgotButton.alpha = 0;
+        }
+    }
+    self.forgotButton.hidden = YES;
 }
 #pragma mark - UITextFieldDelegate Methods
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
