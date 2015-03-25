@@ -250,7 +250,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Swa-aZ-f1v" kind="show" id="qaG-GP-evS"/>
+                                            <segue destination="Swa-aZ-f1v" kind="show" identifier="signUp" id="qaG-GP-evS"/>
                                         </connections>
                                     </button>
                                 </subviews>

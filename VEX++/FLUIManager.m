@@ -61,7 +61,7 @@
         title = @"Error";
     }
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:nil]];
     return alert;
 }
 +(UIAlertController *)defaultParseErrorAlertControllerForError:(NSError *)error defaultHandler:(BOOL)shouldCreateDefaultAction{
