@@ -11,7 +11,9 @@
 #import "FLAppDelegate.h"
 #import "FLLoadingView.h"
 #import "UITextField+FLElectricTextField.h"
+#import "NSString+FLReversedString.h"
 @import Parse;
+@import LocalAuthentication;
 @interface FLLoginViewController()
 @property (strong, nonatomic, nonnull) UIView *launchScreen;
 @property (nonatomic) NSInteger criticalMovement;
@@ -25,6 +27,9 @@
 -(void)hideForgotButtonFromSelector;
 -(void)keyboardWillChangeFrame;
 -(void)keyboardDidChangeFrame;
+-(void)securelyCachePasswordForString:(nonnull NSString *)password;
+-(void)attemptBiometricLogin;
+-(nullable NSString *)unencrypedPassword;
 @end
 @implementation FLLoginViewController
 #pragma mark - View Setup Code
@@ -40,6 +45,10 @@
     right.direction = UISwipeGestureRecognizerDirectionRight;
     [passwordField addGestureRecognizer:left];
     [passwordField addGestureRecognizer:right];
+    NSString *VEXID = [[NSUserDefaults standardUserDefaults] stringForKey:FLMostRecentVEXIDKey];
+    if(VEXID){
+        ((UITextField *)self.animators.firstObject).text = VEXID;
+    }
     for(UIView *object in self.animators){
         if([object isKindOfClass:[UITextField class]]){
             ((UITextField *)object).delegate = self;
@@ -59,6 +68,7 @@
     }
     self.launching = self.appLaunch;
     [self hideForgotButtonOnScreenSize:CGSizeZero animated:NO duration:0];
+    //Don't ask me why I have to do this twice. It just fixes a bug on launch
     self.forgotButton.hidden = YES;
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -69,7 +79,7 @@
         [self.view sendSubviewToBack:self.launchScreen];
         [UIView animateWithDuration:1 animations:^{
             self.launchScreen.alpha = .5;
-        } completion:^(BOOL finished) {
+        } completion:^(BOOL finished){
             self.signUpView.layer.position = CGPointMake(self.signUpView.layer.position.x, self.signUpView.layer.position.y + self.signUpView.frame.size.height);
             self.signUpView.hidden = NO;
             [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -82,12 +92,16 @@
                 } completion:^(BOOL finished){
                     [self setStatusBarHidden:NO animated:YES];
                     self.forgotButton.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, ((UIView *)self.animators[1]).frame.origin.y, self.forgotButton.frame.size.width, self.forgotButton.frame.size.height);
+                    [self attemptBiometricLogin];
                     if(finished){
                         self.launching = NO;
                     }
                 }];
             }];
         }];
+    }
+    else{
+        [self attemptBiometricLogin];
     }
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -115,11 +129,16 @@
         [self prepareCriticalUIForLaunch];
     }
 }
+#pragma mark - View Teardown Code
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.appLaunch = NO;
+}
 #pragma mark - IBActions
--(IBAction)logIn{
+-(IBAction)logIn:(id)context{
     [self.view endEditing:YES];
     NSString *VEXID = [((UITextField *)self.animators.firstObject).text.capitalizedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *password = [((UITextField *)self.animators[1]).text.capitalizedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *password = [((UITextField *)self.animators[1]).text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     FLLoadingView *loader = [FLLoadingView createInView:self.view];
     if(![VEXID isEqualToString:[NSString string]] && ![password isEqualToString:[NSString string]]){
         [PFCloud callFunctionInBackground:@"validateVEXID" withParameters:@{@"VEXID":VEXID} block:^(id result, NSError *error){
@@ -132,17 +151,29 @@
                     [loader hide];
                     static int invocations = 0;
                     if(error){
-                        invocations++;
-                        UIAlertController *alert = [FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:NO];
-                        [alert addAction:[UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                            if(invocations >= 3 && self.forgotButton.hidden){
-                                [self showForgotButtonOnScreenSize:CGSizeZero animated:YES duration:0];
-                            }
-                        }]];
-                        [self presentViewController:alert animated:YES completion:nil];
+                        if([context isKindOfClass:[NSString class]] && error.code == kPFErrorObjectNotFound){
+                            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:context preferredStyle:UIAlertControllerStyleAlert];
+                            [alert addAction:[UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:nil]];
+                            [self presentViewController:alert animated:YES completion:nil];
+                        }
+                        else{
+                            invocations++;
+                            UIAlertController *alert = [FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:NO];
+                            [alert addAction:[UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                                if(invocations >= 3 && self.forgotButton.hidden){
+                                    [self showForgotButtonOnScreenSize:CGSizeZero animated:YES duration:0];
+                                }
+                            }]];
+                            [self presentViewController:alert animated:YES completion:nil];
+                        }
                     }
                     else{
                         invocations = 0;
+                        NSUserDefaults *persistentStore = [NSUserDefaults standardUserDefaults];
+                        [persistentStore setObject:VEXID forKey:FLMostRecentVEXIDKey];
+                        
+                        [self securelyCachePasswordForString:password];
+                        [persistentStore synchronize];
                         [self dismissViewControllerAnimated:YES completion:nil];
                     }
                 }];
@@ -151,19 +182,19 @@
     }
     else if([VEXID isEqualToString:[NSString string]] && ![password isEqualToString:[NSString string]]){
         [loader hide];
-        [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"You must provide a VEX ID"] animated:YES completion:nil];
+        [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"You must provide a VEX ID" defaultHandler:YES] animated:YES completion:nil];
     }
     else if(![VEXID isEqualToString:[NSString string]] && [password isEqualToString:[NSString string]]){
         [loader hide];
-        [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"You must enter a password"] animated:YES completion:nil];
+        [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"You must enter a password" defaultHandler:YES] animated:YES completion:nil];
     }
     else{
         [loader hide];
-        [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"You must supply a VEX ID and a password"] animated:YES completion:nil];
+        [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"You must supply a VEX ID and a password" defaultHandler:YES] animated:YES completion:nil];
     }
 }
 -(IBAction)resetPassword{
-    NSString *const capitalVEXID = [((UITextField *)self.animators.firstObject).text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].capitalizedString;
+    NSString *const capitalVEXID = [((UITextField *)self.animators.firstObject).text.capitalizedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     __block FLLoadingView *const loader = [FLLoadingView createInView:self.view];
     if(![capitalVEXID isEqualToString:[NSString string]]){
         [PFCloud callFunctionInBackground:@"validateVEXID" withParameters:@{@"VEXID":capitalVEXID} block:^(id result, NSError *error){
@@ -187,7 +218,10 @@
                                     [self presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
                                 }
                                 else if(succeeded){
-                                    [self presentViewController:[FLUIManager alertControllerWithTitle:@"Password Reset" message:@"An email with instructions to reset your team's password has been sent to the email address associated with your team"] animated:YES completion:nil];
+                                    [[NSUserDefaults standardUserDefaults] removeObjectForKey:FLMostRecentPasswordKey];
+                                    UIAlertController *alert = [FLUIManager alertControllerWithTitle:@"Password Reset" message:@"An email with instructions to reset your team's password has been sent to the email address associated with your team" defaultHandler:NO];
+                                    [alert addAction:[UIAlertAction actionWithTitle:@"Check Your Email" style:UIAlertActionStyleDefault handler:nil]];
+                                    [self presentViewController:alert animated:YES completion:nil];
                                 }
                                 else{
                                     UIAlertController *const alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"An unknown error occurred" preferredStyle:UIAlertControllerStyleAlert];
@@ -212,7 +246,28 @@
     }
     else{
         [loader hide];
-        [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"Please enter your team's VEX ID"] animated:YES completion:nil];
+        [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"Please enter your team's VEX ID" defaultHandler:YES] animated:YES completion:nil];
+    }
+}
+#pragma mark - Security
+-(void)securelyCachePasswordForString:(NSString *)password{
+    //FIXME: THE ABSOLUTELY FUCKING HELLISHLY FUCKING DANGEROUS SECURITY IN THIS MOTHERFUCKING APP
+    [[NSUserDefaults standardUserDefaults] setObject:[password.reversedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:FLMostRecentPasswordKey];
+}
+-(NSString *)unencrypedPassword{
+    //FIXME: THIS FUCKING "SECURITY" OH MY FUCKING GOD
+    return [[NSUserDefaults standardUserDefaults] stringForKey:FLMostRecentPasswordKey].reversedString;
+}
+-(void)attemptBiometricLogin{
+    LAContext *const context = [LAContext new];
+    NSError *authError = nil;
+    if([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError] && [[NSUserDefaults standardUserDefaults] stringForKey:FLMostRecentPasswordKey]){
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:@"Please scan your fingerprint to sign into VEX++" reply:^(BOOL success, NSError *error){
+            if(success){
+                ((UITextField *)self.animators[1]).text = [self unencrypedPassword];
+                [self logIn:@"It looks like you've changed your password since you tried to log in with Touch ID. Log in with your new password to fix this."];
+            }
+        }];
     }
 }
 #pragma mark - UI Helper Methods
@@ -245,7 +300,7 @@
         self.forgotButton.hidden = NO;
         if(animated){
             if(duration == 0){
-                duration = 1;
+                duration = .25;
             }
             [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 passwordField.frame = CGRectMake(targetPosition, passwordField.frame.origin.y, passwordField.frame.size.width, passwordField.frame.size.height);
@@ -266,7 +321,7 @@
         [self.view layoutIfNeeded];
         if(animated){
             if(duration == 0){
-                duration = .5;
+                duration = .25;
             }
             [UIView animateWithDuration:duration animations:^{
                 self.forgotButton.alpha = 1;
@@ -284,11 +339,9 @@
     if(!self.launching){
         UITextField *const passwordField = self.animators[1];
         if([FLUIManager sizeIsPortrait:size] && [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone){
-//            self.forgotSpace.constant = size.width;
-//            [self.view setNeedsUpdateConstraints];
             if(animated){
                 if(duration == 0){
-                    duration = 1;
+                    duration = .25;
                 }
                 [UIView animateWithDuration:duration animations:^{
                     passwordField.center = CGPointMake(self.view.center.x, passwordField.center.y);
@@ -306,7 +359,7 @@
         else{
             if(animated){
                 if(duration == 0){
-                    duration = .5;
+                    duration = .25;
                 }
                 [UIView animateWithDuration:duration animations:^{
                     self.forgotButton.alpha = 0;
@@ -320,7 +373,6 @@
             }
         }
     }
-    NSLog(@"%f %f", self.forgotButton.frame.origin.x, self.forgotButton.frame.origin.y);
 }
 -(void)showForgotButtonFromSelector{
     [self showForgotButtonOnScreenSize:CGSizeZero animated:YES duration:.25];
@@ -351,7 +403,7 @@
     }
     else{
         [textField resignFirstResponder];
-        [self logIn];
+        [self logIn:nil];
     }
     return NO;
 }

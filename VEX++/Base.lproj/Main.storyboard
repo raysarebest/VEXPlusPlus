@@ -160,9 +160,6 @@
                                                 <exclude reference="PHm-d7-Oza"/>
                                             </mask>
                                         </variation>
-                                        <connections>
-                                            <action selector="logIn" destination="w7q-hW-iI3" eventType="touchUpInside" id="Jbz-sE-Hop"/>
-                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BCC-S4-XE1">
                                         <rect key="frame" x="176" y="285" width="248" height="30"/>
@@ -179,6 +176,9 @@
                                                 <exclude reference="HJJ-DF-PkD"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="logIn:" destination="w7q-hW-iI3" eventType="editingDidEnd" id="rE0-hY-agO"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4g-LA-vI0">
                                         <rect key="frame" x="432" y="285" width="54" height="30"/>

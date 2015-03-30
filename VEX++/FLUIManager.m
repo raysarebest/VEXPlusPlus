@@ -56,12 +56,14 @@
     return [FLUIManager colorWithWhite:48 alpha:1];
 }
 #pragma mark - UIAlertController Factories
-+(UIAlertController *)alertControllerWithTitle:(nullable NSString *)title message:(nullable NSString *)message{
++(UIAlertController *)alertControllerWithTitle:(nullable NSString *)title message:(nullable NSString *)message defaultHandler:(BOOL)shouldCreateDefaultHandler{
     if(!title){
         title = @"Error";
     }
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:nil]];
+    if(shouldCreateDefaultHandler){
+        [alert addAction:[UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:nil]];
+    }
     return alert;
 }
 +(UIAlertController *)defaultParseErrorAlertControllerForError:(NSError *)error defaultHandler:(BOOL)shouldCreateDefaultAction{

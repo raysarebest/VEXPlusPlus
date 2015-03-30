@@ -16,7 +16,7 @@
 @end
 @implementation FLSplitViewController
 #pragma mark - View Setup Code
--(void)viewDidLoad {
+-(void)viewDidLoad{
     [super viewDidLoad];
     //Do any additional setup after loading the view.
     if(self.appLaunch && ![PFUser currentUser]){
@@ -26,6 +26,7 @@
     else if([self.view.subviews containsObject:self.launchScreen]){
         [self.launchScreen removeFromSuperview];
         self.shouldHideStatusBar = NO;
+        [self setNeedsStatusBarAppearanceUpdate];
     }
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -41,6 +42,11 @@
 }
 -(BOOL)prefersStatusBarHidden{
     return self.shouldHideStatusBar;
+}
+#pragma mark - View Teardown Code
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self.launchScreen removeFromSuperview];
 }
 #pragma mark - Property Setters
 -(void)setShouldHideStatusBar:(BOOL)shouldHideStatusBar{

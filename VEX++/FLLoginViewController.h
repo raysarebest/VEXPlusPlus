@@ -7,6 +7,8 @@
 //
 
 @import UIKit;
+static __nonnull NSString *const FLMostRecentVEXIDKey = @"lastVEXID";
+static __nonnull NSString *const FLMostRecentPasswordKey = @"lastPassword";
 @interface FLLoginViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic, nonnull) IBOutlet UIView *signUpView;
 @property (weak, nonatomic, nonnull) IBOutlet UIButton *forgotButton;
@@ -14,6 +16,6 @@
 @property (weak, nonatomic, nonnull) IBOutlet NSLayoutConstraint *verticalCenter;
 @property (strong, nonatomic, nonnull) IBOutletCollection(UIView) NSArray *animators;
 @property (nonatomic) BOOL appLaunch;
--(IBAction)logIn;
+-(IBAction)logIn:(nullable id)context;
 -(IBAction)resetPassword;
 @end

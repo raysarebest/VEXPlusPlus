@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4C395D7B1AB7450B00E5C76E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D47D1AA7E81D00D1604B /* Parse.framework */; };
+		4C90D1D21AC3D12C00D5E114 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4911AA7E8F300D1604B /* Security.framework */; };
+		4C9E1C931AC84C8200F7E8F5 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9E1C921AC84C8200F7E8F5 /* LocalAuthentication.framework */; };
+		4C9E1C971AC8507700F7E8F5 /* NSString+FLReversedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9E1C961AC8507700F7E8F5 /* NSString+FLReversedString.m */; };
 		4CC8D4661AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4651AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m */; };
 		4CC8D4691AA6C83F00D1604B /* FLUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4681AA6C83F00D1604B /* FLUIManager.m */; };
 		4CC8D46C1AA6CF5300D1604B /* UITextField+FLElectricTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D46B1AA6CF5300D1604B /* UITextField+FLElectricTextField.m */; };
@@ -97,6 +100,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4C9E1C921AC84C8200F7E8F5 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		4C9E1C951AC8507700F7E8F5 /* NSString+FLReversedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FLReversedString.h"; sourceTree = "<group>"; };
+		4C9E1C961AC8507700F7E8F5 /* NSString+FLReversedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FLReversedString.m"; sourceTree = "<group>"; };
 		4CC8D4641AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+FLAutoResizingLabel.h"; sourceTree = "<group>"; };
 		4CC8D4651AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FLAutoResizingLabel.m"; sourceTree = "<group>"; };
 		4CC8D4671AA6C83F00D1604B /* FLUIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLUIManager.h; sourceTree = "<group>"; };
@@ -192,6 +198,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C9E1C931AC84C8200F7E8F5 /* LocalAuthentication.framework in Frameworks */,
+				4C90D1D21AC3D12C00D5E114 /* Security.framework in Frameworks */,
 				4CC8D4BD1AA7EF7800D1604B /* VEXKit.framework in Frameworks */,
 				4C395D7B1AB7450B00E5C76E /* Parse.framework in Frameworks */,
 			);
@@ -207,6 +215,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C9E1C941AC8503700F7E8F5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4C9E1C951AC8507700F7E8F5 /* NSString+FLReversedString.h */,
+				4C9E1C961AC8507700F7E8F5 /* NSString+FLReversedString.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		4CC8D4631AA63DEE00D1604B /* Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +278,7 @@
 		4CC8D4791AA7E7FC00D1604B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C9E1C921AC84C8200F7E8F5 /* LocalAuthentication.framework */,
 				4CD05E381AA8F5710046FA62 /* RMPickerViewController */,
 				4CD05E341AA8F2FC0046FA62 /* LPlaceholderTextView */,
 				4CD05E2D1AA8F2160046FA62 /* TPKeyboardAvoiding */,
@@ -409,6 +427,7 @@
 		4CF566D71A9D1D2B00FEA5FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C9E1C941AC8503700F7E8F5 /* Categories */,
 				4CC8D4791AA7E7FC00D1604B /* Frameworks */,
 				4CF566D81A9D1D2B00FEA5FD /* Info.plist */,
 				4CF566D91A9D1D2B00FEA5FD /* main.m */,
@@ -629,6 +648,7 @@
 			files = (
 				4CF566DD1A9D1D2B00FEA5FD /* FLAppDelegate.m in Sources */,
 				4CD05E331AA8F29B0046FA62 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				4C9E1C971AC8507700F7E8F5 /* NSString+FLReversedString.m in Sources */,
 				4CC8D4661AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m in Sources */,
 				4CC8D46C1AA6CF5300D1604B /* UITextField+FLElectricTextField.m in Sources */,
 				4CC8D4691AA6C83F00D1604B /* FLUIManager.m in Sources */,
