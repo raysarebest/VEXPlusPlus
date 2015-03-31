@@ -7,6 +7,12 @@
 //
 
 @import UIKit;
-@interface FLSignUpViewController : UIViewController
+@interface FLSignUpViewController : UIViewController <UITextFieldDelegate>
 @property (strong, nonatomic, nonnull) IBOutlet UIImageView *backgroundLogo;
+@property (weak, nonatomic, nonnull) IBOutlet UITextField *VEXIDField;
+@property (weak, nonatomic, nonnull) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic, nonnull) IBOutlet UITextField *confirmPasswordField;
+@property (weak, nonatomic, nonnull) IBOutlet UITextField *emailField;
+@property (strong, nonatomic, nonnull) IBOutletCollection(id) NSArray *animators;
+@property (nonatomic) BOOL shouldAnimateFromSide;
 @end

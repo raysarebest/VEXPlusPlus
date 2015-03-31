@@ -116,4 +116,12 @@
 +(BOOL)sizeIsLandscape:(CGSize)size{
     return ![self sizeIsPortrait:size];
 }
+#pragma mark - Miscellaneous Helper Methods
++(UIView *)showLaunchScreenInView:(nonnull UIView *)view{
+    UIView *launchScreen = [[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil].firstObject;
+    launchScreen.frame = [UIScreen mainScreen].bounds;
+    [view addSubview:launchScreen];
+    [view bringSubviewToFront:launchScreen];
+    return launchScreen;
+}
 @end

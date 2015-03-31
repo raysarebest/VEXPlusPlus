@@ -14,6 +14,7 @@
 +(nonnull UIColor *)accentColor;
 +(nonnull UIColor *)backgroundColor;
 +(nonnull UIColor *)textColor;
++(nonnull UIView *)showLaunchScreenInView:(nonnull UIView *)view;
 +(nonnull CABasicAnimation *)glowAnimationToEnabledState:(BOOL)enabling;
 +(nonnull UIAlertController *)alertControllerWithTitle:(nullable NSString*)title message:(nullable NSString *)message defaultHandler:(BOOL)shouldCreateDefaultHandler;
 +(nonnull UIAlertController *)defaultParseErrorAlertControllerForError:(nonnull NSError *)error defaultHandler:(BOOL)shouldCreateDefaultAction;

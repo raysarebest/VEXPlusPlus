@@ -7,6 +7,7 @@
 //
 
 #import "FLLoginViewController.h"
+#import "FLSignUpViewController.h"
 #import "FLUIManager.h"
 #import "FLAppDelegate.h"
 #import "FLLoadingView.h"
@@ -47,14 +48,14 @@
     [passwordField addGestureRecognizer:right];
     NSString *VEXID = [[NSUserDefaults standardUserDefaults] stringForKey:FLMostRecentVEXIDKey];
     if(VEXID){
-        ((UITextField *)self.animators.firstObject).text = VEXID;
+        self.VEXIDField.text = VEXID;
     }
     for(UIView *object in self.animators){
         if([object isKindOfClass:[UITextField class]]){
             ((UITextField *)object).delegate = self;
         }
     }
-    self.launchScreen = [(FLAppDelegate *)[UIApplication sharedApplication].delegate showLaunchScreenInView:self.view];
+    self.launchScreen = [FLUIManager showLaunchScreenInView:self.view];
     //Make pretty parallax effect
     [FLUIManager addParallaxEffectToView:self.launchScreen withSway:nil];
     //Animate stuff
@@ -91,7 +92,7 @@
                     }
                 } completion:^(BOOL finished){
                     [self setStatusBarHidden:NO animated:YES];
-                    self.forgotButton.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, ((UIView *)self.animators[1]).frame.origin.y, self.forgotButton.frame.size.width, self.forgotButton.frame.size.height);
+                    self.forgotButton.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, self.passwordField.frame.origin.y, self.forgotButton.frame.size.width, self.forgotButton.frame.size.height);
                     [self attemptBiometricLogin];
                     if(finished){
                         self.launching = NO;
@@ -134,11 +135,18 @@
     [super viewWillDisappear:animated];
     self.appLaunch = NO;
 }
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"signUp"]){
+        FLSignUpViewController *destination = segue.destinationViewController;
+        destination.shouldAnimateFromSide = YES;
+    }
+    [super prepareForSegue:segue sender:sender];
+}
 #pragma mark - IBActions
 -(IBAction)logIn:(id)context{
     [self.view endEditing:YES];
-    NSString *VEXID = [((UITextField *)self.animators.firstObject).text.capitalizedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *password = [((UITextField *)self.animators[1]).text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *VEXID = [self.VEXIDField.text.capitalizedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *password = [self.passwordField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     FLLoadingView *loader = [FLLoadingView createInView:self.view];
     if(![VEXID isEqualToString:[NSString string]] && ![password isEqualToString:[NSString string]]){
         [PFCloud callFunctionInBackground:@"validateVEXID" withParameters:@{@"VEXID":VEXID} block:^(id result, NSError *error){
@@ -194,7 +202,7 @@
     }
 }
 -(IBAction)resetPassword{
-    NSString *const capitalVEXID = [((UITextField *)self.animators.firstObject).text.capitalizedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *const capitalVEXID = [self.VEXIDField.text.capitalizedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     __block FLLoadingView *const loader = [FLLoadingView createInView:self.view];
     if(![capitalVEXID isEqualToString:[NSString string]]){
         [PFCloud callFunctionInBackground:@"validateVEXID" withParameters:@{@"VEXID":capitalVEXID} block:^(id result, NSError *error){
@@ -264,7 +272,7 @@
     if([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError] && [[NSUserDefaults standardUserDefaults] stringForKey:FLMostRecentPasswordKey]){
         [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:@"Please scan your fingerprint to sign into VEX++" reply:^(BOOL success, NSError *error){
             if(success){
-                ((UITextField *)self.animators[1]).text = [self unencrypedPassword];
+                self.passwordField.text = [self unencrypedPassword];
                 [self logIn:@"It looks like you've changed your password since you tried to log in with Touch ID. Log in with your new password to fix this."];
             }
         }];

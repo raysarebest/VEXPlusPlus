@@ -8,6 +8,7 @@
 
 #import "FLSplitViewController.h"
 #import "FLLoginViewController.h"
+#import "FLUIManager.h"
 #import "FLAppDelegate.h"
 @import Parse;
 @interface FLSplitViewController()
@@ -21,7 +22,7 @@
     //Do any additional setup after loading the view.
     if(self.appLaunch && ![PFUser currentUser]){
         self.shouldHideStatusBar = YES;
-        self.launchScreen = [(FLAppDelegate *)[UIApplication sharedApplication].delegate showLaunchScreenInView:self.view];
+        self.launchScreen = [FLUIManager showLaunchScreenInView:self.view];
     }
     else if([self.view.subviews containsObject:self.launchScreen]){
         [self.launchScreen removeFromSuperview];
