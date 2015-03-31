@@ -327,7 +327,7 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="339" id="93Y-lx-zBT"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7g-1e-bkp" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="I7g-1e-bkp" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3eW-y5-RA3">
@@ -343,6 +343,22 @@
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="Chn-p4-nK6"/>
+                                            </mask>
+                                        </variation>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team VEX ID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sr0-CO-ftS">
+                                        <rect key="frame" x="176" y="209" width="248" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="3Px-BZ-Jha"/>
+                                            <constraint firstAttribute="width" secondItem="Sr0-CO-ftS" secondAttribute="height" multiplier="124:15" id="PuK-d1-PNS"/>
+                                            <constraint firstAttribute="width" constant="248" id="zkx-F8-COa"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="0.96862745100000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="PuK-d1-PNS"/>
                                             </mask>
                                         </variation>
                                     </textField>
@@ -379,13 +395,14 @@
                                         </variation>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7m-yM-4pj">
-                                        <rect key="frame" x="279" y="361" width="43" height="30"/>
+                                        <rect key="frame" x="271" y="361" width="60" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="f7m-yM-4pj" secondAttribute="height" multiplier="43:30" id="271-Zn-OUa"/>
                                             <constraint firstAttribute="height" constant="30" id="M1s-hC-CZ7"/>
-                                            <constraint firstAttribute="width" constant="43" id="ofS-6u-pJI"/>
+                                            <constraint firstAttribute="width" constant="60" id="VR1-XG-V9m"/>
                                         </constraints>
-                                        <state key="normal" title="Log In">
+                                        <state key="normal" title=" Sign Up">
+                                            <color key="titleColor" red="1" green="0.96862745098039216" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <variation key="default">
@@ -393,40 +410,53 @@
                                                 <exclude reference="271-Zn-OUa"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="signUp" destination="Swa-aZ-f1v" eventType="touchUpInside" id="s1Z-VL-HDF"/>
+                                        </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team VEX ID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sr0-CO-ftS">
-                                        <rect key="frame" x="176" y="209" width="248" height="30"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j8y-34-NDK">
+                                        <rect key="frame" x="432" y="252" width="20" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="3Px-BZ-Jha"/>
-                                            <constraint firstAttribute="width" secondItem="Sr0-CO-ftS" secondAttribute="height" multiplier="124:15" id="PuK-d1-PNS"/>
-                                            <constraint firstAttribute="width" constant="248" id="zkx-F8-COa"/>
+                                            <constraint firstAttribute="width" constant="20" id="79Q-0C-SgK"/>
+                                            <constraint firstAttribute="height" constant="20" id="I2s-qk-aUC"/>
+                                            <constraint firstAttribute="width" secondItem="j8y-34-NDK" secondAttribute="height" multiplier="1:1" id="cEl-ff-Bnj"/>
                                         </constraints>
-                                        <color key="textColor" red="1" green="0.96862745100000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="PuK-d1-PNS"/>
-                                            </mask>
-                                        </variation>
-                                    </textField>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vf9-7i-F4Q">
+                                        <rect key="frame" x="432" y="290" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="vf9-7i-F4Q" secondAttribute="height" multiplier="1:1" id="D5a-bi-qGY"/>
+                                            <constraint firstAttribute="width" constant="20" id="hJw-Xt-jOE"/>
+                                            <constraint firstAttribute="height" constant="20" id="vzY-xh-ZcM"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="3eW-y5-RA3" firstAttribute="top" secondItem="bTe-Xy-VOa" secondAttribute="bottom" constant="8" id="0wH-cA-ZiM"/>
                                     <constraint firstAttribute="trailing" secondItem="3eW-y5-RA3" secondAttribute="trailing" priority="250" constant="4" id="5MK-uc-xcB"/>
+                                    <constraint firstItem="j8y-34-NDK" firstAttribute="leading" secondItem="vf9-7i-F4Q" secondAttribute="leading" id="67a-Bu-WTp"/>
                                     <constraint firstItem="Yat-To-U7w" firstAttribute="top" secondItem="3eW-y5-RA3" secondAttribute="bottom" constant="8" id="DIn-JG-POL"/>
                                     <constraint firstItem="Sr0-CO-ftS" firstAttribute="centerX" secondItem="bTe-Xy-VOa" secondAttribute="centerX" id="FW2-hc-u2X"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="f7m-yM-4pj" secondAttribute="bottom" constant="4" id="I52-ez-n1t"/>
+                                    <constraint firstItem="j8y-34-NDK" firstAttribute="centerX" secondItem="vf9-7i-F4Q" secondAttribute="centerX" id="Iec-m6-XTt"/>
                                     <constraint firstItem="f7m-yM-4pj" firstAttribute="top" secondItem="Yat-To-U7w" secondAttribute="bottom" constant="8" id="Lur-46-vwk"/>
                                     <constraint firstAttribute="bottom" secondItem="f7m-yM-4pj" secondAttribute="bottom" priority="250" constant="4" id="LwP-OS-phu"/>
+                                    <constraint firstItem="j8y-34-NDK" firstAttribute="width" secondItem="vf9-7i-F4Q" secondAttribute="width" id="M7X-1P-L6U"/>
                                     <constraint firstItem="f7m-yM-4pj" firstAttribute="centerX" secondItem="Yat-To-U7w" secondAttribute="centerX" constant="0.5" id="OHi-QW-PzJ"/>
+                                    <constraint firstItem="j8y-34-NDK" firstAttribute="leading" secondItem="bTe-Xy-VOa" secondAttribute="trailing" constant="8" id="PoD-XP-XGg"/>
+                                    <constraint firstItem="j8y-34-NDK" firstAttribute="height" secondItem="vf9-7i-F4Q" secondAttribute="height" id="Qzz-p8-gaA"/>
+                                    <constraint firstItem="j8y-34-NDK" firstAttribute="centerY" secondItem="bTe-Xy-VOa" secondAttribute="centerY" id="RpQ-0h-iud"/>
                                     <constraint firstItem="bTe-Xy-VOa" firstAttribute="top" secondItem="Sr0-CO-ftS" secondAttribute="bottom" constant="8" id="c7z-Jb-YpS"/>
                                     <constraint firstAttribute="centerY" secondItem="3eW-y5-RA3" secondAttribute="centerY" id="ci5-NP-fXo"/>
                                     <constraint firstAttribute="centerX" secondItem="3eW-y5-RA3" secondAttribute="centerX" id="coU-mc-xPl"/>
                                     <constraint firstItem="Sr0-CO-ftS" firstAttribute="top" secondItem="I7g-1e-bkp" secondAttribute="top" priority="250" constant="4" id="h3k-2v-Elg"/>
                                     <constraint firstItem="3eW-y5-RA3" firstAttribute="leading" secondItem="I7g-1e-bkp" secondAttribute="leading" priority="250" constant="4" id="myd-Lg-4Pq"/>
+                                    <constraint firstItem="j8y-34-NDK" firstAttribute="width" secondItem="vf9-7i-F4Q" secondAttribute="height" multiplier="1:1" id="nxu-YS-nLU"/>
+                                    <constraint firstItem="vf9-7i-F4Q" firstAttribute="leading" secondItem="3eW-y5-RA3" secondAttribute="trailing" constant="8" id="qyJ-d7-Qhk"/>
                                     <constraint firstItem="bTe-Xy-VOa" firstAttribute="centerX" secondItem="3eW-y5-RA3" secondAttribute="centerX" id="s96-3l-RID"/>
+                                    <constraint firstItem="3eW-y5-RA3" firstAttribute="centerY" secondItem="vf9-7i-F4Q" secondAttribute="centerY" id="sbF-MB-EvX"/>
                                     <constraint firstItem="3eW-y5-RA3" firstAttribute="centerX" secondItem="Yat-To-U7w" secondAttribute="centerX" id="t5a-kG-kiO"/>
+                                    <constraint firstItem="j8y-34-NDK" firstAttribute="trailing" secondItem="vf9-7i-F4Q" secondAttribute="trailing" id="vfb-up-PKO"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -453,13 +483,17 @@
                         <outlet property="VEXIDField" destination="Sr0-CO-ftS" id="W5p-Ak-7IZ"/>
                         <outlet property="backgroundLogo" destination="ONJ-pH-YA0" id="trJ-0C-cPb"/>
                         <outlet property="confirmPasswordField" destination="3eW-y5-RA3" id="9Wa-zL-5hc"/>
+                        <outlet property="confirmPasswordMatchImage" destination="vf9-7i-F4Q" id="JAx-te-oS1"/>
                         <outlet property="emailField" destination="Yat-To-U7w" id="aF1-1M-e7O"/>
                         <outlet property="passwordField" destination="bTe-Xy-VOa" id="Bvs-IM-BJn"/>
+                        <outlet property="passwordMatchImage" destination="j8y-34-NDK" id="CBm-A2-G7k"/>
                         <outletCollection property="animators" destination="Sr0-CO-ftS" id="tbs-aU-vLR"/>
                         <outletCollection property="animators" destination="bTe-Xy-VOa" id="6F1-YU-Bia"/>
                         <outletCollection property="animators" destination="3eW-y5-RA3" id="lda-7A-PlP"/>
                         <outletCollection property="animators" destination="Yat-To-U7w" id="OX5-xS-FoT"/>
                         <outletCollection property="animators" destination="f7m-yM-4pj" id="e6f-fn-yct"/>
+                        <outletCollection property="animators" destination="j8y-34-NDK" id="9rr-YM-Afh"/>
+                        <outletCollection property="animators" destination="vf9-7i-F4Q" id="QGA-aa-iWk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUq-jk-hra" userLabel="First Responder" sceneMemberID="firstResponder"/>

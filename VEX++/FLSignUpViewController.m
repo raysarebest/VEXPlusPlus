@@ -9,6 +9,9 @@
 #import "FLSignUpViewController.h"
 #import "FLUIManager.h"
 #import "FLAppDelegate.h"
+#import "FLLoadingView.h"
+#import "UITextField+FLElectricTextField.h"
+@import Parse;
 @interface FLSignUpViewController()
 @property (strong, nonatomic, nonnull) NSTimer *animationTimer;
 @property (strong, nonatomic, nonnull) UIView *launchScreen;
@@ -21,6 +24,11 @@
     self.launchScreen = [FLUIManager showLaunchScreenInView:self.view];
     //Make pretty parallax effect
     [FLUIManager addParallaxEffectToView:self.launchScreen withSway:nil];
+    for(UIView *object in self.animators){
+        if([object isKindOfClass:[UITextField class]]){
+            ((UITextField *)object).delegate = self;
+        }
+    }
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -56,6 +64,61 @@
         }
         else{
             index++;
+        }
+    }
+}
+#pragma mark - UITextFieldDelegate Methods
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    [textField textFieldDidBeginEditing:textField];
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    [textField textFieldDidEndEditing:textField];
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    UIView *nextField = self.animators[[self.animators indexOfObject:textField] + 1];
+    if([nextField isKindOfClass:[UITextField class]]){
+        [nextField becomeFirstResponder];
+    }
+    else{
+        //TODO: Implement the sign up method and call it here
+    }
+    return NO;
+}
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSLog(@"%@", string);
+    UITextField *otherField = nil;
+    NSArray *const imageViews = @[self.passwordMatchImage, self.confirmPasswordMatchImage];
+    for(UITextField *field in @[self.passwordField, self.confirmPasswordField]){
+        if(textField != field){
+            otherField = field;
+            break;
+        }
+    }
+    if(textField == self.passwordField || textField == self.confirmPasswordField){
+        //This looks like the most violent if statement, but it works, so don't touch it
+        if([[[textField.text stringByAppendingString:([string isEqualToString:@""] ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[otherField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]] && ![[[textField.text stringByAppendingString:string] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[NSString string]]){
+            for(UIImageView *imageView in imageViews){
+                imageView.image = [UIImage imageNamed:@"checkmark"];
+            }
+        }
+        else{
+            self.passwordMatchImage.image = [UIImage imageNamed:@"checkmark"];
+            self.confirmPasswordMatchImage.image = [UIImage imageNamed:@"x"];
+        }
+    }
+    return YES;
+}
+#pragma mark - IBActions
+-(IBAction)signUp{
+    FLLoadingView *loader = [FLLoadingView createInView:self.view];
+    //Make sure all the fields are filled out
+    for(UIView *object in self.animators){
+        if([object isKindOfClass:[UITextField class]]){
+            if([((UITextField *)object).text isEqualToString:[NSString string]]){
+                [loader hide];
+                [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"You need to fill out every field" defaultHandler:YES] animated:YES completion:nil];
+                return;
+            }
         }
     }
 }

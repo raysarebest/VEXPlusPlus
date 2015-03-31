@@ -13,6 +13,9 @@
 @property (weak, nonatomic, nonnull) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic, nonnull) IBOutlet UITextField *confirmPasswordField;
 @property (weak, nonatomic, nonnull) IBOutlet UITextField *emailField;
+@property (weak, nonatomic, nonnull) IBOutlet UIImageView *passwordMatchImage;
+@property (weak, nonatomic, nonnull) IBOutlet UIImageView *confirmPasswordMatchImage;
 @property (strong, nonatomic, nonnull) IBOutletCollection(id) NSArray *animators;
 @property (nonatomic) BOOL shouldAnimateFromSide;
+-(IBAction)signUp;
 @end
