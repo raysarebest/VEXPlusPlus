@@ -16,6 +16,7 @@
 @property (strong, nonatomic, nonnull) NSTimer *animationTimer;
 @property (strong, nonatomic, nonnull) UIView *launchScreen;
 -(void)animateNextViewFromRight;
+-(BOOL)password:(NSString *)password matchesPassword:(NSString *)otherPassword;
 @end
 @implementation FLSignUpViewController
 #pragma mark - View Setup Code
@@ -80,12 +81,11 @@
         [nextField becomeFirstResponder];
     }
     else{
-        //TODO: Implement the sign up method and call it here
+        [self signUp];
     }
     return NO;
 }
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    NSLog(@"%@", string);
     UITextField *otherField = nil;
     NSArray *const imageViews = @[self.passwordMatchImage, self.confirmPasswordMatchImage];
     for(UITextField *field in @[self.passwordField, self.confirmPasswordField]){
@@ -95,15 +95,23 @@
         }
     }
     if(textField == self.passwordField || textField == self.confirmPasswordField){
-        //This looks like the most violent if statement, but it works, so don't touch it
-        if([[[textField.text stringByAppendingString:([string isEqualToString:@""] ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[otherField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]] && ![[[textField.text stringByAppendingString:string] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[NSString string]]){
+        //This looks like the most violent if statement (used to be worse, actually), but it works, so don't touch it
+        if([self password:[textField.text stringByAppendingString:([string isEqualToString:[NSString string]] ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)] matchesPassword:otherField.text] && ![[[textField.text stringByAppendingString:string] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[NSString string]]){
             for(UIImageView *imageView in imageViews){
                 imageView.image = [UIImage imageNamed:@"checkmark"];
             }
+            NSLog(@"%@", [textField.text stringByAppendingString:([string isEqualToString:[NSString string]]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)]);
+        }
+        else if([[[textField.text stringByAppendingString:([string isEqualToString:[NSString string]]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[NSString string]]){
+            for(UIImageView *imageView in imageViews){
+                imageView.image = [UIImage imageNamed:@"x"];
+            }
+            NSLog(@"%@", [textField.text stringByAppendingString:([string isEqualToString:[NSString string]]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)]);
         }
         else{
             self.passwordMatchImage.image = [UIImage imageNamed:@"checkmark"];
             self.confirmPasswordMatchImage.image = [UIImage imageNamed:@"x"];
+            NSLog(@"%@", [textField.text stringByAppendingString:([string isEqualToString:@""]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)]);
         }
     }
     return YES;
@@ -121,5 +129,9 @@
             }
         }
     }
+}
+#pragma mark - Utility Methods
+-(BOOL)password:(NSString *)password matchesPassword:(NSString *)otherPassword{
+    return [[password  stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[otherPassword stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
 }
 @end
