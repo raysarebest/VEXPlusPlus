@@ -86,6 +86,7 @@
     return NO;
 }
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    //Fun fact: You can reliably detect a backspace by checking the value of range.length . If it's 0, it's not a backspace. If it's 1, it's a backspace
     UITextField *otherField = nil;
     NSArray *const imageViews = @[self.passwordMatchImage, self.confirmPasswordMatchImage];
     for(UITextField *field in @[self.passwordField, self.confirmPasswordField]){
@@ -100,18 +101,18 @@
             for(UIImageView *imageView in imageViews){
                 imageView.image = [UIImage imageNamed:@"checkmark"];
             }
-            NSLog(@"%@", [textField.text stringByAppendingString:([string isEqualToString:[NSString string]]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)]);
+            NSLog(@"%@, logged from if", [textField.text stringByAppendingString:([string isEqualToString:[NSString string]]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)]);
         }
         else if([[[textField.text stringByAppendingString:([string isEqualToString:[NSString string]]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[NSString string]]){
             for(UIImageView *imageView in imageViews){
                 imageView.image = [UIImage imageNamed:@"x"];
             }
-            NSLog(@"%@", [textField.text stringByAppendingString:([string isEqualToString:[NSString string]]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)]);
+            NSLog(@"%@, logged from else if", [textField.text stringByAppendingString:([string isEqualToString:[NSString string]]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)]);
         }
         else{
             self.passwordMatchImage.image = [UIImage imageNamed:@"checkmark"];
             self.confirmPasswordMatchImage.image = [UIImage imageNamed:@"x"];
-            NSLog(@"%@", [textField.text stringByAppendingString:([string isEqualToString:@""]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)]);
+            NSLog(@"%@, logged from else", [textField.text stringByAppendingString:([string isEqualToString:@""]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)]);
         }
     }
     return YES;
