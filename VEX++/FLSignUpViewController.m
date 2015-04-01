@@ -15,6 +15,7 @@
 @interface FLSignUpViewController()
 @property (strong, nonatomic, nonnull) NSTimer *animationTimer;
 @property (strong, nonatomic, nonnull) UIView *launchScreen;
+@property (strong, nonatomic, nonnull) NSMutableDictionary *hasEdited;
 -(void)animateNextViewFromRight;
 -(BOOL)password:(NSString *)password matchesPassword:(NSString *)otherPassword;
 -(BOOL)passwordConformsToStandards:(NSString *)password;
@@ -75,6 +76,8 @@ void logBOOL(BOOL boolean);
     [textField textFieldDidBeginEditing:textField];
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField{
+    //Here's a little hack, because UITextField doesn't conform to NSCopying
+    self.hasEdited[textField.placeholder] = @(YES);
     [textField textFieldDidEndEditing:textField];
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -91,7 +94,11 @@ void logBOOL(BOOL boolean);
     if(textField != self.VEXIDField || (int)(textField.text.length + ((string.length * 2) - 1)) <= 5){
         textField.text = [textField.text stringByReplacingCharactersInRange:range withString:string];
     }
-    if(textField == self.passwordField || textField == self.confirmPasswordField){
+    if(textField.secureTextEntry){
+        if(((NSNumber *)self.hasEdited[textField.placeholder]).boolValue){
+            self.hasEdited[textField.placeholder] = @(NO);
+            textField.text = [NSString string];
+        }
         UITextField *otherField = nil;
         NSArray *const imageViews = @[self.passwordMatchImage, self.confirmPasswordMatchImage];
         for(UITextField *field in @[self.passwordField, self.confirmPasswordField]){
@@ -139,7 +146,11 @@ void logBOOL(BOOL boolean);
     //Right now, we just want the password to exist
     return ![[password stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[NSString string]];
 }
-void logBOOL(BOOL boolean){
-    NSLog(boolean ? @"YES" : @"NO");
+#pragma mark - Property Lazy Instantiation
+-(NSMutableDictionary *)hasEdited{
+    if(!_hasEdited){
+        _hasEdited = [NSMutableDictionary dictionary];
+    }
+    return _hasEdited;
 }
 @end
