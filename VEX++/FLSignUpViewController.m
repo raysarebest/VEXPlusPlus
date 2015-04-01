@@ -17,6 +17,8 @@
 @property (strong, nonatomic, nonnull) UIView *launchScreen;
 -(void)animateNextViewFromRight;
 -(BOOL)password:(NSString *)password matchesPassword:(NSString *)otherPassword;
+-(BOOL)passwordConformsToStandards:(NSString *)password;
+void logBOOL(BOOL boolean);
 @end
 @implementation FLSignUpViewController
 #pragma mark - View Setup Code
@@ -86,36 +88,34 @@
     return NO;
 }
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    //Fun fact: You can reliably detect a backspace by checking the value of range.length . If it's 0, it's not a backspace. If it's 1, it's a backspace
-    UITextField *otherField = nil;
-    NSArray *const imageViews = @[self.passwordMatchImage, self.confirmPasswordMatchImage];
-    for(UITextField *field in @[self.passwordField, self.confirmPasswordField]){
-        if(textField != field){
-            otherField = field;
-            break;
-        }
+    if(textField != self.VEXIDField || (int)(textField.text.length + ((string.length * 2) - 1)) <= 5){
+        textField.text = [textField.text stringByReplacingCharactersInRange:range withString:string];
     }
     if(textField == self.passwordField || textField == self.confirmPasswordField){
-        //This looks like the most violent if statement (used to be worse, actually), but it works, so don't touch it
-        if([self password:[textField.text stringByAppendingString:([string isEqualToString:[NSString string]] ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)] matchesPassword:otherField.text] && ![[[textField.text stringByAppendingString:string] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[NSString string]]){
+        UITextField *otherField = nil;
+        NSArray *const imageViews = @[self.passwordMatchImage, self.confirmPasswordMatchImage];
+        for(UITextField *field in @[self.passwordField, self.confirmPasswordField]){
+            if(textField != field){
+                otherField = field;
+                break;
+            }
+        }
+        if([self passwordConformsToStandards:textField.text] && [self password:textField.text matchesPassword:otherField.text]){
             for(UIImageView *imageView in imageViews){
                 imageView.image = [UIImage imageNamed:@"checkmark"];
             }
-            NSLog(@"%@, logged from if", [textField.text stringByAppendingString:([string isEqualToString:[NSString string]]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)]);
         }
-        else if([[[textField.text stringByAppendingString:([string isEqualToString:[NSString string]]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[NSString string]]){
+        else if(otherField == self.passwordField ? [otherField.text isEqualToString:[NSString string]] : [textField.text isEqualToString:[NSString string]]){
             for(UIImageView *imageView in imageViews){
                 imageView.image = [UIImage imageNamed:@"x"];
             }
-            NSLog(@"%@, logged from else if", [textField.text stringByAppendingString:([string isEqualToString:[NSString string]]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)]);
         }
         else{
             self.passwordMatchImage.image = [UIImage imageNamed:@"checkmark"];
             self.confirmPasswordMatchImage.image = [UIImage imageNamed:@"x"];
-            NSLog(@"%@, logged from else", [textField.text stringByAppendingString:([string isEqualToString:@""]  ? [textField.text stringByReplacingCharactersInRange:NSMakeRange(string.length, 1) withString:string] : string)]);
         }
     }
-    return YES;
+    return NO;
 }
 #pragma mark - IBActions
 -(IBAction)signUp{
@@ -131,8 +131,15 @@
         }
     }
 }
-#pragma mark - Utility Methods
+#pragma mark - Password Utilities
 -(BOOL)password:(NSString *)password matchesPassword:(NSString *)otherPassword{
     return [[password  stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[otherPassword stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+}
+-(BOOL)passwordConformsToStandards:(NSString *)password{
+    //Right now, we just want the password to exist
+    return ![[password stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:[NSString string]];
+}
+void logBOOL(BOOL boolean){
+    NSLog(boolean ? @"YES" : @"NO");
 }
 @end
