@@ -94,6 +94,9 @@
         case 202:
             reason = @"That VEX ID is already registered";
             break;
+        case 209:
+            reason = @"You need to log out and log back in again";
+            break;
         default:
             reason = error.userInfo[@"error"];
             break;

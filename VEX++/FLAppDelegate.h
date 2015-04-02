@@ -7,6 +7,6 @@
 //
 
 @import UIKit;
-@interface FLAppDelegate : UIResponder <UIApplicationDelegate>
+@interface FLAppDelegate : UIResponder <UIApplicationDelegate, UISplitViewControllerDelegate>
 @property (strong, nonatomic, nonnull) UIWindow *window;
 @end

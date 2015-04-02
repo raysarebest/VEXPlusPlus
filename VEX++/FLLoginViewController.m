@@ -160,9 +160,7 @@
                     static int invocations = 0;
                     if(error){
                         if([context isKindOfClass:[NSString class]] && error.code == kPFErrorObjectNotFound){
-                            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:context preferredStyle:UIAlertControllerStyleAlert];
-                            [alert addAction:[UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:nil]];
-                            [self presentViewController:alert animated:YES completion:nil];
+                            [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:context defaultHandler:YES] animated:YES completion:nil];
                         }
                         else{
                             invocations++;
@@ -179,10 +177,9 @@
                         invocations = 0;
                         NSUserDefaults *persistentStore = [NSUserDefaults standardUserDefaults];
                         [persistentStore setObject:VEXID forKey:FLMostRecentVEXIDKey];
-                        
                         [self securelyCachePasswordForString:password];
                         [persistentStore synchronize];
-                        [self dismissViewControllerAnimated:YES completion:nil];
+                        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                     }
                 }];
             }

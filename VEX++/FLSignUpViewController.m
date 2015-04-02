@@ -91,13 +91,14 @@ void logBOOL(BOOL boolean);
     return NO;
 }
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSString *nextValue = nil;
     if(textField != self.VEXIDField || (int)(textField.text.length + ((string.length * 2) - 1)) <= 5){
-        textField.text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        nextValue = [textField.text stringByReplacingCharactersInRange:range withString:string];
     }
     if(textField.secureTextEntry){
         if(((NSNumber *)self.hasEdited[textField.placeholder]).boolValue){
             self.hasEdited[textField.placeholder] = @(NO);
-            textField.text = [NSString string];
+            nextValue = [NSString string];
         }
         UITextField *otherField = nil;
         NSArray *const imageViews = @[self.passwordMatchImage, self.confirmPasswordMatchImage];
@@ -107,12 +108,12 @@ void logBOOL(BOOL boolean);
                 break;
             }
         }
-        if([self passwordConformsToStandards:textField.text] && [self password:textField.text matchesPassword:otherField.text]){
+        if([self passwordConformsToStandards:nextValue] && [self password:nextValue matchesPassword:otherField.text]){
             for(UIImageView *imageView in imageViews){
                 imageView.image = [UIImage imageNamed:@"checkmark"];
             }
         }
-        else if(otherField == self.passwordField ? [otherField.text isEqualToString:[NSString string]] : [textField.text isEqualToString:[NSString string]]){
+        else if(otherField == self.passwordField ? [otherField.text isEqualToString:[NSString string]] : [nextValue isEqualToString:[NSString string]]){
             for(UIImageView *imageView in imageViews){
                 imageView.image = [UIImage imageNamed:@"x"];
             }
@@ -122,7 +123,7 @@ void logBOOL(BOOL boolean);
             self.confirmPasswordMatchImage.image = [UIImage imageNamed:@"x"];
         }
     }
-    return NO;
+    return YES;
 }
 #pragma mark - IBActions
 -(IBAction)signUp{
@@ -136,6 +137,41 @@ void logBOOL(BOOL boolean);
                 return;
             }
         }
+    }
+    if([self password:self.passwordField.text matchesPassword:self.confirmPasswordField.text] && [self passwordConformsToStandards:self.passwordField.text]){
+        if([[NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"] evaluateWithObject:self.emailField.text]){
+            [PFCloud callFunctionInBackground:@"validateVEXID" withParameters:@{@"VEXID":self.VEXIDField.text.uppercaseString} block:^(id result, NSError *error){
+                if(error){
+                    [loader hide];
+                    [self presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
+                }
+                else{
+                    PFUser *newUser = [PFUser user];
+                    newUser.username = self.VEXIDField.text.uppercaseString;
+                    newUser.password = self.passwordField.text;
+                    newUser.email = self.emailField.text.lowercaseString;
+                    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                        if(succeeded && !error){
+                            [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                                [loader hide];
+                            }];
+                        }
+                        else{
+                            [loader hide];
+                            [self presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
+                        }
+                    }];
+                }
+            }];
+        }
+        else{
+            [loader hide];
+            [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"Please make sure you enter a valid email address" defaultHandler:YES] animated:YES completion:nil];
+        }
+    }
+    else{
+        [loader hide];
+        [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"Make sure the passwords you entered are the same, and they exist" defaultHandler:YES] animated:YES completion:nil];
     }
 }
 #pragma mark - Password Utilities

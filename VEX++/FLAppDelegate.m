@@ -11,8 +11,6 @@
 #import "FLLoginViewController.h"
 #import "FLSplitViewController.h"
 @import Parse;
-@interface FLAppDelegate() <UISplitViewControllerDelegate>
-@end
 @implementation FLAppDelegate
 #pragma mark - UIApplicationDelegate Methods
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
