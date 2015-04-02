@@ -104,7 +104,7 @@
     }
 }
 #pragma mark - Initialization
--(instancetype)initWithClassName:(__nonnull NSString *)newClassName{
+-(instancetype)initWithClassName:(NSString * __nonnull)newClassName{
     if(self = [super initWithClassName:newClassName]){
         //These dynamic properties are guaranteed nonnull, so they must be initialized here
         self.autonValues = [NSMutableArray array];

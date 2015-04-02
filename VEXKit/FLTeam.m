@@ -22,7 +22,7 @@
     [self registerSubclass];
 }
 #pragma mark - Initialization
--(instancetype)initWithClassName:(__nonnull NSString *)newClassName{
+-(instancetype)initWithClassName:(NSString * __nonnull)newClassName{
     if(self = [super initWithClassName:newClassName]){
         //This guarantees that the nonnull self.VEXID will always have a value assigned
         self.VEXID = @"????";
