@@ -7,6 +7,9 @@
 //
 
 @import UIKit;
+static NSString * __nonnull const FLMostRecentVEXIDKey = @"lastVEXID";
+static NSString * __nonnull const FLMostRecentPasswordKey = @"lastPassword";
 @interface FLAppDelegate : UIResponder <UIApplicationDelegate, UISplitViewControllerDelegate>
 @property (strong, nonatomic, nonnull) UIWindow *window;
+-(void)saveAuthDataWithVEXID:(nonnull NSString *)VEXID password:(nonnull NSString *)password;
 @end

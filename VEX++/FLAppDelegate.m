@@ -23,8 +23,6 @@
     [Parse enableLocalDatastore];
     [Parse setApplicationId:@"4KfQ41sgJ1WsXD0N2ks3Ui52gncGQA1iSfHq6myr" clientKey:@"Te4E5KJz5bealm8VfyBhbXP6foeqDwPYc343iJ0m"];
     [PFUser enableRevocableSessionInBackground];
-    //FIXME: This is here for debugging, until I add an actual log out button
-    [PFUser logOut];
     return YES;
 }
 -(void)applicationWillResignActive:(UIApplication *)application{
@@ -53,5 +51,12 @@
     else{
         return NO;
     }
+}
+#pragma mark - Other Helper Methods
+-(void)saveAuthDataWithVEXID:(NSString *)VEXID password:(NSString *)password{
+    NSUserDefaults *persistentStore = [NSUserDefaults standardUserDefaults];
+    [persistentStore setObject:VEXID forKey:FLMostRecentVEXIDKey];
+    [persistentStore setObject:password forKey:FLMostRecentPasswordKey];
+    [persistentStore synchronize];
 }
 @end

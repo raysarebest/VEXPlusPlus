@@ -28,7 +28,7 @@
 -(void)hideForgotButtonFromSelector;
 -(void)keyboardWillChangeFrame;
 -(void)keyboardDidChangeFrame;
--(void)securelyCachePasswordForString:(nonnull NSString *)password;
+-(void)securelyCacheAuthData;
 -(void)attemptBiometricLogin;
 -(nullable NSString *)unencrypedPassword;
 @end
@@ -65,6 +65,8 @@
         [self.navigationController setNavigationBarHidden:YES animated:NO];
     }
     else{
+        [self.view sendSubviewToBack:self.launchScreen];
+        self.launchScreen.alpha = .5;
         [self setStatusBarHidden:NO animated:NO];
     }
     self.launching = self.appLaunch;
@@ -175,10 +177,7 @@
                     }
                     else{
                         invocations = 0;
-                        NSUserDefaults *persistentStore = [NSUserDefaults standardUserDefaults];
-                        [persistentStore setObject:VEXID forKey:FLMostRecentVEXIDKey];
-                        [self securelyCachePasswordForString:password];
-                        [persistentStore synchronize];
+                        [self securelyCacheAuthData];
                         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                     }
                 }];
@@ -255,9 +254,9 @@
     }
 }
 #pragma mark - Security
--(void)securelyCachePasswordForString:(NSString *)password{
+-(void)securelyCacheAuthData{
     //FIXME: THE ABSOLUTELY FUCKING HELLISHLY FUCKING DANGEROUS SECURITY IN THIS MOTHERFUCKING APP
-    [[NSUserDefaults standardUserDefaults] setObject:[password.reversedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:FLMostRecentPasswordKey];
+    [(FLAppDelegate *)[UIApplication sharedApplication].delegate saveAuthDataWithVEXID:[self.VEXIDField.text.uppercaseString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] password:[self.passwordField.text.reversedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
 }
 -(NSString *)unencrypedPassword{
     //FIXME: THIS FUCKING "SECURITY" OH MY FUCKING GOD

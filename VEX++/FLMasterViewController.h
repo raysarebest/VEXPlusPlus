@@ -9,5 +9,5 @@
 @import UIKit;
 @class FLDetailViewController;
 @interface FLMasterViewController : UITableViewController
-@property (strong, nonatomic) FLDetailViewController *detailViewController;
+@property (strong, nonatomic, nonnull) FLDetailViewController *detailViewController;
 @end

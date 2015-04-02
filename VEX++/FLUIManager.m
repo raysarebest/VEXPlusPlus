@@ -7,6 +7,7 @@
 //
 
 #import "FLUIManager.h"
+#import "FLLoginViewController.h"
 @import QuartzCore;
 @import Parse;
 @implementation FLUIManager
@@ -126,5 +127,11 @@
     [view addSubview:launchScreen];
     [view bringSubviewToFront:launchScreen];
     return launchScreen;
+}
++(void)presentLoginSceneAnimated:(BOOL)animated inLaunchingState:(BOOL)state completion:(nullable void (^)())completion{
+    UINavigationController *login = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"auth"];
+    ((FLLoginViewController *)login.viewControllers.firstObject).appLaunch = state;
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:login animated:animated completion:completion];
+    
 }
 @end

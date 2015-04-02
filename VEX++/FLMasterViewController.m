@@ -8,12 +8,15 @@
 
 #import "FLMasterViewController.h"
 #import "FLDetailViewController.h"
-
+#import "FLLoadingView.h"
+#import "FLUIManager.h"
+@import Parse;
 @interface FLMasterViewController()
-@property (strong, nonatomic) NSMutableArray *objects;
+@property (strong, nonatomic, nonnull) NSMutableArray *objects;
 @end
 
 @implementation FLMasterViewController
+#pragma mark - View Setup Code
 -(void)awakeFromNib{
     [super awakeFromNib];
     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
@@ -25,10 +28,28 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.detailViewController = (FLDetailViewController *)[self.splitViewController.viewControllers.lastObject topViewController];
 }
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+#pragma mark - IBActions
+-(IBAction)logOut:(UIBarButtonItem *)sender{
+    FLLoadingView *loader = [FLLoadingView createInView:self.view];
+    [PFUser logOutInBackgroundWithBlock:^(NSError *error){
+        if(error){
+            [loader hide];
+            [self presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
+        }
+        else{
+            [FLUIManager presentLoginSceneAnimated:YES inLaunchingState:NO completion:^{
+                [loader hide];
+            }];
+        }
+    }];
+}
+#pragma mark - Editing
 -(void)insertNewObject:(id)sender{
     [self.objects insertObject:[NSDate date] atIndex:0];
     [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];

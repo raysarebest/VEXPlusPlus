@@ -158,6 +158,7 @@ void logBOOL(BOOL boolean);
                         }
                         else{
                             [loader hide];
+                            [(FLAppDelegate *)[UIApplication sharedApplication].delegate saveAuthDataWithVEXID:self.VEXIDField.text password:self.passwordField.text];
                             [self presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
                         }
                     }];

@@ -19,6 +19,7 @@
 +(nonnull UIAlertController *)alertControllerWithTitle:(nullable NSString*)title message:(nullable NSString *)message defaultHandler:(BOOL)shouldCreateDefaultHandler;
 +(nonnull UIAlertController *)defaultParseErrorAlertControllerForError:(nonnull NSError *)error defaultHandler:(BOOL)shouldCreateDefaultAction;
 +(void)addParallaxEffectToView:(nonnull UIView *)view withSway:(nullable NSNumber *)sway;
++(void)presentLoginSceneAnimated:(BOOL)animated inLaunchingState:(BOOL)state completion:(nullable void(^)())completion;
 +(BOOL)sizeIsPortrait:(CGSize)size;
 +(BOOL)sizeIsLandscape:(CGSize)size;
 @end

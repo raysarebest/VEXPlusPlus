@@ -33,10 +33,9 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if(![PFUser currentUser]){
-        UINavigationController *login = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"auth"];
-        ((FLLoginViewController *)login.viewControllers.firstObject).appLaunch = YES;
-        [self presentViewController:login animated:!self.appLaunch completion:nil];
+        [FLUIManager presentLoginSceneAnimated:!self.appLaunch inLaunchingState:self.appLaunch completion:nil];
     }
+    self.appLaunch = NO;
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
