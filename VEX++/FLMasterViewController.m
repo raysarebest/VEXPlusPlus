@@ -36,11 +36,18 @@
 }
 #pragma mark - IBActions
 -(IBAction)logOut:(UIBarButtonItem *)sender{
-    FLLoadingView *loader = [FLLoadingView createInView:self.view];
+    //A super hacky way to hide the master view controller
+    if([FLUIManager sizeIsPortrait:self.splitViewController.view.frame.size] && [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
+        UIBarButtonItem *const button = self.splitViewController.displayModeButtonItem;
+        [[UIApplication sharedApplication] sendAction:button.action to:button.target from:self forEvent:nil];
+    }
+    //Show the loading view
+    FLLoadingView *loader = [FLLoadingView createInView:self.splitViewController.view];
+    //Log out
     [PFUser logOutInBackgroundWithBlock:^(NSError *error){
         if(error){
             [loader hide];
-            [self presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
+            [self.splitViewController presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
         }
         else{
             [FLUIManager presentLoginSceneAnimated:YES inLaunchingState:NO completion:^{
@@ -56,7 +63,7 @@
 }
 #pragma mark - Segues
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"showDetail"]) {
+    if([segue.identifier isEqualToString:@"showDetail"]){
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSDate *object = self.objects[indexPath.row];
         FLDetailViewController *controller = (FLDetailViewController *)[segue.destinationViewController topViewController];
