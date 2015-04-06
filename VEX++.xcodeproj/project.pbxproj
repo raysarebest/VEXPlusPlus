@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C1020621ACC93B60084B951 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1020611ACC93B60084B951 /* Bolts.framework */; };
 		4C1020651ACC94120084B951 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1020631ACC94090084B951 /* AudioToolbox.framework */; };
 		4C1020681ACC94350084B951 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1020661ACC941D0084B951 /* CFNetwork.framework */; };
 		4C10206B1ACC94500084B951 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1020691ACC94420084B951 /* CoreGraphics.framework */; };
@@ -19,8 +18,9 @@
 		4C10207D1ACC951A0084B951 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C10207B1ACC950F0084B951 /* SystemConfiguration.framework */; };
 		4C1020801ACC952E0084B951 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C10207E1ACC95210084B951 /* libz.dylib */; };
 		4C1020831ACC95430084B951 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1020811ACC953A0084B951 /* libsqlite3.dylib */; };
-		4C10208B1ACC9C470084B951 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C10208A1ACC9C470084B951 /* Parse.framework */; };
-		4C10208C1ACC9C4D0084B951 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C10208A1ACC9C470084B951 /* Parse.framework */; };
+		4C245E9F1ACF53910025A6A7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C245E9E1ACF53910025A6A7 /* Parse.framework */; };
+		4C245EA11ACF53A60025A6A7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C245EA01ACF53A60025A6A7 /* Bolts.framework */; };
+		4C245EA21ACF53D10025A6A7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C245E9E1ACF53910025A6A7 /* Parse.framework */; };
 		4C9E1C931AC84C8200F7E8F5 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9E1C921AC84C8200F7E8F5 /* LocalAuthentication.framework */; };
 		4C9E1C971AC8507700F7E8F5 /* NSString+FLReversedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9E1C961AC8507700F7E8F5 /* NSString+FLReversedString.m */; };
 		4CC8D4661AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4651AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m */; };
@@ -99,7 +99,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4C1020611ACC93B60084B951 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		4C1020631ACC94090084B951 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4C1020661ACC941D0084B951 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4C1020691ACC94420084B951 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -111,7 +110,8 @@
 		4C10207B1ACC950F0084B951 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4C10207E1ACC95210084B951 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4C1020811ACC953A0084B951 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		4C10208A1ACC9C470084B951 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		4C245E9E1ACF53910025A6A7 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		4C245EA01ACF53A60025A6A7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		4C9E1C921AC84C8200F7E8F5 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		4C9E1C951AC8507700F7E8F5 /* NSString+FLReversedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FLReversedString.h"; sourceTree = "<group>"; };
 		4C9E1C961AC8507700F7E8F5 /* NSString+FLReversedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FLReversedString.m"; sourceTree = "<group>"; };
@@ -175,13 +175,13 @@
 				4C1020681ACC94350084B951 /* CFNetwork.framework in Frameworks */,
 				4C10206B1ACC94500084B951 /* CoreGraphics.framework in Frameworks */,
 				4C10206E1ACC94670084B951 /* CoreLocation.framework in Frameworks */,
-				4C10208B1ACC9C470084B951 /* Parse.framework in Frameworks */,
 				4C1020711ACC94880084B951 /* MobileCoreServices.framework in Frameworks */,
 				4C1020741ACC949A0084B951 /* QuartzCore.framework in Frameworks */,
 				4C1020771ACC94AF0084B951 /* Security.framework in Frameworks */,
+				4C245E9F1ACF53910025A6A7 /* Parse.framework in Frameworks */,
 				4C10207A1ACC94BF0084B951 /* StoreKit.framework in Frameworks */,
 				4C10207D1ACC951A0084B951 /* SystemConfiguration.framework in Frameworks */,
-				4C1020621ACC93B60084B951 /* Bolts.framework in Frameworks */,
+				4C245EA11ACF53A60025A6A7 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +199,7 @@
 			files = (
 				4C9E1C931AC84C8200F7E8F5 /* LocalAuthentication.framework in Frameworks */,
 				4CC8D4BD1AA7EF7800D1604B /* VEXKit.framework in Frameworks */,
-				4C10208C1ACC9C4D0084B951 /* Parse.framework in Frameworks */,
+				4C245EA21ACF53D10025A6A7 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,8 +252,6 @@
 		4CC8D46E1AA7853400D1604B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				4CF36DB51ABA7CE9008E0E16 /* FLSplitViewController.h */,
-				4CF36DB61ABA7CE9008E0E16 /* FLSplitViewController.m */,
 				4CC8D4701AA7864500D1604B /* FLLoginViewController.h */,
 				4CC8D4711AA7864500D1604B /* FLLoginViewController.m */,
 				4CC8D4731AA7869000D1604B /* FLSignUpViewController.h */,
@@ -269,6 +267,8 @@
 				4CF566DF1A9D1D2B00FEA5FD /* FLMasterViewController.m */,
 				4CF566E11A9D1D2B00FEA5FD /* FLDetailViewController.h */,
 				4CF566E21A9D1D2B00FEA5FD /* FLDetailViewController.m */,
+				4CF36DB51ABA7CE9008E0E16 /* FLSplitViewController.h */,
+				4CF36DB61ABA7CE9008E0E16 /* FLSplitViewController.m */,
 			);
 			name = "Data View Controllers";
 			sourceTree = "<group>";
@@ -342,8 +342,8 @@
 				4C1020751ACC94A50084B951 /* Security.framework */,
 				4C1020781ACC94B60084B951 /* StoreKit.framework */,
 				4C10207B1ACC950F0084B951 /* SystemConfiguration.framework */,
-				4C10208A1ACC9C470084B951 /* Parse.framework */,
-				4C1020611ACC93B60084B951 /* Bolts.framework */,
+				4C245E9E1ACF53910025A6A7 /* Parse.framework */,
+				4C245EA01ACF53A60025A6A7 /* Bolts.framework */,
 			);
 			name = Parse;
 			sourceTree = "<group>";

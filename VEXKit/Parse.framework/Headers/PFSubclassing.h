@@ -4,7 +4,13 @@
 //  Copyright 2011-present Parse Inc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+
+#if PARSE_IOS_ONLY
+#import <Parse/PFNullability.h>
+#else
+#import <ParseOSX/PFNullability.h>
+#endif
 
 @class PFQuery;
 

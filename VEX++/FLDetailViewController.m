@@ -15,6 +15,7 @@
         _detailItem = newDetailItem;
         // Update the view.
         [self configureView];
+        [[UIApplication sharedApplication] sendAction:self.navigationItem.leftBarButtonItem.action to:self.navigationItem.leftBarButtonItem.target from:self.splitViewController forEvent:nil];
     }
 }
 -(void)configureView{

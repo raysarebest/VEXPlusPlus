@@ -30,12 +30,17 @@
         [self setNeedsStatusBarAppearanceUpdate];
     }
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if([PFUser currentUser]){
+        self.appLaunch = self.shouldHideStatusBar = NO;
+    }
+}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if(![PFUser currentUser]){
         [FLUIManager presentLoginSceneAnimated:!self.appLaunch inLaunchingState:self.appLaunch completion:nil];
     }
-    self.appLaunch = NO;
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;

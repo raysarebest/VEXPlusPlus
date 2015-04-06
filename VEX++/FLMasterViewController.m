@@ -14,7 +14,6 @@
 @interface FLMasterViewController()
 @property (strong, nonatomic, nonnull) NSMutableArray *objects;
 @end
-
 @implementation FLMasterViewController
 #pragma mark - View Setup Code
 -(void)awakeFromNib{
@@ -31,16 +30,14 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.detailViewController = (FLDetailViewController *)[self.splitViewController.viewControllers.lastObject topViewController];
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
 #pragma mark - IBActions
 -(IBAction)logOut:(UIBarButtonItem *)sender{
-    //A super hacky way to hide the master view controller
-    if([FLUIManager sizeIsPortrait:self.splitViewController.view.frame.size] && [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
-        UIBarButtonItem *const button = self.splitViewController.displayModeButtonItem;
-        [[UIApplication sharedApplication] sendAction:button.action to:button.target from:self forEvent:nil];
-    }
     //Show the loading view
     FLLoadingView *loader = [FLLoadingView createInView:self.splitViewController.view];
     //Log out
@@ -67,11 +64,12 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSDate *object = self.objects[indexPath.row];
         FLDetailViewController *controller = (FLDetailViewController *)[segue.destinationViewController topViewController];
-        [controller setDetailItem:object];
+        controller.detailItem = object;
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
         controller.navigationItem.rightBarButtonItem = self.splitViewController.editButtonItem;
     }
+    [super prepareForSegue:segue sender:sender];
 }
 #pragma mark - UITableViewDelegate Methods
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -94,6 +92,9 @@
     else if(editingStyle == UITableViewCellEditingStyleInsert){
         //Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
+}
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    cell.backgroundColor = [FLUIManager backgroundColor];
 }
 #pragma mark - Property Lazy Instantiation
 -(NSMutableArray *)objects{

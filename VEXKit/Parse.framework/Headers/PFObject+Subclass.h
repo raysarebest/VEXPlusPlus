@@ -4,11 +4,13 @@
 //  Copyright 2011-present Parse Inc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 #if TARGET_OS_IPHONE
+#import <Parse/PFNullability.h>
 #import <Parse/PFObject.h>
 #else
+#import <ParseOSX/PFNullability.h>
 #import <ParseOSX/PFObject.h>
 #endif
 
