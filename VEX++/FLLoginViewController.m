@@ -190,6 +190,7 @@
     }
     else if(![VEXID isEqualToString:[NSString string]] && [password isEqualToString:[NSString string]]){
         [loader hide];
+        NSLog(@"%@", context);
         [self presentViewController:[FLUIManager alertControllerWithTitle:nil message:@"You must enter a password" defaultHandler:YES] animated:YES completion:nil];
     }
     else{
@@ -263,6 +264,7 @@
     return [[NSUserDefaults standardUserDefaults] stringForKey:FLMostRecentPasswordKey].reversedString;
 }
 -(void)attemptBiometricLogin{
+    [self.view endEditing:YES];
     LAContext *const context = [LAContext new];
     NSError *authError = nil;
     if([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError] && [[NSUserDefaults standardUserDefaults] stringForKey:FLMostRecentPasswordKey]){
@@ -387,14 +389,14 @@
 -(void)prepareCriticalUIForLaunch{
     self.criticalMovement = 0;
     for(UIView *object in self.animators){
-        if([object isKindOfClass:[UIButton class]]){
+        if(object == self.logInButton){
             NSInteger original = object.center.y;
             object.center = CGPointMake(object.center.x, 0 - object.frame.size.height);
             self.criticalMovement = original - object.center.y;
         }
     }
     for(UIView *object in self.animators){
-        if(![object isKindOfClass:[UIButton class]]){
+        if(object != self.logInButton){
             UITextField *field = (UITextField *)object;
             field.center = CGPointMake(field.center.x, field.center.y - self.criticalMovement);
         }

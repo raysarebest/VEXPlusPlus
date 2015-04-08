@@ -1,7 +1,7 @@
 // PFConstants.h
 // Copyright 2011 Parse, Inc. All rights reserved.
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 #if TARGET_OS_IPHONE
 #import <Parse/PFNullability.h>
@@ -30,9 +30,9 @@ extern NSInteger const PARSE_API_VERSION;
 extern NSString *const PF_NONNULL_S kPFDeviceType;
 
 #if PARSE_IOS_ONLY
-@import UIKit;
+#import <UIKit/UIKit.h>
 #else
-@import Cocoa;
+#import <Cocoa/Cocoa.h>
 @compatibility_alias UIImage NSImage;
 @compatibility_alias UIColor NSColor;
 @compatibility_alias UIView NSView;

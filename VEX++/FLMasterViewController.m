@@ -10,9 +10,11 @@
 #import "FLDetailViewController.h"
 #import "FLLoadingView.h"
 #import "FLUIManager.h"
+@import VEXKit;
 @import Parse;
 @interface FLMasterViewController()
-@property (strong, nonatomic, nonnull) NSMutableArray *objects;
+@property (strong, nonatomic, nonnull) NSMutableArray *teams;
+-(void)sortTableViewByVEXID;
 @end
 @implementation FLMasterViewController
 #pragma mark - View Setup Code
@@ -27,11 +29,17 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.detailViewController = (FLDetailViewController *)[self.splitViewController.viewControllers.lastObject topViewController];
+    self.refreshControl = [UIRefreshControl new];
+    self.refreshControl.tintColor = [FLUIManager accentColor];
+    [self.refreshControl addTarget:self action:@selector(updateTableViewData:) forControlEvents:UIControlEventValueChanged];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:NO];
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
@@ -39,32 +47,65 @@
 #pragma mark - IBActions
 -(IBAction)logOut:(UIBarButtonItem *)sender{
     //Show the loading view
-    FLLoadingView *loader = [FLLoadingView createInView:self.splitViewController.view];
-    //Log out
-    [PFUser logOutInBackgroundWithBlock:^(NSError *error){
-        if(error){
-            [loader hide];
-            [self.splitViewController presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
-        }
-        else{
-            [FLUIManager presentLoginSceneAnimated:YES inLaunchingState:NO completion:^{
-                [loader hide];
-            }];
-        }
+    __block FLLoadingView *loader = [FLLoadingView createInView:self.splitViewController.view];
+    //logOutInBackgroundWithBlock: has an NSUnderlyingError in Parse 1.7.1, so we have to do it the old-fashioned way
+    [PFUser logOut];
+    [FLUIManager presentLoginSceneAnimated:YES inLaunchingState:NO completion:^{
+        [loader hide];
     }];
 }
-#pragma mark - Editing
--(void)insertNewObject:(id)sender{
-    [self.objects insertObject:[NSDate date] atIndex:0];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+#pragma mark - Data Manipulation
+-(IBAction)newTeam{
+    [self.teams insertObject:[FLTeam new] atIndex:0];
+    NSIndexPath *const firstIndex = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[firstIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView selectRowAtIndexPath:firstIndex animated:YES scrollPosition:UITableViewScrollPositionTop];
+    [self performSegueWithIdentifier:@"showDetail" sender:self];
+}
+-(void)updateTableViewData:(id)context{
+    //TODO: Prioritize the cache on app launch
+    PFQuery *allData = [PFQuery queryWithClassName:[FLTeam parseClassName]];
+    __block NSInteger calls;
+    if(self.refreshControl.refreshing){
+        allData.cachePolicy = kPFCachePolicyCacheThenNetwork;
+        calls = 1;
+    }
+    else{
+        allData.cachePolicy = kPFCachePolicyCacheOnly;
+        calls = 2;
+    }
+    allData.limit = 1000;
+    [self.teams removeAllObjects];
+    [allData findObjectsInBackgroundWithBlock:^(NSArray *teams, NSError *error){
+        //Only update everything when it's done with the network
+        [self.teams addObjectsFromArray:teams];
+        if(calls == 1){
+            calls++;
+        }
+        else{
+            if(self.refreshControl.refreshing){
+                [self.refreshControl endRefreshing];
+            }
+            if(error && error.code != kPFErrorCacheMiss){
+                [self presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
+            }
+            else{
+                if([context isKindOfClass:[FLLoadingView class]]){
+                    [(FLLoadingView *)context hide];
+                }
+                [self sortTableViewByVEXID];
+                [self.tableView reloadData];
+            }
+        }
+    }];
 }
 #pragma mark - Segues
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"showDetail"]){
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
+        FLTeam *team = self.teams[indexPath.row];
         FLDetailViewController *controller = (FLDetailViewController *)[segue.destinationViewController topViewController];
-        controller.detailItem = object;
+        controller.team = team;
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
         controller.navigationItem.rightBarButtonItem = self.splitViewController.editButtonItem;
@@ -76,17 +117,17 @@
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.objects.count;
+    return self.teams.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = object.description;
+    FLTeam *team = self.teams[indexPath.row];
+    cell.textLabel.text = team.nickname;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if(editingStyle == UITableViewCellEditingStyleDelete){
-        [self.objects removeObjectAtIndex:indexPath.row];
+        [self.teams removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
     else if(editingStyle == UITableViewCellEditingStyleInsert){
@@ -97,10 +138,14 @@
     cell.backgroundColor = [FLUIManager backgroundColor];
 }
 #pragma mark - Property Lazy Instantiation
--(NSMutableArray *)objects{
-    if(!_objects){
-        _objects = [NSMutableArray array];
+-(NSMutableArray *)teams{
+    if(!_teams){
+        _teams = [NSMutableArray array];
     }
-    return _objects;
+    return _teams;
+}
+#pragma mark - Helper Methods
+-(void)sortTableViewByVEXID{
+    self.teams = [self.teams sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"VEXID" ascending:YES selector:@selector(caseInsensitiveCompare:)]]].mutableCopy;
 }
 @end

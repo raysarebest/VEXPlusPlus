@@ -4,8 +4,8 @@
 //  Copyright 2011-present Parse Inc. All rights reserved.
 //
 
-@import Foundation;
-@import CoreLocation;
+#import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 #if TARGET_OS_IPHONE
 #import <Parse/PFNullability.h>

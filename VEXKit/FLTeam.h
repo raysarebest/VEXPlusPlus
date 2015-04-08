@@ -12,7 +12,7 @@
 @interface FLTeam : PFObject <PFSubclassing>
 @property (strong, nonatomic, nullable) FLRobot *robot;
 @property (strong, nonatomic, nonnull) NSString *VEXID;
-@property (strong, nonatomic, nullable) NSString *nickname;
+@property (strong, nonatomic, nonnull) NSString *nickname;
 @property (strong, nonatomic, nullable) NSString *organization;
 @property (nonatomic) int abilityScaleIndex;
 @property (nonatomic, readonly) BOOL complete;

@@ -20,7 +20,6 @@
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
     splitViewController.appLaunch = YES;
-    [Parse enableLocalDatastore];
     [Parse setApplicationId:@"4KfQ41sgJ1WsXD0N2ks3Ui52gncGQA1iSfHq6myr" clientKey:@"Te4E5KJz5bealm8VfyBhbXP6foeqDwPYc343iJ0m"];
     [PFUser enableRevocableSessionInBackground];
     return YES;
@@ -44,7 +43,7 @@
 }
 #pragma mark - UISplitViewControllerDelegate Methods
 -(BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController{
-    if([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[FLDetailViewController class]] && ([(FLDetailViewController *)[(UINavigationController *)secondaryViewController topViewController] detailItem] == nil)) {
+    if([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[FLDetailViewController class]] && (((FLDetailViewController *)[(UINavigationController *)secondaryViewController topViewController]).team == nil)) {
         // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
         return YES;
     }

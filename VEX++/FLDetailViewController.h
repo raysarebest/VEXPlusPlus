@@ -7,7 +7,8 @@
 //
 
 @import UIKit;
+@class FLTeam;
 @interface FLDetailViewController : UIViewController
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) FLTeam *team;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

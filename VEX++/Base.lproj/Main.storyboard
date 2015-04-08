@@ -125,6 +125,11 @@
                                 <action selector="logOut:" destination="7bK-jq-Zjz" id="byl-qj-agK"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sby-4O-dwt">
+                            <connections>
+                                <action selector="newTeam" destination="7bK-jq-Zjz" id="a2f-jJ-B5h"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
@@ -196,9 +201,6 @@
                                                 <exclude reference="HJJ-DF-PkD"/>
                                             </mask>
                                         </variation>
-                                        <connections>
-                                            <action selector="logIn:" destination="w7q-hW-iI3" eventType="editingDidEnd" id="rE0-hY-agO"/>
-                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4g-LA-vI0">
                                         <rect key="frame" x="432" y="285" width="54" height="30"/>
@@ -303,6 +305,7 @@
                         <outlet property="VEXIDField" destination="tfB-cI-LRS" id="E2i-93-8Zw"/>
                         <outlet property="forgotButton" destination="w4g-LA-vI0" id="q7n-Fj-EYg"/>
                         <outlet property="forgotSpace" destination="TiH-cK-RSe" id="AOb-TR-8er"/>
+                        <outlet property="logInButton" destination="Q8h-ID-Bfl" id="Ual-BJ-hwi"/>
                         <outlet property="passwordField" destination="BCC-S4-XE1" id="QlC-Vx-wW6"/>
                         <outlet property="signUpView" destination="umb-Tb-f9d" id="dVu-Vc-7fp"/>
                         <outletCollection property="animators" destination="tfB-cI-LRS" id="Nrz-xo-Dah"/>

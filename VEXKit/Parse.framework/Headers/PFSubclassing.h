@@ -4,7 +4,7 @@
 //  Copyright 2011-present Parse Inc. All rights reserved.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 #if PARSE_IOS_ONLY
 #import <Parse/PFNullability.h>

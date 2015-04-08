@@ -10,6 +10,7 @@
 @interface FLLoginViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic, nonnull) IBOutlet UIView *signUpView;
 @property (weak, nonatomic, nonnull) IBOutlet UIButton *forgotButton;
+@property (weak, nonatomic, nonnull) IBOutlet UIButton *logInButton;
 @property (weak, nonatomic, nonnull) IBOutlet UITextField *VEXIDField;
 @property (weak, nonatomic, nonnull) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic, nonnull) IBOutlet NSLayoutConstraint *forgotSpace;

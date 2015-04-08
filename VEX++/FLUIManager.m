@@ -35,7 +35,7 @@
 }
 +(void)addParallaxEffectToView:(nonnull UIView *)view withSway:(nullable NSNumber *)sway{
     if(!sway){
-        sway = @(20);
+        sway = @20;
     }
     UIInterpolatingMotionEffect *horizontal = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
     horizontal.minimumRelativeValue = @(-sway.intValue);
@@ -69,6 +69,7 @@
 }
 +(UIAlertController *)defaultParseErrorAlertControllerForError:(NSError *)error defaultHandler:(BOOL)shouldCreateDefaultAction{
     NSString *reason;
+    NSError * const defaultError = [NSError errorWithDomain:error.domain code:140 userInfo:error.userInfo];      
     switch(error.code){
         case 208:
             reason = @"That Facebook account is already linked to another team";
@@ -80,7 +81,7 @@
             reason = @"A server error occurred. Please try again later";
             break;
         case 1:
-            return [self defaultParseErrorAlertControllerForError:error defaultHandler:shouldCreateDefaultAction];
+            return [self defaultParseErrorAlertControllerForError:defaultError defaultHandler:shouldCreateDefaultAction];
         case 114:
             reason = @"That isn't a valid email address";
             break;
@@ -88,7 +89,7 @@
             reason = @"Your VEX ID or password is incorrect";
             break;
         case 155:
-            return [self defaultParseErrorAlertControllerForError:error defaultHandler:shouldCreateDefaultAction];
+            return [self defaultParseErrorAlertControllerForError:defaultError defaultHandler:shouldCreateDefaultAction];
         case 203:
             reason = @"That email address is already linked to another team";
             break;

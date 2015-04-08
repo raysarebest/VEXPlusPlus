@@ -4,7 +4,7 @@
 //  Copyright 2011-present Parse Inc. All rights reserved.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 #if TARGET_OS_IPHONE
 #import <Parse/PFObject.h>

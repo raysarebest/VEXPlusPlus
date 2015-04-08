@@ -8,6 +8,8 @@
 
 #import "FLSplitViewController.h"
 #import "FLLoginViewController.h"
+#import "FLMasterViewController.h"
+#import "FLLoadingView.h"
 #import "FLUIManager.h"
 #import "FLAppDelegate.h"
 @import Parse;
@@ -28,6 +30,7 @@
         [self.launchScreen removeFromSuperview];
         self.shouldHideStatusBar = NO;
         [self setNeedsStatusBarAppearanceUpdate];
+        [(FLMasterViewController *)((UINavigationController *)self.viewControllers.firstObject).viewControllers.firstObject updateTableViewData:[FLLoadingView createInView:self.view]];
     }
 }
 -(void)viewWillAppear:(BOOL)animated{

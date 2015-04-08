@@ -7,8 +7,10 @@
 //
 
 #import "FLRobot.h"
+#import "FLTeam.h"
 @implementation FLRobot
 #pragma mark - Property Synthesization
+@synthesize team;
 @dynamic lift;
 @dynamic drive;
 @dynamic cubeCapacity;
@@ -116,13 +118,8 @@
         return nil;
     }
 }
--(instancetype)init{
-    if(self = [self initWithClassName:@"Robot"]){
-        return self;
-    }
-    else{
-        return nil;
-    }
++(instancetype)new{
+    return [[self alloc] initWithClassName:[FLRobot parseClassName]];
 }
 #pragma mark - PFSubclassing Methods
 +(NSString *)parseClassName{
@@ -130,5 +127,13 @@
 }
 +(void)load{
     [self registerSubclass];
+}
+#pragma mark - Custom Getters
+-(FLTeam *)team{
+    return self[@"team"];
+}
+-(void)setTeam:(FLTeam * __nonnull)newTeam{
+    newTeam.robot = self;
+    self[@"team"] = newTeam;
 }
 @end
