@@ -9,6 +9,7 @@
 #import "FLDetailViewController.h"
 #import "FLMasterViewController.h"
 #import "FLUIManager.h"
+#import "FLLoadingView.h"
 @import VEXKit;
 @interface FLDetailViewController()
 @property (strong, nonatomic, nonnull, readonly) FLMasterViewController *masterViewController;
@@ -18,15 +19,21 @@
 -(void)setTeam:(FLTeam *)newTeam{
     if(_team != newTeam){
         _team = newTeam;
-        // Update the view.
-        [self configureView];
-        if(newTeam.robot){
-            [newTeam.robot fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error){
-                if(error){
-                    [self presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
-                }
-            }];
+        if(!newTeam.robot){
+            newTeam.robot = [FLRobot new];
         }
+        // Update the view.
+        __block FLLoadingView *const loader = [FLLoadingView createInView:self.view];
+        [newTeam.robot fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error){
+            if(error){
+                [loader hide];
+                [self presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
+            }
+            else{
+                [self configureView];
+                [loader hide];
+            }
+        }];
     }
 }
 -(void)configureView{

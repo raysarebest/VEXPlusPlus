@@ -49,7 +49,6 @@ typedef NS_ENUM(NSInteger, FLDriveStyle){
 @property (strong, nonatomic, nonnull) NSMutableArray *autonValues;
 @property (strong, nonatomic, nonnull) NSString *notes;
 @property (strong, nonatomic, nonnull) NSMutableArray *images;
-@property (strong, nonatomic, nonnull) FLTeam *team;
 +(nonnull NSString *)stringForLiftStyle:(FLLiftStyle)style;
 +(nonnull NSString *)stringForDriveStyle:(FLDriveStyle)style;
 @end

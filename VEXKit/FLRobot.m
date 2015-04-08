@@ -10,7 +10,6 @@
 #import "FLTeam.h"
 @implementation FLRobot
 #pragma mark - Property Synthesization
-@synthesize team;
 @dynamic lift;
 @dynamic drive;
 @dynamic cubeCapacity;
@@ -127,13 +126,5 @@
 }
 +(void)load{
     [self registerSubclass];
-}
-#pragma mark - Custom Getters
--(FLTeam *)team{
-    return self[@"team"];
-}
--(void)setTeam:(FLTeam * __nonnull)newTeam{
-    newTeam.robot = self;
-    self[@"team"] = newTeam;
 }
 @end

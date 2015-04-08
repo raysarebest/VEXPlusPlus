@@ -10,7 +10,7 @@
 #import "FLRobot.h"
 @implementation FLTeam
 #pragma mark - Property Synthesization
-@synthesize robot;
+@dynamic robot;
 @dynamic VEXID;
 @dynamic nickname;
 @dynamic organization;
@@ -46,17 +46,7 @@
         return NO;
     }
 }
--(FLRobot *)robot{
-    return self[@"robot"];
-}
 -(NSString *)description{
     return [NSString stringWithFormat:@"%@ (%@)", self.VEXID, self.nickname, nil];
-}
-#pragma mark - Custom Setters
--(void)setRobot:(FLRobot * __nullable)newRobot{
-    if(newRobot){
-        newRobot.team = self;
-    }
-    self[@"robot"] = newRobot;
 }
 @end
