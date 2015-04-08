@@ -104,6 +104,7 @@
     if([segue.identifier isEqualToString:@"showDetail"]){
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         FLTeam *team = self.teams[indexPath.row];
+        NSLog(@"%@", team);
         FLDetailViewController *controller = (FLDetailViewController *)[segue.destinationViewController topViewController];
         controller.team = team;
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;

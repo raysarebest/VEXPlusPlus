@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Scout": {
+            "applicationId": "4KfQ41sgJ1WsXD0N2ks3Ui52gncGQA1iSfHq6myr", 
+            "masterKey": "NzvUnHKIXz7kbNmu0iFEVeXbCPHAkAY8PTPkFOPJ"
+        }, 
+        "_default": {
+            "link": "Scout"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.4"
+    }
+}

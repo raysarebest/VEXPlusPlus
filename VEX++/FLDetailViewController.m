@@ -34,6 +34,14 @@
                 [loader hide];
             }
         }];
+        [newTeam saveEventually:^(BOOL succeeded, NSError *error){
+            if(succeeded && !error){
+                NSLog(@"Saved!");
+            }
+            else{
+                NSLog(@"Not saved");
+            }
+        }];
     }
 }
 -(void)configureView{
