@@ -30,7 +30,6 @@
         [self.launchScreen removeFromSuperview];
         self.shouldHideStatusBar = NO;
         [self setNeedsStatusBarAppearanceUpdate];
-        [(FLMasterViewController *)((UINavigationController *)self.viewControllers.firstObject).viewControllers.firstObject updateTableViewData:[FLLoadingView createInView:self.view]];
     }
 }
 -(void)viewWillAppear:(BOOL)animated{

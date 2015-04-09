@@ -43,6 +43,9 @@
 		4CD05E371AA8F31E0046FA62 /* LPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E361AA8F31E0046FA62 /* LPlaceholderTextView.m */; };
 		4CD05E3B1AA8F5A30046FA62 /* RMPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E3A1AA8F5A30046FA62 /* RMPickerViewController.m */; };
 		4CF36DB71ABA7CE9008E0E16 /* FLSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF36DB61ABA7CE9008E0E16 /* FLSplitViewController.m */; };
+		4CF36DDA1AD6676B00250354 /* FLReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF36DD91AD6676B00250354 /* FLReachability.m */; };
+		4CF36DDB1AD667B400250354 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C10207B1ACC950F0084B951 /* SystemConfiguration.framework */; };
+		4CF36DDD1AD6695E00250354 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF36DDC1AD6695E00250354 /* CoreFoundation.framework */; };
 		4CF5525B1AD322E800B5E504 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF5525A1AD322E800B5E504 /* Parse.framework */; };
 		4CF566DA1A9D1D2B00FEA5FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566D91A9D1D2B00FEA5FD /* main.m */; };
 		4CF566DD1A9D1D2B00FEA5FD /* FLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DC1A9D1D2B00FEA5FD /* FLAppDelegate.m */; };
@@ -149,6 +152,9 @@
 		4CD05E3A1AA8F5A30046FA62 /* RMPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPickerViewController.m; sourceTree = "<group>"; };
 		4CF36DB51ABA7CE9008E0E16 /* FLSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSplitViewController.h; sourceTree = "<group>"; };
 		4CF36DB61ABA7CE9008E0E16 /* FLSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSplitViewController.m; sourceTree = "<group>"; };
+		4CF36DD81AD6676B00250354 /* FLReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLReachability.h; sourceTree = "<group>"; };
+		4CF36DD91AD6676B00250354 /* FLReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLReachability.m; sourceTree = "<group>"; };
+		4CF36DDC1AD6695E00250354 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		4CF5525A1AD322E800B5E504 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		4CF566D41A9D1D2A00FEA5FD /* VEX++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VEX++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF566D81A9D1D2B00FEA5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -200,6 +206,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF36DDD1AD6695E00250354 /* CoreFoundation.framework in Frameworks */,
+				4CF36DDB1AD667B400250354 /* SystemConfiguration.framework in Frameworks */,
 				4C9E1C931AC84C8200F7E8F5 /* LocalAuthentication.framework in Frameworks */,
 				4C92AC6C1AD5F71D00EF2C9C /* VEXKit.framework in Frameworks */,
 				4C92AC6D1AD5F7DF00EF2C9C /* Parse.framework in Frameworks */,
@@ -282,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				4C9E1C921AC84C8200F7E8F5 /* LocalAuthentication.framework */,
+				4CF36DD71AD6673900250354 /* Reachability */,
 				4CD05E381AA8F5710046FA62 /* RMPickerViewController */,
 				4CD05E341AA8F2FC0046FA62 /* LPlaceholderTextView */,
 				4CD05E2D1AA8F2160046FA62 /* TPKeyboardAvoiding */,
@@ -393,9 +402,19 @@
 			name = RMPickerViewController;
 			sourceTree = "<group>";
 		};
+		4CF36DD71AD6673900250354 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				4CF36DD81AD6676B00250354 /* FLReachability.h */,
+				4CF36DD91AD6676B00250354 /* FLReachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		4CF566CB1A9D1D2A00FEA5FD = {
 			isa = PBXGroup;
 			children = (
+				4CF36DDC1AD6695E00250354 /* CoreFoundation.framework */,
 				4CF566D61A9D1D2A00FEA5FD /* VEX++ */,
 				4CF566F31A9D1D2B00FEA5FD /* VEX++Tests */,
 				4CC8D4A71AA7EF7800D1604B /* VEXKit */,
@@ -665,6 +684,7 @@
 				4CF566E01A9D1D2B00FEA5FD /* FLMasterViewController.m in Sources */,
 				4CC8D4751AA7869000D1604B /* FLSignUpViewController.m in Sources */,
 				4CF566DA1A9D1D2B00FEA5FD /* main.m in Sources */,
+				4CF36DDA1AD6676B00250354 /* FLReachability.m in Sources */,
 				4CF566E31A9D1D2B00FEA5FD /* FLDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

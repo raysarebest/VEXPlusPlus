@@ -32,9 +32,13 @@
     self.refreshControl = [UIRefreshControl new];
     self.refreshControl.tintColor = [FLUIManager accentColor];
     [self.refreshControl addTarget:self action:@selector(updateTableViewData:) forControlEvents:UIControlEventValueChanged];
+    [self updateTableViewData:nil];
+    [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(updateTableViewData:) userInfo:nil repeats:YES];
+    NSLog(@"View loaded");
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    NSLog(@"View appeared");
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
