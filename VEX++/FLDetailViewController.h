@@ -10,5 +10,4 @@
 @class FLTeam;
 @interface FLDetailViewController : UIViewController
 @property (strong, nonatomic, nonnull) FLTeam *team;
-@property (weak, nonatomic, nonnull) IBOutlet UILabel *detailDescriptionLabel;
 @end

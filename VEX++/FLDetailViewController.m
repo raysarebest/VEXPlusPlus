@@ -15,7 +15,7 @@
 @property (strong, nonatomic, nonnull, readonly) FLMasterViewController *masterViewController;
 @end
 @implementation FLDetailViewController
-#pragma mark - Managing the detail item
+#pragma mark - Custom Setters
 -(void)setTeam:(FLTeam *)newTeam{
     if(_team != newTeam){
         _team = newTeam;
@@ -25,30 +25,15 @@
         // Update the view.
         __block FLLoadingView *const loader = [FLLoadingView createInView:self.view];
         [newTeam.robot fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error){
+            [loader hide];
             if(error){
-                [loader hide];
                 [self presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
             }
-            else{
-                [self configureView];
-                [loader hide];
-            }
         }];
-        //if(![newTeam.VEXID isEqualToString:@"????"]){
+        if(![newTeam.VEXID isEqualToString:@"????"]){
             [newTeam saveEventually];
-        //}
+        }
     }
-}
--(void)configureView{
-    // Update the user interface for the detail item.
-    if(self.team){
-        self.detailDescriptionLabel.text = self.team.description;
-    }
-}
--(void)viewDidLoad{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
 }
 #pragma mark - Computed Properties
 -(FLMasterViewController *)masterViewController{

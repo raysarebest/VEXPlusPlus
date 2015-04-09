@@ -34,11 +34,6 @@
     [self.refreshControl addTarget:self action:@selector(updateTableViewData:) forControlEvents:UIControlEventValueChanged];
     [self updateTableViewData:nil];
     [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(updateTableViewData:) userInfo:nil repeats:YES];
-    NSLog(@"View loaded");
-}
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    NSLog(@"View appeared");
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -66,7 +61,6 @@
     [self performSegueWithIdentifier:@"showDetail" sender:self];
 }
 -(void)updateTableViewData:(id)context{
-    //TODO: Prioritize the cache on app launch
     PFQuery *allData = [PFQuery queryWithClassName:[FLTeam parseClassName]];
     allData.cachePolicy = kPFCachePolicyNetworkElseCache;
     allData.limit = 1000;
