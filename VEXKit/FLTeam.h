@@ -14,6 +14,6 @@
 @property (strong, nonatomic, nonnull) NSString *VEXID;
 @property (strong, nonatomic, nonnull) NSString *nickname;
 @property (strong, nonatomic, nullable) NSString *organization;
-@property (nonatomic) int abilityScaleIndex;
+@property (nonatomic) NSInteger abilityScaleIndex;
 @property (nonatomic, readonly) BOOL complete;
 @end

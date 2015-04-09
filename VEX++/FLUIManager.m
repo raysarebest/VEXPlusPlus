@@ -72,32 +72,35 @@
     NSError * const defaultError = [NSError errorWithDomain:error.domain code:140 userInfo:error.userInfo];      
     switch(error.code){
         case 208:
-            reason = @"That Facebook account is already linked to another team";
+            reason = @"That Facebook account is already linked to another team.";
             break;
         case 100:
-            reason = @"Please check your internet connection";
+            reason = @"Please check your internet connection.";
             break;
         case 140:
-            reason = @"A server error occurred. Please try again later";
+            reason = @"A server error occurred. Please try again later.";
             break;
         case 1:
             return [self defaultParseErrorAlertControllerForError:defaultError defaultHandler:shouldCreateDefaultAction];
         case 114:
-            reason = @"That isn't a valid email address";
+            reason = @"That isn't a valid email address.";
             break;
         case 101:
-            reason = @"Your VEX ID or password is incorrect";
+            reason = @"Your VEX ID or password is incorrect.";
             break;
         case 155:
             return [self defaultParseErrorAlertControllerForError:defaultError defaultHandler:shouldCreateDefaultAction];
         case 203:
-            reason = @"That email address is already linked to another team";
+            reason = @"That email address is already linked to another team.";
             break;
         case 202:
-            reason = @"That VEX ID is already registered";
+            reason = @"That VEX ID is already registered.";
             break;
         case 209:
-            reason = @"You need to log out and log back in again";
+            reason = @"You need to log out and log back in again.";
+            break;
+        case 120:
+            reason = @"Could not fetch teams. Please check your internet connection.";
             break;
         default:
             reason = error.userInfo[@"error"];

@@ -34,14 +34,9 @@
                 [loader hide];
             }
         }];
-        [newTeam saveEventually:^(BOOL succeeded, NSError *error){
-            if(succeeded && !error){
-                NSLog(@"Saved!");
-            }
-            else{
-                NSLog(@"Not saved");
-            }
-        }];
+        //if(![newTeam.VEXID isEqualToString:@"????"]){
+            [newTeam saveEventually];
+        //}
     }
 }
 -(void)configureView{

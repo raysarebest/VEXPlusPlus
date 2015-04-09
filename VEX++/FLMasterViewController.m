@@ -23,7 +23,6 @@
     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
         //So the UITableViewCell remains selected on iPad in Portrait Mode
         self.clearsSelectionOnViewWillAppear = NO;
-        self.preferredContentSize = CGSizeMake(320.0, 600.0);
     }
 }
 -(void)viewDidLoad{
@@ -65,37 +64,37 @@
 -(void)updateTableViewData:(id)context{
     //TODO: Prioritize the cache on app launch
     PFQuery *allData = [PFQuery queryWithClassName:[FLTeam parseClassName]];
-    __block NSInteger calls;
-    if(self.refreshControl.refreshing){
-        allData.cachePolicy = kPFCachePolicyCacheThenNetwork;
-        calls = 1;
-    }
-    else{
-        allData.cachePolicy = kPFCachePolicyCacheOnly;
-        calls = 2;
-    }
+    allData.cachePolicy = kPFCachePolicyNetworkElseCache;
     allData.limit = 1000;
-    [self.teams removeAllObjects];
+    if(!self.refreshControl.refreshing){
+        [self.refreshControl beginRefreshing];
+    }
     [allData findObjectsInBackgroundWithBlock:^(NSArray *teams, NSError *error){
-        //Only update everything when it's done with the network
-        [self.teams addObjectsFromArray:teams];
-        if(calls == 1){
-            calls++;
+        if(error){
+            [self.refreshControl endRefreshing];
+            [self presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
         }
         else{
-            if(self.refreshControl.refreshing){
-                [self.refreshControl endRefreshing];
+            //Now for some complex stuff to properly merge the arrays
+            NSIndexPath *index = [self.tableView indexPathForSelectedRow];
+            NSMutableArray *mutableNew = teams.mutableCopy;
+            FLTeam *selectedTeam = nil;
+            if(index && ![mutableNew containsObject:self.teams[index.row]]){
+                selectedTeam = self.teams[index.row];
+                [mutableNew addObject:selectedTeam];
             }
-            if(error && error.code != kPFErrorCacheMiss){
-                [self presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
+            self.teams = mutableNew;
+            //Make UI updates
+            [self sortTableViewByVEXID];
+            [self.tableView reloadData];
+            if([context isKindOfClass:[FLLoadingView class]]){
+                [(FLLoadingView *)context hide];
             }
-            else{
-                if([context isKindOfClass:[FLLoadingView class]]){
-                    [(FLLoadingView *)context hide];
-                }
-                [self sortTableViewByVEXID];
-                [self.tableView reloadData];
+            //Preserve the selection
+            if(selectedTeam){
+                [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[self.teams indexOfObject:selectedTeam] inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
             }
+            [self.refreshControl endRefreshing];
         }
     }];
 }
@@ -104,7 +103,6 @@
     if([segue.identifier isEqualToString:@"showDetail"]){
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         FLTeam *team = self.teams[indexPath.row];
-        NSLog(@"%@", team);
         FLDetailViewController *controller = (FLDetailViewController *)[segue.destinationViewController topViewController];
         controller.team = team;
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
@@ -122,12 +120,21 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    if(!cell){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+    }
     FLTeam *team = self.teams[indexPath.row];
     cell.textLabel.text = team.nickname;
+    cell.detailTextLabel.text = team.VEXID;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if(editingStyle == UITableViewCellEditingStyleDelete){
+        FLTeam *team = self.teams[indexPath.row];
+        if(team.robot){
+            [team.robot deleteEventually];
+        }
+        [team deleteEventually];
         [self.teams removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }

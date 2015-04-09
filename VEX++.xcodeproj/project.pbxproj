@@ -18,7 +18,10 @@
 		4C10207D1ACC951A0084B951 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C10207B1ACC950F0084B951 /* SystemConfiguration.framework */; };
 		4C1020801ACC952E0084B951 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C10207E1ACC95210084B951 /* libz.dylib */; };
 		4C1020831ACC95430084B951 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1020811ACC953A0084B951 /* libsqlite3.dylib */; };
+		4C1843571AD60CF200DBFE50 /* PFObject+FLEqualObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1843561AD60CF200DBFE50 /* PFObject+FLEqualObject.m */; };
 		4C245EA11ACF53A60025A6A7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C245EA01ACF53A60025A6A7 /* Bolts.framework */; };
+		4C92AC6C1AD5F71D00EF2C9C /* VEXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4A61AA7EF7800D1604B /* VEXKit.framework */; };
+		4C92AC6D1AD5F7DF00EF2C9C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF5525A1AD322E800B5E504 /* Parse.framework */; };
 		4C9E1C931AC84C8200F7E8F5 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9E1C921AC84C8200F7E8F5 /* LocalAuthentication.framework */; };
 		4C9E1C971AC8507700F7E8F5 /* NSString+FLReversedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9E1C961AC8507700F7E8F5 /* NSString+FLReversedString.m */; };
 		4CC8D4661AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4651AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m */; };
@@ -30,7 +33,6 @@
 		4CC8D4AB1AA7EF7800D1604B /* VEXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CC8D4AA1AA7EF7800D1604B /* VEXKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CC8D4B11AA7EF7800D1604B /* VEXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4A61AA7EF7800D1604B /* VEXKit.framework */; };
 		4CC8D4BA1AA7EF7800D1604B /* VEXKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4B91AA7EF7800D1604B /* VEXKitTests.m */; };
-		4CC8D4BD1AA7EF7800D1604B /* VEXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4A61AA7EF7800D1604B /* VEXKit.framework */; };
 		4CC8D4BE1AA7EF7800D1604B /* VEXKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8D4A61AA7EF7800D1604B /* VEXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4CD05E271AA7F1060046FA62 /* FLTeam.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CD05E251AA7F1060046FA62 /* FLTeam.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CD05E281AA7F1060046FA62 /* FLTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E261AA7F1060046FA62 /* FLTeam.m */; };
@@ -42,7 +44,6 @@
 		4CD05E3B1AA8F5A30046FA62 /* RMPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD05E3A1AA8F5A30046FA62 /* RMPickerViewController.m */; };
 		4CF36DB71ABA7CE9008E0E16 /* FLSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF36DB61ABA7CE9008E0E16 /* FLSplitViewController.m */; };
 		4CF5525B1AD322E800B5E504 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF5525A1AD322E800B5E504 /* Parse.framework */; };
-		4CF5525C1AD3230800B5E504 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF5525A1AD322E800B5E504 /* Parse.framework */; };
 		4CF566DA1A9D1D2B00FEA5FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566D91A9D1D2B00FEA5FD /* main.m */; };
 		4CF566DD1A9D1D2B00FEA5FD /* FLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DC1A9D1D2B00FEA5FD /* FLAppDelegate.m */; };
 		4CF566E01A9D1D2B00FEA5FD /* FLMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF566DF1A9D1D2B00FEA5FD /* FLMasterViewController.m */; };
@@ -110,6 +111,8 @@
 		4C10207B1ACC950F0084B951 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4C10207E1ACC95210084B951 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4C1020811ACC953A0084B951 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		4C1843551AD60CF200DBFE50 /* PFObject+FLEqualObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFObject+FLEqualObject.h"; sourceTree = "<group>"; };
+		4C1843561AD60CF200DBFE50 /* PFObject+FLEqualObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFObject+FLEqualObject.m"; sourceTree = "<group>"; };
 		4C245EA01ACF53A60025A6A7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		4C9E1C921AC84C8200F7E8F5 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		4C9E1C951AC8507700F7E8F5 /* NSString+FLReversedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FLReversedString.h"; sourceTree = "<group>"; };
@@ -198,8 +201,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C9E1C931AC84C8200F7E8F5 /* LocalAuthentication.framework in Frameworks */,
-				4CC8D4BD1AA7EF7800D1604B /* VEXKit.framework in Frameworks */,
-				4CF5525C1AD3230800B5E504 /* Parse.framework in Frameworks */,
+				4C92AC6C1AD5F71D00EF2C9C /* VEXKit.framework in Frameworks */,
+				4C92AC6D1AD5F7DF00EF2C9C /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +221,8 @@
 			children = (
 				4C9E1C951AC8507700F7E8F5 /* NSString+FLReversedString.h */,
 				4C9E1C961AC8507700F7E8F5 /* NSString+FLReversedString.m */,
+				4C1843551AD60CF200DBFE50 /* PFObject+FLEqualObject.h */,
+				4C1843561AD60CF200DBFE50 /* PFObject+FLEqualObject.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -649,6 +654,7 @@
 				4C9E1C971AC8507700F7E8F5 /* NSString+FLReversedString.m in Sources */,
 				4CC8D4661AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m in Sources */,
 				4CC8D46C1AA6CF5300D1604B /* UITextField+FLElectricTextField.m in Sources */,
+				4C1843571AD60CF200DBFE50 /* PFObject+FLEqualObject.m in Sources */,
 				4CC8D4691AA6C83F00D1604B /* FLUIManager.m in Sources */,
 				4CC8D4721AA7864500D1604B /* FLLoginViewController.m in Sources */,
 				4CF36DB71ABA7CE9008E0E16 /* FLSplitViewController.m in Sources */,
