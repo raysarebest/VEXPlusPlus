@@ -18,6 +18,15 @@
 -(void)removeUnderlineFromView:(UIView *)view animated:(BOOL)animated;
 @end
 @implementation FLDetailViewController
+#pragma mark - View Setup Code
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    for(UIView *view in ((UIScrollView *)self.view.subviews.firstObject).subviews){
+        if([view isKindOfClass:[UITextField class]]){
+            view.layer.borderColor = [FLUIManager backgroundColor].CGColor;
+        }
+    }
+}
 #pragma mark - Custom Setters
 -(void)setTeam:(FLTeam *)newTeam{
     if(_team != newTeam){
@@ -58,36 +67,6 @@
     return _layers;
 }
 #pragma mark - Private Helper Methods
--(void)viewDidLoad{
-    [super viewDidLoad];
-    UILabel *newView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
-    newView.text = @"Test Label";
-    newView.center = self.view.center;
-    //[self underlineView:newView animated:NO];
-    [self.view addSubview:newView];
-    for(UIView *view in self.view.subviews){
-        if([view isKindOfClass:[UIScrollView class]]){
-            [view removeFromSuperview];
-        }
-//        if([view isKindOfClass:[UILabel class]]){
-//            [self underlineView:view animated:NO];
-//        }
-    }
-}
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    for(UIView *view in self.view.subviews){
-        if([view isKindOfClass:[UILabel class]]){
-            [self underlineView:view animated:YES];
-        }
-    }
-}
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    for(UIView *view in self.view.subviews){
-        if([view isKindOfClass:[UILabel class]]){
-            [self removeUnderlineFromView:view animated:YES];
-        }
-    }
-}
 -(void)underlineView:(UIView *)view animated:(BOOL)animated{
     CALayer *underline = [CALayer layer];
     CGFloat underlineHeight = 2;

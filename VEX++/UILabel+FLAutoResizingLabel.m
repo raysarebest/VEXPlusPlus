@@ -10,6 +10,10 @@
 @import ObjectiveC;
 @implementation UILabel(FLAutoResizingLabel)
 #pragma mark - Runtime Resizing
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    self.text = self.text;
+}
 -(void)resizeLabelWithText:(NSString *)text{
     self.lineBreakMode = NSLineBreakByWordWrapping;
     self.numberOfLines = 0;
