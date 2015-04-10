@@ -34,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="LV0-Uy-0zD" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="LV0-Uy-0zD" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VEX ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqe-h4-tst">
@@ -186,12 +186,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1RY-kK-ea3">
                                         <rect key="frame" x="0.0" y="565" width="300" height="288"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest Possible Red Auton Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPi-13-LVf">
-                                                <rect key="frame" x="21" y="8" width="259" height="21"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                <color key="textColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYA-py-9Jc">
                                                 <rect key="frame" x="118" y="37" width="65" height="70"/>
                                                 <constraints>
@@ -221,8 +215,11 @@
                                                 </constraints>
                                                 <color key="tintColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                             </stepper>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest Consistent Red Auton Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Km-Ts-Y4f">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest Consistent Red Auton Score" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Km-Ts-Y4f">
                                                 <rect key="frame" x="21" y="152" width="259" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="2Gm-Kb-PTO"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <color key="textColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -238,6 +235,15 @@
                                                 <color key="textColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest Possible Red Auton Score" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPi-13-LVf">
+                                                <rect key="frame" x="21" y="8" width="259" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="TbZ-3A-pUa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                <color key="textColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.12" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -249,7 +255,6 @@
                                             <constraint firstItem="And-T9-ilg" firstAttribute="width" secondItem="ePJ-qd-tYp" secondAttribute="width" id="9qE-Eo-ypB"/>
                                             <constraint firstAttribute="trailing" secondItem="2Km-Ts-Y4f" secondAttribute="trailing" constant="20" id="A4L-Io-DwD"/>
                                             <constraint firstAttribute="centerX" secondItem="And-T9-ilg" secondAttribute="centerX" id="CjU-Er-azz"/>
-                                            <constraint firstAttribute="height" constant="288" id="EyV-Ya-K5g"/>
                                             <constraint firstItem="ePJ-qd-tYp" firstAttribute="top" secondItem="pYA-py-9Jc" secondAttribute="bottom" constant="8" id="IDM-jF-wk9"/>
                                             <constraint firstItem="pYA-py-9Jc" firstAttribute="width" secondItem="Y09-fa-YrL" secondAttribute="width" id="ISb-Ka-bA9"/>
                                             <constraint firstItem="pYA-py-9Jc" firstAttribute="width" secondItem="Y09-fa-YrL" secondAttribute="height" multiplier="13:14" id="KXm-Tq-jxc"/>
@@ -276,8 +281,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcH-d9-dkh">
                                         <rect key="frame" x="300" y="565" width="300" height="288"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest Possible Blue Auton Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZT-ps-lwZ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest Possible Blue Auton Score" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZT-ps-lwZ">
                                                 <rect key="frame" x="19" y="8" width="263" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="xCd-MA-wnA"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -311,12 +319,13 @@
                                                 </constraints>
                                                 <color key="tintColor" red="0.0" green="0.53333333329999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </stepper>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest Consistent Blue Auton Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia5-MR-Uai">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest Consistent Blue Auton Score" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia5-MR-Uai">
                                                 <rect key="frame" x="19" y="152" width="263" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="263" id="M5c-PN-VOp"/>
                                                     <constraint firstAttribute="height" constant="21" id="XAk-AB-5i9"/>
                                                     <constraint firstAttribute="width" secondItem="ia5-MR-Uai" secondAttribute="height" multiplier="263:21" id="pZh-iX-azj"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="wae-Ka-gLY"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.53333333329999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -367,6 +376,12 @@
                                             <constraint firstItem="Sne-jk-eLU" firstAttribute="width" secondItem="Xya-WW-YQB" secondAttribute="width" id="uVK-00-xS9"/>
                                             <constraint firstAttribute="bottom" secondItem="Xya-WW-YQB" secondAttribute="bottom" id="x1y-03-aBu"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="AgY-Xo-snw"/>
+                                                <exclude reference="D7a-Ge-8iZ"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Skyrise Count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6k-wu-778">
                                         <rect key="frame" x="84" y="421" width="132" height="21"/>
@@ -395,12 +410,13 @@
                                             <constraint firstAttribute="width" secondItem="ynw-Aa-xHi" secondAttribute="height" multiplier="94:29" id="Npa-aj-aSc"/>
                                         </constraints>
                                     </stepper>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" indicatorStyle="white" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="YFR-om-jaN">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" indicatorStyle="white" keyboardDismissMode="interactive" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YFR-om-jaN">
                                         <rect key="frame" x="8" y="861" width="584" height="151"/>
                                         <color key="backgroundColor" white="0.12" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="151" id="05z-HM-Iwo"/>
                                         </constraints>
+                                        <color key="textColor" red="1" green="0.96862745100000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="done"/>
                                     </textView>
