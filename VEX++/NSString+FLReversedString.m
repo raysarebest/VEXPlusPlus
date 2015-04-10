@@ -8,7 +8,7 @@
 
 #import "NSString+FLReversedString.h"
 
-@implementation NSString (FLReversedString)
+@implementation NSString(FLReversedString)
 #pragma mark - Calculated Properties
 -(NSString *)reversedString{
     if(self.length < 2){
