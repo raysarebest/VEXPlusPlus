@@ -34,8 +34,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="LV0-Uy-0zD" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select or create a new team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RER-IC-QJ2">
+                                <rect key="frame" x="166" y="289" width="268" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RER-IC-QJ2" secondAttribute="height" multiplier="268:21" id="2DR-oY-1rX"/>
+                                    <constraint firstAttribute="width" constant="268" id="O3x-6b-OpW"/>
+                                    <constraint firstAttribute="height" constant="21" id="fnt-9f-gGb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <color key="textColor" white="0.47999999999999998" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="LV0-Uy-0zD" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="-388" width="600" height="980"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VEX ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqe-h4-tst">
                                         <rect key="frame" x="275" y="8" width="50" height="21"/>
@@ -607,18 +619,6 @@
                                     </mask>
                                 </variation>
                             </scrollView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select or create a new team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RER-IC-QJ2">
-                                <rect key="frame" x="166" y="289" width="268" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="RER-IC-QJ2" secondAttribute="height" multiplier="268:21" id="2DR-oY-1rX"/>
-                                    <constraint firstAttribute="width" constant="268" id="O3x-6b-OpW"/>
-                                    <constraint firstAttribute="height" constant="21" id="fnt-9f-gGb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                <color key="textColor" white="0.47999999999999998" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.12" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -633,8 +633,28 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Team" id="mOI-FS-AaM"/>
                     <connections>
+                        <outlet property="VEXIDField" destination="hoE-yn-dhS" id="1Ko-FZ-gL6"/>
+                        <outlet property="consistentBlueAutonLabel" destination="e42-su-3G1" id="m9J-Tf-3HZ"/>
+                        <outlet property="consistentBlueAutonStepper" destination="Xya-WW-YQB" id="o71-Z1-BuX"/>
+                        <outlet property="consistentRedAutonLabel" destination="Y09-fa-YrL" id="LtY-NX-BMH"/>
+                        <outlet property="consistentRedAutonStepper" destination="And-T9-ilg" id="tf4-2N-gCU"/>
+                        <outlet property="driveButton" destination="PGQ-mB-ody" id="W2w-rj-JWd"/>
                         <outlet property="instructionLabel" destination="RER-IC-QJ2" id="eKA-j5-mWB"/>
+                        <outlet property="liftButton" destination="ANX-cn-Ihr" id="Ak6-2m-wzQ"/>
+                        <outlet property="maxBlueAutonLabel" destination="aao-qf-83N" id="Ma1-YV-xdT"/>
+                        <outlet property="maxBlueAutonStepper" destination="Sne-jk-eLU" id="gcm-dc-MTf"/>
+                        <outlet property="maxCubesLabel" destination="NDy-Nf-hpy" id="O1d-Ph-dU3"/>
+                        <outlet property="maxCubesStepper" destination="ynw-Aa-xHi" id="xbd-db-dhp"/>
+                        <outlet property="maxRedAutonLabel" destination="pYA-py-9Jc" id="nSc-Mm-8KH"/>
+                        <outlet property="maxRedAutonStepper" destination="ePJ-qd-tYp" id="lm6-LQ-urF"/>
+                        <outlet property="maxSkyriseLabel" destination="xWC-Gn-1s0" id="gdt-QO-o8b"/>
+                        <outlet property="maxSkyriseStepper" destination="FRv-ke-KBE" id="ulC-fK-jdd"/>
+                        <outlet property="nameField" destination="MPV-9A-iZy" id="96a-0t-HCI"/>
+                        <outlet property="orgField" destination="1Xc-SM-2Bn" id="7Ni-hx-vMa"/>
+                        <outlet property="ratingLabel" destination="2zh-8i-plB" id="8FK-m9-95i"/>
+                        <outlet property="ratingSlider" destination="jWK-Ss-P2A" id="GXE-oX-bPq"/>
                         <outlet property="scrollView" destination="LV0-Uy-0zD" id="spt-dU-57M"/>
+                        <outlet property="textView" destination="YFR-om-jaN" id="ULh-vc-PLY"/>
                         <outletCollection property="staticLabels" destination="Rqe-h4-tst" id="8hs-uN-aNE"/>
                         <outletCollection property="staticLabels" destination="Tp3-dq-2sf" id="iOV-tA-Dk2"/>
                         <outletCollection property="staticLabels" destination="gOO-s0-0m1" id="d2S-6b-ofC"/>
@@ -668,6 +688,8 @@
                         <outletCollection property="numberLabels" destination="aao-qf-83N" id="PF4-D3-HYh"/>
                         <outletCollection property="numberLabels" destination="Y09-fa-YrL" id="7hd-wQ-u4D"/>
                         <outletCollection property="numberLabels" destination="e42-su-3G1" id="3PF-qv-9NX"/>
+                        <outletCollection property="alignmentViews" destination="1RY-kK-ea3" id="ah6-3a-cEB"/>
+                        <outletCollection property="alignmentViews" destination="UcH-d9-dkh" id="MXC-9e-duZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>

@@ -33,6 +33,14 @@
         [self toggleUIHidden];
     }
 }
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    for(UIView *view in self.editors){
+        if([view isKindOfClass:[UITextField class]]){
+            ((UITextField *)view).delegate = self;
+        }
+    }
+}
 #pragma mark - Custom Setters
 -(void)setTeam:(FLTeam *)newTeam{
     if(_team != newTeam){
