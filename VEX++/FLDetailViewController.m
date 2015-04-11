@@ -6,16 +6,19 @@
 //  Copyright (c) 2015 Michael Hulet. All rights reserved.
 //
 
+#import "TPKeyboardAvoidingScrollView.h"
 #import "FLDetailViewController.h"
 #import "FLMasterViewController.h"
-#import "FLUIManager.h"
+#import "LPlaceholderTextView.h"
 #import "FLLoadingView.h"
+#import "FLUIManager.h"
 @import VEXKit;
 @interface FLDetailViewController()
 @property (strong, nonatomic, nonnull, readonly) FLMasterViewController *masterViewController;
 @property (strong, nonatomic, nonnull) NSMutableDictionary *layers;
 -(void)underlineView:(UIView *)view animated:(BOOL)animated;
 -(void)removeUnderlineFromView:(UIView *)view animated:(BOOL)animated;
+-(void)toggleUIHidden;
 @end
 @implementation FLDetailViewController
 #pragma mark - View Setup Code
@@ -25,6 +28,9 @@
         if([view isKindOfClass:[UITextField class]]){
             view.layer.borderColor = [FLUIManager backgroundColor].CGColor;
         }
+    }
+    if(!((UILabel *)self.staticLabels.firstObject).hidden){
+        [self toggleUIHidden];
     }
 }
 #pragma mark - Custom Setters
@@ -45,6 +51,9 @@
                 [self presentViewController:[FLUIManager defaultParseErrorAlertControllerForError:error defaultHandler:YES] animated:YES completion:nil];
             }
             else{
+                if(((UILabel *)self.staticLabels.firstObject).hidden){
+                    [self toggleUIHidden];
+                }
                 if(newTeam.VEXID && ![newTeam.VEXID isEqualToString:@"????"]){
                     self.navigationItem.title = newTeam.VEXID;
                 }
@@ -54,6 +63,9 @@
             [newTeam saveEventually];
         }
     }
+}
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated{
+    NSLog(@"Editing state changed");
 }
 #pragma mark - Computed Properties
 -(FLMasterViewController *)masterViewController{
@@ -103,6 +115,18 @@
             [underline removeFromSuperlayer];
         }
     }
+}
+-(void)toggleUIHidden{
+    for(UILabel *label in self.staticLabels){
+        label.hidden = !label.hidden;
+    }
+    for(UILabel * label in self.numberLabels){
+        label.hidden = !label.hidden;
+    }
+    for(UIView *view in self.editors){
+        view.hidden = !view.hidden;
+    }
+    self.instructionLabel.hidden = !((UILabel *)self.staticLabels.firstObject).hidden;
 }
 #pragma mark - Animation Delegation
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{

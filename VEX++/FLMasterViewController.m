@@ -105,7 +105,7 @@
         controller.team = team;
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
-        controller.navigationItem.rightBarButtonItem = self.splitViewController.editButtonItem;
+        controller.navigationItem.rightBarButtonItem = controller.editButtonItem;
     }
     [super prepareForSegue:segue sender:sender];
 }

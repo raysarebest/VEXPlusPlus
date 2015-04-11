@@ -97,7 +97,7 @@ void logBOOL(BOOL boolean);
     }
     if(textField.secureTextEntry){
         if(((NSNumber *)self.hasEdited[textField.placeholder]).boolValue){
-            self.hasEdited[textField.placeholder] = @(NO);
+            self.hasEdited[textField.placeholder] = @NO;
             nextValue = [NSString string];
         }
         UITextField *otherField = nil;
@@ -123,7 +123,12 @@ void logBOOL(BOOL boolean);
             self.confirmPasswordMatchImage.image = [UIImage imageNamed:@"x"];
         }
     }
-    return YES;
+    if(textField == self.VEXIDField && textField.text.length + 1 > 5 && ![string isEqualToString:[NSString string]]){
+        return NO;
+    }
+    else{
+        return YES;
+    }
 }
 #pragma mark - IBActions
 -(IBAction)signUp{

@@ -10,6 +10,6 @@
 @class FLDetailViewController;
 @interface FLMasterViewController : UITableViewController
 @property (strong, nonatomic, nonnull) FLDetailViewController *detailViewController;
-- (IBAction)newTeam;
+-(IBAction)newTeam;
 -(void)updateTableViewData:(nullable id)context;
 @end

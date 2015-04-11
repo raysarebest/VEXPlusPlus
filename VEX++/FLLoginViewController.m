@@ -419,6 +419,14 @@
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     [textField textFieldDidEndEditing:textField];
 }
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if(textField == self.VEXIDField && textField.text.length + 1 > 5 && ![string isEqualToString:[NSString string]]){
+        return NO;
+    }
+    else{
+        return YES;
+    }
+}
 #pragma mark - Keyboard Delegation Methods
 -(void)keyboardWillChangeFrame{
     [self keyboardDidChangeFrame];

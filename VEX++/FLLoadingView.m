@@ -43,7 +43,7 @@
 #pragma mark - Showing/Hiding
 -(void)showInView:(nonnull UIView *)view{
     self.frame = view.frame;
-    self.spinner.center = self.center;
+    self.spinner.center = view.center;
     [self.spinner startAnimating];
     [view addSubview:self];
 }

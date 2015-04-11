@@ -51,6 +51,9 @@
         return NO;
     }
 }
+-(NSUInteger)splitViewControllerSupportedInterfaceOrientations:(UISplitViewController *)splitViewController{
+    return UIInterfaceOrientationMaskAll;
+}
 #pragma mark - Other Helper Methods
 -(void)saveAuthDataWithVEXID:(NSString *)VEXID password:(NSString *)password{
     NSUserDefaults *persistentStore = [NSUserDefaults standardUserDefaults];
