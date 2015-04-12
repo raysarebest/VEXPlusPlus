@@ -16,6 +16,7 @@
 @property (strong, nonatomic, nonnull) IBOutletCollection(UILabel) NSArray *numberLabels;
 @property (strong, nonatomic, nonnull) IBOutletCollection(UIView) NSArray *editors;
 @property (strong, nonatomic, nonnull) IBOutletCollection(UIView) NSArray *alignmentViews;
+@property (strong, nonatomic, nonnull) IBOutletCollection(UIView) NSArray *potentialMovers;
 @property (weak, nonatomic, nonnull) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
 @property (weak, nonatomic, nonnull) IBOutlet UILabel *instructionLabel;
 @property (weak, nonatomic, nonnull) IBOutlet UITextField *VEXIDField;

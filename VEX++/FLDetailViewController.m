@@ -22,23 +22,20 @@
 @end
 @implementation FLDetailViewController
 #pragma mark - View Setup Code
--(void)awakeFromNib{
-    [super awakeFromNib];
-    for(UIView *view in ((UIScrollView *)self.view.subviews.firstObject).subviews){
-        if([view isKindOfClass:[UITextField class]]){
-            view.layer.borderColor = [FLUIManager backgroundColor].CGColor;
-        }
-    }
-    if(!((UILabel *)self.staticLabels.firstObject).hidden){
-        [self toggleUIHidden];
-    }
-}
 -(void)viewDidLoad{
     [super viewDidLoad];
     for(UIView *view in self.editors){
         if([view isKindOfClass:[UITextField class]]){
             ((UITextField *)view).delegate = self;
         }
+    }
+    for(UIView *view in self.scrollView.subviews){
+        if([view isKindOfClass:[UITextField class]]){
+            view.layer.borderColor = [FLUIManager backgroundColor].CGColor;
+        }
+    }
+    if(!((UILabel *)self.staticLabels.firstObject).hidden){
+        [self toggleUIHidden];
     }
 }
 #pragma mark - Custom Setters

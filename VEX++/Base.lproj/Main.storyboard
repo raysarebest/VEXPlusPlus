@@ -34,18 +34,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select or create a new team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RER-IC-QJ2">
-                                <rect key="frame" x="166" y="289" width="268" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="RER-IC-QJ2" secondAttribute="height" multiplier="268:21" id="2DR-oY-1rX"/>
-                                    <constraint firstAttribute="width" constant="268" id="O3x-6b-OpW"/>
-                                    <constraint firstAttribute="height" constant="21" id="fnt-9f-gGb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                <color key="textColor" white="0.47999999999999998" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
                             <scrollView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="LV0-Uy-0zD" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
@@ -619,6 +607,18 @@
                                     </mask>
                                 </variation>
                             </scrollView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select or create a new team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RER-IC-QJ2">
+                                <rect key="frame" x="166" y="289" width="268" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RER-IC-QJ2" secondAttribute="height" multiplier="268:21" id="2DR-oY-1rX"/>
+                                    <constraint firstAttribute="width" constant="268" id="O3x-6b-OpW"/>
+                                    <constraint firstAttribute="height" constant="21" id="fnt-9f-gGb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <color key="textColor" white="0.47999999999999998" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.12" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -690,6 +690,22 @@
                         <outletCollection property="numberLabels" destination="e42-su-3G1" id="3PF-qv-9NX"/>
                         <outletCollection property="alignmentViews" destination="1RY-kK-ea3" id="ah6-3a-cEB"/>
                         <outletCollection property="alignmentViews" destination="UcH-d9-dkh" id="MXC-9e-duZ"/>
+                        <outletCollection property="potentialMovers" destination="YTl-z6-gnP" id="Izd-Uh-jqz"/>
+                        <outletCollection property="potentialMovers" destination="PGQ-mB-ody" id="1nc-EY-DBD"/>
+                        <outletCollection property="potentialMovers" destination="eFM-bh-b3v" id="EgB-8d-Y8n"/>
+                        <outletCollection property="potentialMovers" destination="ANX-cn-Ihr" id="t9H-tY-8PL"/>
+                        <outletCollection property="potentialMovers" destination="f6k-wu-778" id="pRV-c2-Mgl"/>
+                        <outletCollection property="potentialMovers" destination="xWC-Gn-1s0" id="1ld-ii-ORM"/>
+                        <outletCollection property="potentialMovers" destination="SL6-7W-pC1" id="BS8-Tf-xpC"/>
+                        <outletCollection property="potentialMovers" destination="NDy-Nf-hpy" id="N0q-uk-ZdI"/>
+                        <outletCollection property="potentialMovers" destination="1RY-kK-ea3" id="gSx-ke-Anq"/>
+                        <outletCollection property="potentialMovers" destination="UcH-d9-dkh" id="RWz-X6-DRl"/>
+                        <outletCollection property="potentialMovers" destination="2Km-Ts-Y4f" id="ydp-ew-45D"/>
+                        <outletCollection property="potentialMovers" destination="Y09-fa-YrL" id="E8p-kT-eM3"/>
+                        <outletCollection property="potentialMovers" destination="ia5-MR-Uai" id="Rmx-Mz-p2i"/>
+                        <outletCollection property="potentialMovers" destination="e42-su-3G1" id="f2C-eK-Bo4"/>
+                        <outletCollection property="potentialMovers" destination="iDq-gw-Dh2" id="Gz5-Xu-edG"/>
+                        <outletCollection property="potentialMovers" destination="YFR-om-jaN" id="5gm-f2-jwh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
