@@ -10,7 +10,7 @@
 #import "FLUIManager.h"
 @import QuartzCore;
 @implementation UITextField (FLElectricTextField)
-#pragma mark - Text View Setup
+#pragma mark - Text Field Setup
 -(void)awakeFromNib{
     [super awakeFromNib];
     self.delegate = self;

@@ -12,6 +12,7 @@
 @class LPlaceholderTextView;
 @interface FLDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
 @property (strong, nonatomic, nonnull) FLTeam *team;
+@property (strong, nonatomic, nonnull) IBOutletCollection(NSLayoutConstraint) NSArray *dynamicConstraints;
 @property (strong, nonatomic, nonnull) IBOutletCollection(UILabel) NSArray *staticLabels;
 @property (strong, nonatomic, nonnull) IBOutletCollection(UILabel) NSArray *numberLabels;
 @property (strong, nonatomic, nonnull) IBOutletCollection(UIView) NSArray *editors;
@@ -39,4 +40,5 @@
 @property (weak, nonatomic, nonnull) IBOutlet UILabel *consistentBlueAutonLabel;
 @property (weak, nonatomic, nonnull) IBOutlet UIStepper *consistentBlueAutonStepper;
 @property (weak, nonatomic, nonnull) IBOutlet LPlaceholderTextView *textView;
+@property (weak, nonatomic, nonnull) IBOutlet UIView *textAnimationView;
 @end

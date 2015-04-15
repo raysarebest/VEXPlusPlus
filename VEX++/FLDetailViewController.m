@@ -24,6 +24,14 @@
 #pragma mark - View Setup Code
 -(void)viewDidLoad{
     [super viewDidLoad];
+    self.textView.layer.cornerRadius = self.VEXIDField.layer.cornerRadius;
+    self.textView.layer.borderWidth = 1;
+    self.textView.layer.borderColor = [UIColor clearColor].CGColor;
+    self.textAnimationView.layer.cornerRadius = self.textView.layer.cornerRadius;
+    self.textAnimationView.layer.shadowColor = [FLUIManager accentColor].CGColor;
+    self.textAnimationView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.textAnimationView.layer.shadowOpacity = 0;
+    self.textAnimationView.layer.shadowRadius = self.VEXIDField.layer.shadowRadius;
     for(UIView *view in self.editors){
         if([view isKindOfClass:[UITextField class]]){
             ((UITextField *)view).delegate = self;
@@ -37,6 +45,9 @@
     if(!((UILabel *)self.staticLabels.firstObject).hidden){
         [self toggleUIHidden];
     }
+    self.textView.placeholderText = @"Write extra notes here.";
+    self.textView.placeholderColor = [FLUIManager textColor];
+    self.textView.layer.cornerRadius = self.VEXIDField.layer.cornerRadius;
 }
 #pragma mark - Custom Setters
 -(void)setTeam:(FLTeam *)newTeam{
@@ -69,9 +80,7 @@
         }
     }
 }
--(void)setEditing:(BOOL)editing animated:(BOOL)animated{
-    NSLog(@"Editing state changed");
-}
+
 #pragma mark - Computed Properties
 -(FLMasterViewController *)masterViewController{
     return ((FLMasterViewController *)((UINavigationController *)self.splitViewController.viewControllers.firstObject).viewControllers.firstObject);
@@ -91,13 +100,14 @@
     underline.frame = CGRectMake(0, view.frame.size.height - underlineHeight, view.frame.size.width, view.frame.size.height);
     underline.borderWidth = underlineHeight;
     if(animated){
+        NSLog(animated ? @"YES" : @"NO");
         underline.opacity = 0;
     }
     [view.layer addSublayer:underline];
     view.layer.masksToBounds = YES;
     if(animated){
         CABasicAnimation *fadeIn = [CABasicAnimation animationWithKeyPath:@"opacity"];
-        fadeIn.duration = .1;
+        fadeIn.duration = .25;
         fadeIn.toValue = @1;
         [underline addAnimation:fadeIn forKey:@"opacity"];
         underline.opacity = 1;
@@ -108,13 +118,13 @@
         CALayer *underline = view.layer.sublayers.firstObject;
         if(animated){
             [underline removeAllAnimations];
-            CABasicAnimation *fadeOut = [CABasicAnimation animationWithKeyPath:@"opacity"];
-            fadeOut.duration = .1;
-            fadeOut.toValue = @0;
-            fadeOut.delegate = self;
-            self.layers[fadeOut] = underline;
-            [underline addAnimation:fadeOut forKey:@"opacity"];
+            [CATransaction begin];
+            [CATransaction setCompletionBlock:^{
+                [underline removeFromSuperlayer];
+            }];
+            [CATransaction setAnimationDuration:.25];
             underline.opacity = 0;
+            [CATransaction commit];
         }
         else{
             [underline removeFromSuperlayer];

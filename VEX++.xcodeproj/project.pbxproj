@@ -24,9 +24,9 @@
 		4C92AC6D1AD5F7DF00EF2C9C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF5525A1AD322E800B5E504 /* Parse.framework */; };
 		4C9E1C931AC84C8200F7E8F5 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9E1C921AC84C8200F7E8F5 /* LocalAuthentication.framework */; };
 		4C9E1C971AC8507700F7E8F5 /* NSString+FLReversedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9E1C961AC8507700F7E8F5 /* NSString+FLReversedString.m */; };
+		4CA44BB21ADB1D4C0004733E /* UITextField+FLElectricTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA44BB11ADB1D4C0004733E /* UITextField+FLElectricTextField.m */; };
 		4CC8D4661AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4651AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m */; };
 		4CC8D4691AA6C83F00D1604B /* FLUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4681AA6C83F00D1604B /* FLUIManager.m */; };
-		4CC8D46C1AA6CF5300D1604B /* UITextField+FLElectricTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D46B1AA6CF5300D1604B /* UITextField+FLElectricTextField.m */; };
 		4CC8D4721AA7864500D1604B /* FLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4711AA7864500D1604B /* FLLoginViewController.m */; };
 		4CC8D4751AA7869000D1604B /* FLSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4741AA7869000D1604B /* FLSignUpViewController.m */; };
 		4CC8D4781AA7877B00D1604B /* FLLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D4771AA7877B00D1604B /* FLLoadingView.m */; };
@@ -120,12 +120,12 @@
 		4C9E1C921AC84C8200F7E8F5 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		4C9E1C951AC8507700F7E8F5 /* NSString+FLReversedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FLReversedString.h"; sourceTree = "<group>"; };
 		4C9E1C961AC8507700F7E8F5 /* NSString+FLReversedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FLReversedString.m"; sourceTree = "<group>"; };
+		4CA44BB01ADB1D4C0004733E /* UITextField+FLElectricTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+FLElectricTextField.h"; sourceTree = "<group>"; };
+		4CA44BB11ADB1D4C0004733E /* UITextField+FLElectricTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+FLElectricTextField.m"; sourceTree = "<group>"; };
 		4CC8D4641AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+FLAutoResizingLabel.h"; sourceTree = "<group>"; };
 		4CC8D4651AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FLAutoResizingLabel.m"; sourceTree = "<group>"; };
 		4CC8D4671AA6C83F00D1604B /* FLUIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLUIManager.h; sourceTree = "<group>"; };
 		4CC8D4681AA6C83F00D1604B /* FLUIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLUIManager.m; sourceTree = "<group>"; };
-		4CC8D46A1AA6CF5300D1604B /* UITextField+FLElectricTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+FLElectricTextField.h"; sourceTree = "<group>"; };
-		4CC8D46B1AA6CF5300D1604B /* UITextField+FLElectricTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+FLElectricTextField.m"; sourceTree = "<group>"; };
 		4CC8D4701AA7864500D1604B /* FLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLLoginViewController.h; sourceTree = "<group>"; };
 		4CC8D4711AA7864500D1604B /* FLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLLoginViewController.m; sourceTree = "<group>"; };
 		4CC8D4731AA7869000D1604B /* FLSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSignUpViewController.h; sourceTree = "<group>"; };
@@ -247,8 +247,8 @@
 				4CC8D4651AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m */,
 				4CC8D4671AA6C83F00D1604B /* FLUIManager.h */,
 				4CC8D4681AA6C83F00D1604B /* FLUIManager.m */,
-				4CC8D46A1AA6CF5300D1604B /* UITextField+FLElectricTextField.h */,
-				4CC8D46B1AA6CF5300D1604B /* UITextField+FLElectricTextField.m */,
+				4CA44BB01ADB1D4C0004733E /* UITextField+FLElectricTextField.h */,
+				4CA44BB11ADB1D4C0004733E /* UITextField+FLElectricTextField.m */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -669,10 +669,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CF566DD1A9D1D2B00FEA5FD /* FLAppDelegate.m in Sources */,
+				4CA44BB21ADB1D4C0004733E /* UITextField+FLElectricTextField.m in Sources */,
 				4CD05E331AA8F29B0046FA62 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				4C9E1C971AC8507700F7E8F5 /* NSString+FLReversedString.m in Sources */,
 				4CC8D4661AA63E0E00D1604B /* UILabel+FLAutoResizingLabel.m in Sources */,
-				4CC8D46C1AA6CF5300D1604B /* UITextField+FLElectricTextField.m in Sources */,
 				4C1843571AD60CF200DBFE50 /* PFObject+FLEqualObject.m in Sources */,
 				4CC8D4691AA6C83F00D1604B /* FLUIManager.m in Sources */,
 				4CC8D4721AA7864500D1604B /* FLLoginViewController.m in Sources */,
